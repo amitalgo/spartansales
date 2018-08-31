@@ -5,7 +5,20 @@ from employee.models import EmployeeBranch, Employee
 from branch.models import Branch
 from leads.forms import LeadDetailsForm
 from django.contrib.auth.models import Group, User
+from django.utils.html import format_html
 # Register your models here.
+# from django.contrib.admin.templatetags.admin_modify import register, submit_row as original_submit_row
+
+# @register.inclusion_tag('admin/submit_line.html', takes_context=True)
+# def submit_row(context):
+#     ctx = original_submit_row(context)
+#     ctx = original_submit_row(context)
+#     ctx.update({
+#         'show_save_and_add_another': context.get('show_save_and_add_another',ctx['show_save_and_add_another']),'show_save_and_continue': context.get('show_save_and_continue',ctx['show_save_and_continue']),'show_save': context.get('show_save',ctx['show_save']),'show_delete_link': context.get('show_delete_link', ctx['show_delete_link'])
+#     })
+#     return ctx
+
+
 
 class LeadSourceAdmin(admin.ModelAdmin):
     list_display = ['source_name','status',]
@@ -18,13 +31,53 @@ class LeadSourceAdmin(admin.ModelAdmin):
         return super(LeadSourceAdmin, self).get_form(request, obj, **kwargs)
 
 class LeadStatusTypeAdmin(admin.ModelAdmin):
-    list_display = ['status_type','status',]
+    list_display = ['get_status_type','status',]
+    list_display_links = None
+    editable_objs = [1,]
+
+    def get_status_type(self,obj):
+        if not obj.id in self.editable_objs:
+            return format_html("<b><a href='{id}'>{status_type}</a></b>",id=obj.id, status_type=obj.status_type,)
+        else:
+            return format_html("{status_type}",id=obj.id, status_type=obj.status_type,)
+                
+    def change_view(self, request, object_id, form_url='', extra_context=None):
+        obj = LeadStatusType.objects.get(pk=object_id)
+        editable = obj.isEditable
+
+        if not editable and request.method == 'POST':
+            return HttpResponseForbidden("Cannot change an inactive MyModel")
+
+        more_context = {
+            # set a context var telling our customized template to suppress the Save button group
+            'my_editable': editable,
+        }
+        more_context.update(extra_context or {})
+        return super().change_view(request, object_id, form_url, more_context)
+        
+    # Add readonly attribute in djano admin for Lead while Editing
+    # def get_readonly_fields(self,request,obj=None):
+    #     if obj:
+    #         if not obj.isEditable:
+    #             print('not editable')
+    #             # return ['status_type','status',]
+    #             # return super(LeadStatusTypeAdmin, self).get_readonly_fields(request, obj)
+    #             self.list_display_links = (None, )
+    #         else:
+    #             print('editable')
+    #             return ['status_type','status',]
+        # return self.readonly_fields
+
+
+    # def changelist_view(self, request, extra_context=None):        
+    #     self.list_display_links = (None, )
+    #     return super(LeadStatusTypeAdmin, self).changelist_view(request, extra_context=None)
 
     def get_form(self, request, obj=None, **kwargs):
         if obj:
-            kwargs['exclude'] = ['']
+            kwargs['exclude'] = ['isEditable',]
         else:
-            kwargs['exclude'] = ['status', ]
+            kwargs['exclude'] = ['status','isEditable',]
         return super(LeadStatusTypeAdmin, self).get_form(request, obj, **kwargs)
 
 class LeadStatusAdmin(admin.ModelAdmin):
@@ -71,7 +124,7 @@ class LeadStatusAdmin(admin.ModelAdmin):
     def get_queryset(self, request):
        qs = super(LeadStatusAdmin,self).get_queryset(request)
        employee_id = Employee.objects.get(user=request.user)
-       return qs.filter(assignedLead__assignTo=employee_id)
+       return qs.filter(assignedLead__assignTo=employee_id,assignedLead__status=1)
 
 
 # class OrganizationLeadInline(admin.TabularInline):
@@ -131,11 +184,15 @@ class OrganizationDetailsAdmin(admin.ModelAdmin):
 class AssignLeadsAdmin(admin.ModelAdmin):
     model = AssignLeads
 
-    list_display= ['lead', 'assignTo', 'get_lead_status','get_lead_desc','get_lead_remarks' ,'status','created_at', ]
-
+    list_display= ['get_lead', 'assignTo', 'get_lead_status','get_lead_desc','get_lead_remarks' ,'status','created_at', ]
+    list_display_links = None
     exclude = ['status',]
-
-    
+    # disable edit link from list where status is inactive
+    def get_lead(self,obj):
+        if obj.status:
+            return format_html("<b><a href='{id}'>{lead}</a></b>",id=obj.id, lead=obj.lead,)
+        else:
+            return format_html("{lead}",id=obj.id, lead=obj.lead,)
   
 
 
@@ -221,7 +278,7 @@ class AssignLeadsAdmin(admin.ModelAdmin):
             else:
                 childObj = False
                 childrenarr =[]
-                kwargs['queryset'] =  EmployeeBranch.objects.filter(~Q(user_id = request.user),branch_id=self.fetchBranch(request),user_id__in = self.getChildren(request,childObj,childrenarr))      
+                kwargs['queryset'] =  Employee.objects.filter(~Q(user_id = request.user),employeebranch__branch_id=self.fetchBranch(request),user_id__in = self.getChildren(request,childObj,childrenarr))      
                    
         return super().formfield_for_foreignkey(db_field, request, **kwargs)
 
