@@ -57,8 +57,10 @@ class EmployeeBranch(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, blank=False, default=None)
     created_at = models.DateTimeField(auto_now_add=True, blank=True)
     updated_at = models.DateTimeField(auto_now=True)
+
     def __str__(self):
-        return self.user.first_name
+       return self.user.first_name+' '+self.user.last_name+' -- '+(','.join([g.name for g in self.user.groups.all()]) if self.user.groups.count() else 'Admin')
+      
 
 
 class EmployeeMedia(models.Model):

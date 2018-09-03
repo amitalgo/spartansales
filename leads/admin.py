@@ -35,15 +35,18 @@ class LeadStatusTypeAdmin(admin.ModelAdmin):
     list_display_links = None
     editable_objs = [1,]
 
-    def get_status_type(self,obj):
-        if not obj.id in self.editable_objs:
+    # Make Some field not editable where is_editable=0
+    def get_status_type(self,obj):        
+        if obj.isEditable in self.editable_objs:
             return format_html("<b><a href='{id}'>{status_type}</a></b>",id=obj.id, status_type=obj.status_type,)
         else:
             return format_html("{status_type}",id=obj.id, status_type=obj.status_type,)
-                
+
+    # to remove save button and delete button      
     def change_view(self, request, object_id, form_url='', extra_context=None):
         obj = LeadStatusType.objects.get(pk=object_id)
         editable = obj.isEditable
+        print(editable)
 
         if not editable and request.method == 'POST':
             return HttpResponseForbidden("Cannot change an inactive MyModel")
@@ -54,24 +57,6 @@ class LeadStatusTypeAdmin(admin.ModelAdmin):
         }
         more_context.update(extra_context or {})
         return super().change_view(request, object_id, form_url, more_context)
-        
-    # Add readonly attribute in djano admin for Lead while Editing
-    # def get_readonly_fields(self,request,obj=None):
-    #     if obj:
-    #         if not obj.isEditable:
-    #             print('not editable')
-    #             # return ['status_type','status',]
-    #             # return super(LeadStatusTypeAdmin, self).get_readonly_fields(request, obj)
-    #             self.list_display_links = (None, )
-    #         else:
-    #             print('editable')
-    #             return ['status_type','status',]
-        # return self.readonly_fields
-
-
-    # def changelist_view(self, request, extra_context=None):        
-    #     self.list_display_links = (None, )
-    #     return super(LeadStatusTypeAdmin, self).changelist_view(request, extra_context=None)
 
     def get_form(self, request, obj=None, **kwargs):
         if obj:
@@ -174,9 +159,14 @@ class OrganizationLeadDetailsAdmin(admin.ModelAdmin):
         branchDet = EmployeeBranch.objects.get(user_id=request.user.id)
         return branchDet.branch
 
-    def get_queryset(self, request):
+    # Fetch Leads By Branchwise
+    def get_queryset(self, request):    
         qs = super(OrganizationLeadDetailsAdmin, self).get_queryset(request)
-        return qs.filter(branch_id=self.fetchBranch(request))
+        # Condition to disable for admin for fetching lead details
+        if not request.user.is_superuser:
+            return qs.filter(branch_id=self.fetchBranch(request))
+        else:
+            return qs.filter()
 
 class OrganizationDetailsAdmin(admin.ModelAdmin):
     list_display = ['first_name','last_name','organisation_name','email','website','address']
@@ -187,14 +177,28 @@ class AssignLeadsAdmin(admin.ModelAdmin):
     list_display= ['get_lead', 'assignTo', 'get_lead_status','get_lead_desc','get_lead_remarks' ,'status','created_at', ]
     list_display_links = None
     exclude = ['status',]
+
     # disable edit link from list where status is inactive
     def get_lead(self,obj):
         if obj.status:
             return format_html("<b><a href='{id}'>{lead}</a></b>",id=obj.id, lead=obj.lead,)
         else:
-            return format_html("{lead}",id=obj.id, lead=obj.lead,)
-  
+            return format_html("{lead}",id=obj.id, lead=obj.lead,) 
 
+    # to remove save button and delete button      
+    def change_view(self, request, object_id, form_url='', extra_context=None):
+        obj = AssignLeads.objects.get(pk=object_id)
+        editable = obj.status
+
+        if not editable and request.method == 'POST':
+            return HttpResponseForbidden("Cannot change an inactive MyModel")
+
+        more_context = {
+            # set a context var telling our customized template to suppress the Save button group
+            'my_editable': editable,
+        }
+        more_context.update(extra_context or {})
+        return super().change_view(request, object_id, form_url, more_context)
 
     def get_lead_status(self,obj):
         leadstatus = LeadStatus.objects.get(assignedLead_id=obj.pk)
@@ -212,29 +216,9 @@ class AssignLeadsAdmin(admin.ModelAdmin):
         leadDesc = AssignLeads.objects.get(pk=obj.pk)
         return lead
 
-    # Disable Edit Link
-    # def get_list_display_links(self, request, list_display):
-
-    #     check_lead_status = AssignLeads.objects.get(pk=self.id)
-
-    #     if(check_lead_status.status==False):
-    #         return (None,)
-    #     else:
-    #         return self.list_display_links
-
     def linklead(self, obj):
         p = AssignLeads.objects.get(pk=obj.pk)
         return p.id
-        
-    # Disable Edit Link
-    # def get_list_display_links(self, request, list_display):
-    #     print(self.linklead)
-    #     leadobj = AssignLeads.objects.get(pk=62)
-    #     st = leadobj.status
-    #     if st:
-    #         return ['lead'] 
-    #     else:
-    #         return None
 
     # Add readonly attribute in djano admin for Lead while Editing
     def get_readonly_fields(self,request,obj=None):

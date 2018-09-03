@@ -1,5 +1,9 @@
 from django.contrib import admin
 from achievement.models import GoalMatrix, Goal, AssignGoal
+from branch.models import Branch
+from employee.models import EmployeeBranch
+from achievement.forms import assignGoleForm
+
 # Register your models here.
 class GoalMatrixAdmin(admin.ModelAdmin):
     list_display = ['goal_name','goal_type','status','created_at']
@@ -20,13 +24,32 @@ class GoalAdmin(admin.ModelAdmin):
         super().save_model(request, obj, form, change)
 
 class AssignGoalAdmin(admin.ModelAdmin):
-    list_display = ['goal','goal_type',]
+    list_display = ['goal','branch','assignTo','status',]
+    model = AssignGoal
+    form = assignGoleForm
+    # readonly_fields = ['branch']
 
+    # def get_readonly_fields(self,request,obj=None):
+    #     # return['branch']
+
+    # Fetch Branch which is assigned to User
+    def fetchBranch(self, request):
+        branchDet = EmployeeBranch.objects.get(user_id=request.user.id)
+        return branchDet.branch.id
+
+    # PreSelect the Foreign Key Value 
+    def formfield_for_foreignkey(self, db_field, request, **kwargs):
+        if db_field.name == 'branch':
+            kwargs['initial'] = Branch.objects.filter(pk=self.fetchBranch(request))
+        return db_field.formfield(**kwargs)
+
+
+    # Display status while edit and Not While Adding
     def get_form(self, request, obj=None, **kwargs):
         if obj:
-            kwargs['exclude'] = ['' ]
+            kwargs['exclude'] = ['']
         else:
-            kwargs['exclude'] = ['status',]
+            kwargs['exclude'] = ['status',  ]
         return super().get_form(request, obj, **kwargs)
 
     def save_model(self, request, obj, form, change):
