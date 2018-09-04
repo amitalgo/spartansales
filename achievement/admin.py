@@ -3,6 +3,7 @@ from achievement.models import GoalMatrix, Goal, AssignGoal
 from branch.models import Branch
 from employee.models import EmployeeBranch
 from achievement.forms import assignGoleForm
+from django.db.models import Q
 
 # Register your models here.
 class GoalMatrixAdmin(admin.ModelAdmin):
@@ -26,7 +27,7 @@ class GoalAdmin(admin.ModelAdmin):
 class AssignGoalAdmin(admin.ModelAdmin):
     list_display = ['goal','branch','assignTo','status',]
     model = AssignGoal
-    form = assignGoleForm
+    # form = assignGoleForm
     # readonly_fields = ['branch']
 
     # def get_readonly_fields(self,request,obj=None):
@@ -40,7 +41,10 @@ class AssignGoalAdmin(admin.ModelAdmin):
     # PreSelect the Foreign Key Value 
     def formfield_for_foreignkey(self, db_field, request, **kwargs):
         if db_field.name == 'branch':
-            kwargs['initial'] = Branch.objects.filter(pk=self.fetchBranch(request))
+            if request.user.is_superuser:
+                kwargs['initial'] = Branch.objects.filter()
+            else:                
+                kwargs['initial'] = Branch.objects.get(pk=self.fetchBranch(request))
         return db_field.formfield(**kwargs)
 
 

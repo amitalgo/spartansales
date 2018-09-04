@@ -46,7 +46,6 @@ class LeadStatusTypeAdmin(admin.ModelAdmin):
     def change_view(self, request, object_id, form_url='', extra_context=None):
         obj = LeadStatusType.objects.get(pk=object_id)
         editable = obj.isEditable
-        print(editable)
 
         if not editable and request.method == 'POST':
             return HttpResponseForbidden("Cannot change an inactive MyModel")
@@ -108,8 +107,11 @@ class LeadStatusAdmin(admin.ModelAdmin):
     # Fetch Assigned Lead Data to User 
     def get_queryset(self, request):
        qs = super(LeadStatusAdmin,self).get_queryset(request)
-       employee_id = Employee.objects.get(user=request.user)
-       return qs.filter(assignedLead__assignTo=employee_id,assignedLead__status=1)
+       if request.user.is_superuser:
+           return qs.filter()
+       else:
+           employee_id = Employee.objects.get(user=request.user)
+           return qs.filter(assignedLead__assignTo=employee_id,assignedLead__status=1)
 
 
 # class OrganizationLeadInline(admin.TabularInline):

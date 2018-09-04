@@ -19,9 +19,6 @@ from django.contrib.auth.models import Group
 # Adding Extra Field to Group Model
 Group.add_to_class('parent',models.ForeignKey(Group,null=True,blank=True,related_name='children',on_delete=models.SET_NULL))
 
-
-
-
 class Employee(models.Model):
     user = models.OneToOneField(User,blank=False,null=True, on_delete=models.CASCADE)
     mobile = models.CharField(max_length=251)
@@ -53,8 +50,8 @@ class EmployeeReport(models.Model):
 class EmployeeBranch(models.Model):
     # employee = models.ForeignKey(Employee, on_delete=models.CASCADE)
     branch = models.ForeignKey(Branch, on_delete=models.CASCADE)
-    employee = models.OneToOneField(Employee, on_delete=models.CASCADE, blank=False, default=None)
-    user = models.OneToOneField(User, on_delete=models.CASCADE, blank=False, default=None)
+    employee = models.OneToOneField(Employee, on_delete=models.CASCADE, blank=False, null=True ,default=None)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, blank=False,null=True ,default=None)
     created_at = models.DateTimeField(auto_now_add=True, blank=True)
     updated_at = models.DateTimeField(auto_now=True)
 
