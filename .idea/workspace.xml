@@ -2,46 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="02efcde0-b7d9-418d-b668-7e29a1ba8df7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/achievement/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/achievement/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/achievement/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/achievement/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/achievement/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/achievement/migrations/0002_auto_20180827_1652.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/achievement/migrations/0003_auto_20180829_1229.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/achievement/migrations/0004_remove_assigngoal_goal_type.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/achievement/migrations/0005_auto_20180903_1428.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/achievement/migrations/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/branch/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/branch/migrations/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/country/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/country/migrations/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/employee/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/employee/migrations/0002_auto_20180828_1253.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/employee/migrations/0003_auto_20180828_1425.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/employee/migrations/0004_auto_20180829_1229.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/employee/migrations/0005_employeemedia.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/employee/migrations/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/employee/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/employee/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/insentive/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/insentive/migrations/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/leads/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/leads/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/leads/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/leads/migrations/0002_auto_20180827_1653.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/leads/migrations/0003_auto_20180829_1229.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/leads/migrations/0004_leadstatustype_iseditable.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/leads/migrations/0005_auto_20180829_1257.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/leads/migrations/0006_reasontype_reason.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/leads/migrations/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/leads/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/leads/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/product/migrations/0002_remove_product_unit.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/product/migrations/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/region/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/region/migrations/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taskmaster/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/taskmaster/migrations/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/achievement/templates/admin/includes/fieldset.html" beforeDir="false" afterPath="$PROJECT_DIR$/achievement/templates/admin/includes/fieldset.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -125,13 +86,13 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="html" value="68" />
+          <entry key="html" value="81" />
           <entry key="py" value="233" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="68" />
+          <entry key="HTML" value="81" />
           <entry key="Python" value="233" />
         </counts>
       </usages-collector>
@@ -181,8 +142,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/achievement/templates/admin/includes/fieldset.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="410">
-              <caret line="37" column="19" lean-forward="true" selection-start-line="37" selection-start-column="19" selection-end-line="37" selection-end-column="19" />
+            <state relative-caret-position="270">
+              <caret line="34" column="71" selection-start-line="34" selection-start-column="71" selection-end-line="34" selection-end-column="71" />
             </state>
           </provider>
         </entry>
@@ -480,8 +441,8 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.26841244" />
-      <window_info active="true" anchor="bottom" id="Python Console" order="12" visible="true" weight="0.1685761" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.14566284" />
+      <window_info anchor="bottom" id="Python Console" order="12" weight="0.1685761" />
       <window_info anchor="bottom" id="Concurrent Activities Diagram" order="13" weight="0.32843137" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -763,8 +724,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/achievement/templates/admin/includes/fieldset.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="410">
-          <caret line="37" column="19" lean-forward="true" selection-start-line="37" selection-start-column="19" selection-end-line="37" selection-end-column="19" />
+        <state relative-caret-position="270">
+          <caret line="34" column="71" selection-start-line="34" selection-start-column="71" selection-end-line="34" selection-end-column="71" />
         </state>
       </provider>
     </entry>

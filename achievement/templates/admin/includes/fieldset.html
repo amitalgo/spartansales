@@ -32,7 +32,7 @@
 <script>
         $(document).ready(function(){
             setTimeout(function(){
-                $("#id_assignTo option[value={{request.user.id}}]").each(function(i,v){
+                $("#id_assignTo option[value={{request.user.employee.id}}]").each(function(i,v){
                     $(this).remove();
                 });
             },500);
