@@ -31,10 +31,12 @@
 
 <script>
         $(document).ready(function(){
-            setTimeout(function(){
-                $("#id_assignTo option[value={{request.user.employee.id}}]").each(function(i,v){
-                    $(this).remove();
+              setTimeout(function(){
+                $("#id_assignTo option").each(function(i,v){
+                    if($(this).text().split('/')[0]=='{{request.user.employee.id}}')
+                        $(this).remove();
+                    $(this).text($(this).text().split('/')[1])
                 });
-            },500);
+            },100);
         })
-    </script>
+</script>

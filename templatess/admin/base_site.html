@@ -1,0 +1,17 @@
+{% extends "admin/base_site.html" %}
+
+{% block custom_menu %}
+<li class="{% if item.active %}active{% endif %}{% if item.children|length > 1 %} has-child{% endif %}">
+    <a href="/report">Reports {% if item.children|length > 1 %}<span class="arrow"></span>{% endif %}</a>
+</li>
+{% endblock %}
+
+{% block custom_secondary_menu %}
+    </div>
+        <div id="secondary-nav">
+            <ul>
+                <li><a href="/report">Department Report</a></li>
+                <li><a href="/report/product">Product Report</a></li>
+            </ul>
+        </div>
+{% endblock %}

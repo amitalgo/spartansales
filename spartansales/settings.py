@@ -30,26 +30,6 @@ ALLOWED_HOSTS = ['192.168.0.107','localhost',]
 
 # Application definition
 
-INSTALLED_APPS = [
-    'smart_selects',
-    'admin_menu',
-    'achievement',
-    'branch',
-    'country',
-    'employee',
-    'insentive',
-    'leads',
-    'product',
-    'region',
-    'role',
-    'taskmaster',
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -60,13 +40,34 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+INSTALLED_APPS = [
+    'smart_selects',
+    'rest_framework',
+    'admin_menu',
+    'achievement',
+    'branch',
+    'country',
+    'employee',
+    'insentive',
+    'leads',
+    'product',
+    'region',
+    'role',
+    'report',
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+]
 
 ROOT_URLCONF = 'spartansales.urls'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -84,6 +85,12 @@ WSGI_APPLICATION = 'spartansales.wsgi.application'
 # To add image
 STATIC_ROOT = os.path.join(BASE_DIR,'static')
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [
+	os.path.join(BASE_DIR, "static-cdn"),
+	# '/var/www/static/',
+]
+
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 MEDIA_URL = '/media/'
 
@@ -148,5 +155,3 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
-
-STATIC_URL = '/static/'

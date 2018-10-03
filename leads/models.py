@@ -7,7 +7,7 @@ from django.forms import widgets
 from django.db.models import Q
 from branch.models import Branch
 from region.models import Region
-from product.models import Product
+from product.models import Product, ProductDepartment
 from employee.models import Employee
 from smart_selects.db_fields import ChainedForeignKey
 
@@ -67,9 +67,9 @@ class OrganizationLeadDetails(models.Model):
     organisation = models.ForeignKey(OrganizationDetails, on_delete=models.CASCADE)
     department = models.ForeignKey(Department, on_delete=models.CASCADE)
     lead_title = models.CharField(max_length=250, null=True,blank=True)
-    lead_source = models.ForeignKey(LeadSource, on_delete=models.CASCADE)
+    lead_source = models.ForeignKey(LeadSource, blank=True,null=True ,on_delete=models.CASCADE)
     branch = models.ForeignKey(Branch, on_delete=models.CASCADE)
-    # product = ChainedForeignKey(Product,chained_field="department",null=True,chained_model_field="department",show_all=False,auto_choose=True,sort=True)
+    # product = ChainedForeignKey(ProductDepartment,chained_field="department",null=True,chained_model_field="product__productdepartment_department",show_all=False,auto_choose=True,sort=True)
     product = models.ForeignKey(Product,blank=True,null=True,on_delete=models.CASCADE)
     convert = models.IntegerField(default=0)
     discount = models.FloatField(blank=True,null=True)
@@ -88,7 +88,7 @@ class OrganizationLeadDetails(models.Model):
 
 class AssignLeads(models.Model):
     lead = models.ForeignKey(OrganizationLeadDetails,on_delete=models.CASCADE)
-    assignTo = models.ForeignKey(Employee,on_delete=models.CASCADE)
+    assignTo = models.ForeignKey(Employee,on_delete=models.CASCADE, default=None)
     remarks = models.TextField(null=True)
     status = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True, blank=True)

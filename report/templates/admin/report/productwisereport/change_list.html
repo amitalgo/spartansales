@@ -1,0 +1,238 @@
+{% extends "admin/report/DepartmentWiseReport/base_site.html" %}
+{% load i18n admin_urls static admin_list %}
+
+{% block extrastyle %}
+  {{ block.super }}
+  <link rel="stylesheet" type="text/css" href="{% static "admin/css/changelists.css" %}" />
+  {% if cl.formset %}
+    <link rel="stylesheet" type="text/css" href="{% static "admin/css/forms.css" %}" />
+  {% endif %}
+  {% if cl.formset or action_form %}
+    <script type="text/javascript" src="{% url 'admin:jsi18n' %}"></script>
+  {% endif %}
+  {{ media.css }}
+  {% if not actions_on_top and not actions_on_bottom %}
+    <style>
+      #changelist table thead th:first-child {width: inherit}
+    </style>
+  {% endif %}
+{% endblock %}
+
+{% block extrahead %}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<!--JQuery CDN-->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+
+<!--JQuery UI-->
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<!--JQuery HighCharts-->
+<script src="http://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+
+{% load static %}
+<script src="{% static 'admin/js/custom.js' %}"></script>
+
+<script type="text/javascript">
+      $(document).ready(function(){
+          var init = {
+            generateDepartment : () => {
+                    departments = init.callApi("/department/fetchActiveDepartment/","get");
+                    var options = '<option value="">---- All Department ----</option>';
+                    $(departments).each(function(i,v){
+                        options += '<option value="' + v.id + '">' + v.department + '</option>';
+                    });
+                    $("select#id_department").html(options);
+            },
+            generateBranch : () => {
+                    branch = init.callApi("/branch/fetchActiveBranch/","get");
+                    var options = '<option value="">---- All Branch ----</option>';
+                    $(branch).each(function(i,v){
+                        options += '<option value="' + v.id + '">' + v.branch_name + '</option>';
+                    });
+                    $("select#id_branch").html(options);
+            },
+            generateProduct : (product_id='',$flag=true) => {
+                    product = init.callApi("/product/fetchActiveProduct/","get");
+                    var options = '<option value="">---- All Product ----</option>';
+                    $(product).each(function(i,v){                        
+                        if(v.parent_id==null){
+                            options += '<option value="' + v.child + '">' + v.product_name + '</option>';
+                            options += init.generateChildren(v.id);
+                        }
+                    });
+                    $("select#id_product").html(options);
+            },
+            generateChildren : (parent_id) => {
+                product = init.callApi("/product/fetchActiveProduct/","get");
+                var options = '';
+                $(product).each(function(i,v){                        
+                    if(v.parent_id==parent_id){
+                        options += '          <option value="' + v.child + '"> ---------'+ v.product_name + '</option>';
+                    }
+                });
+                return options;
+            },            
+            callApi : ($url,$type,$data="") => {
+                    var resp;
+                    $.ajax({
+                        url : $url,
+                        type : $type,
+                        data : $data,
+                        dataType : "json",
+                        async: false,
+                        success:function(xyz){
+                            resp = xyz;
+                        }
+                    });
+                    return resp;
+            },
+            fetchGraphData : () => {
+                var departmentId = ($("#id_department").val()!='')?"departmentID="+$("#id_department").val():'';
+                var productId = ($("#id_product").val()!='')?"&productID="+$("#id_product").val():'';
+                var branchId = ($("#id_branch").val()!='')?"&branchID="+$("#id_branch").val():'';
+                var start_date=$("#from_date").val();
+                var end_date=$("#to_date").val();
+                var date = (start_date!='' && end_date!='')?"&start_date="+start_date+"&end_date="+end_date:""; 
+
+                var params = departmentId+productId+branchId+date;
+
+                graphData = init.callApi("/report/product/fetchGraphDataforReport?"+params,"get");
+
+                categories=[];
+                average_price = [];
+                achieved_price = [];
+                $(graphData).each(function(i,v){
+                    categories.push(v.product_name);
+                    average_price.push(v.average_price)
+                    achieved_price.push(v.achieved_price)
+                });
+                init.drawGraph(categories,average_price,achieved_price)
+            },
+            drawGraph : (categories,average_price,achieved_price) => {
+                $('#chart_container').highcharts({
+                chart: {
+                    type: 'column'
+                },
+                title: {
+                    text: 'PANINDIA PRODUCTWISE REPORT'
+                },
+                subtitle: {
+                    text: '2018 - 2019'
+                },
+                    xAxis: {
+                        categories:
+                            categories
+                        ,
+
+                        crosshair: true
+                    },
+                    plotOptions: {
+                        column: {
+                            pointPadding: 0.1,
+                            borderWidth: 0
+                        }
+                    },
+                    series: [{
+                                name: 'Average Selling Price',
+                                data: average_price
+
+                            }, {
+                                name: 'Achieved Average Price',
+                                data: achieved_price
+
+                            }]
+                });
+            }            
+          }
+
+        var categories = [];
+        var average_price = [];
+        var achieved_price = [];
+
+        init.generateDepartment();
+        init.generateBranch();
+        init.generateProduct();
+        init.fetchGraphData();
+
+        // Change Event on Filteration Dropdown
+        $("#id_department").on("change",function(i,v){
+            init.fetchGraphData();
+        });
+
+        $("#id_branch").on("change",function(i,v){
+            init.fetchGraphData();
+        });
+
+        $("#id_product").on("change",function(){
+            init.fetchGraphData();
+        });
+
+        // Filter For Date 
+        $(function(){
+                $('#from_date').datepicker({
+                dateFormat: 'yy-mm-dd',
+                onSelect: function(selected){
+                        $("#to_date").datepicker("option","minDate", selected)
+                        var start_date=$(this).val();
+                        var end_date=$('#to_date').val();
+                        if(start_date!='' && end_date!=''){
+                            init.fetchGraphData();
+                        }
+                    }
+                });
+
+                $('#to_date').datepicker({
+                    dateFormat:'yy-mm-dd',
+                    onSelect : function(selected){
+                        $("#from_date").datepicker("option","maxDate",selected)
+                        var start_date=$('#from_date').val();
+                        var end_date=$(this).val();
+                        if(start_date!='' && end_date!=''){
+                            init.fetchGraphData();
+                        }
+                    }
+                });
+        });
+
+        $(".clear_date").click(function(){
+                $("#from_date,#to_date").val('');
+                init.fetchGraphData();
+        });
+
+        });
+</script>
+
+{{ block.super }}
+{{ media.js }}
+{% endblock %}
+
+{% block bodyclass %}{{ block.super }} app-{{ opts.app_label }} model-{{ opts.model_name }} change-list{% endblock %}
+
+{% if not is_popup %}
+{% block breadcrumbs %}
+<div class="breadcrumbs">
+<a href="{% url 'admin:index' %}">{% trans 'Home' %}</a>
+&rsaquo; <a href="{% url 'admin:app_list' app_label=cl.opts.app_label %}">{{ cl.opts.app_config.verbose_name }}</a>
+&rsaquo; {{ cl.opts.verbose_name_plural|capfirst }}
+</div>
+{% endblock %}
+{% endif %}
+
+{% block coltype %}flex{% endblock %}
+
+{% block content %}
+  <div id="content-main">
+      <div>
+        <select name="product" id="id_product"></select>
+        <select name="department" id="id_department"></select>
+        <select name="branch" id="id_branch"></select>
+        <input type="text" id="from_date" placeholder="From Date" name="from_date" readonly>
+        <input type="text" id="to_date" placeholder="To Date" name="to_date" readonly>
+        <i class="fa fa-close clear_date" style="font-size:24px;cursor:pointer;"></i>
+    </div>
+    <div id="chart_container" style="height: 300px"></div>
+  </div>
+{% endblock %}

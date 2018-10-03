@@ -16,10 +16,32 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 
+from django.conf import settings
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from django.conf.urls.static import static
+from rest_framework.documentation import include_docs_urls
+
 admin.site.site_title = "Spartan Sales Management"
 admin.site.site_header = "Spartan Sales Management"
 
 urlpatterns = [
     url('', admin.site.urls),
     url(r'^chaining/', include('smart_selects.urls')),
+    url(r'^product/',include('product.urls')),
+    # url(r'^report/',include('report.urls')),
+
+# For Api
+    url(r'^docs/', include_docs_urls(title='Spartan Sales Docs')),
+    # Department
+    url(r'^department/',include('leads.urls',namespace="leads")),
+    # Branch
+    url(r'^branch/',include('branch.urls',namespace="branch")),
+    # Product
+    url(r'^product/',include('product.urls',namespace="product")),
+    # Report
+    url(r'^report/',include('report.urls',namespace="report")),
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+urlpatterns += staticfiles_urlpatterns()

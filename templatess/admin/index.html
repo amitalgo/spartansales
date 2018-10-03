@@ -1,0 +1,17 @@
+{% extends "admin/index.html" %}
+
+{% block customMenu %}
+        <!-- Custom Static Menu Option-->
+        <div class="app-reports module">
+                <table>
+                <caption>
+                    Report
+                </caption>
+                    <tr class="model-{{ model.object_name|lower }}">
+                        <th scope="row"><a href="/report">Report</a></th>
+                        <th scope="row">{{ model.name }}</th>
+                    </tr>
+                </table>
+        </div>
+        <!-- Custom Static Menu Option-->
+{% endblock %}

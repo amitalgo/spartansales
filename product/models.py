@@ -19,13 +19,17 @@ class ProductPrice(models.Model):
     status = models.IntegerField(default=1, help_text='Active/Inactive', choices=((1, 'Active'), (0, 'Inactive'),))
     created_at = models.DateTimeField(auto_now_add=True, blank=True)
     updated_at = models.DateTimeField(auto_now=True)
+    def __str__(self):
+        return self.product.product_name
 
 class ProductDepartment(models.Model):
     product = models.ForeignKey(Product,null=True,on_delete=models.CASCADE)
     department = models.ForeignKey("leads.department",null=True,on_delete=models.CASCADE)  
     status = models.IntegerField(default=1, help_text='Active/Inactive', choices=((1, 'Active'), (0, 'Inactive'),))
     created_at = models.DateTimeField(auto_now_add=True, blank=True)
-    updated_at = models.DateTimeField(auto_now=True) 
+    updated_at = models.DateTimeField(auto_now=True)
+    def __str__(self):
+        return self.product.product_name
 
 class ProductMedia(models.Model):
     photo = models.FileField(null=True , blank=True,upload_to='image/product/')

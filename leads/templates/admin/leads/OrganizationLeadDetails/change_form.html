@@ -1,0 +1,32 @@
+{% extends "admin/change_form.html" %}
+
+{% block extrahead %}
+    {{ block.super }}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" charset="utf-8">
+        $(function(){
+            // inspect html to check id of category select dropdown.
+            $(document).on('change', "select#id_department", function(){
+                    $id = $(this).val()
+                    fetchProductByDepartment($id)
+             });
+
+            $(document).ready(function(){
+                $id = $("#id_department").val();
+                fetchProductByDepartment($id);
+            })
+         });
+
+         function fetchProductByDepartment($id){
+                $.getJSON("/product/fetchProductByDepartment/",{id: $id}, function(j){
+                    console.log(j);
+                     var options = '<option value="">---------</option>';
+                     for (var i = 0; i < j.length; i++) {
+                         options += '<option value="' + j[i].product_id + '">' + j[i].product__product_name + '</option>';
+                     }
+                     // inspect html to check id of subcategory select dropdown.
+                     $("select#id_product").html(options);
+                 });
+         }
+    </script>
+{% endblock %}

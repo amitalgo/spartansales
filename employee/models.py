@@ -50,7 +50,7 @@ class EmployeeReport(models.Model):
 class EmployeeBranch(models.Model):
     # employee = models.ForeignKey(Employee, on_delete=models.CASCADE)
     branch = models.ForeignKey(Branch, on_delete=models.CASCADE)
-    employee = models.OneToOneField(Employee, on_delete=models.CASCADE, blank=False, null=True ,default=None)
+    # employee = models.OneToOneField(Employee, on_delete=models.CASCADE, blank=False, null=True ,default=None)
     user = models.OneToOneField(User, on_delete=models.CASCADE, blank=False,null=True ,default=None)
     created_at = models.DateTimeField(auto_now_add=True, blank=True)
     updated_at = models.DateTimeField(auto_now=True)
