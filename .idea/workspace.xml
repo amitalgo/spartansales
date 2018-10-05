@@ -3,17 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="02efcde0-b7d9-418d-b668-7e29a1ba8df7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/achievement/templates/admin/includes/fieldset.html" beforeDir="false" afterPath="$PROJECT_DIR$/achievement/templates/admin/achievement/includes/fieldset.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/branch/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/branch/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/employee/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/employee/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/employee/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/employee/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/leads/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/leads/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/leads/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/leads/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/leads/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/leads/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/product/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/product/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/product/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/insentive/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/insentive/0001_initial.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/spartansales/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/spartansales/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spartansales/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/spartansales/urls.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -79,7 +72,9 @@
     <session id="1479952816">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="15" />
+          <entry key="project.closed" value="17" />
+          <entry key="project.open.time.0" value="1" />
+          <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.23" value="1" />
           <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.34" value="1" />
@@ -89,11 +84,12 @@
           <entry key="project.open.time.50" value="2" />
           <entry key="project.open.time.51" value="1" />
           <entry key="project.open.time.54" value="2" />
+          <entry key="project.open.time.58" value="1" />
           <entry key="project.open.time.59" value="1" />
           <entry key="project.open.time.63" value="1" />
           <entry key="project.open.time.73" value="1" />
           <entry key="project.open.time.75" value="1" />
-          <entry key="project.opened" value="17" />
+          <entry key="project.opened" value="20" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -101,7 +97,7 @@
           <entry key="css" value="2" />
           <entry key="html" value="64" />
           <entry key="js" value="7" />
-          <entry key="py" value="158" />
+          <entry key="py" value="177" />
           <entry key="txt" value="1" />
           <entry key="xml" value="1" />
         </counts>
@@ -112,7 +108,7 @@
           <entry key="HTML" value="64" />
           <entry key="JavaScript" value="7" />
           <entry key="PLAIN_TEXT" value="1" />
-          <entry key="Python" value="158" />
+          <entry key="Python" value="177" />
           <entry key="XML" value="1" />
         </counts>
       </usages-collector>
@@ -122,7 +118,7 @@
           <entry key="dummy" value="8" />
           <entry key="html" value="5918" />
           <entry key="js" value="484" />
-          <entry key="py" value="9934" />
+          <entry key="py" value="10603" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -131,36 +127,47 @@
           <entry key="HTML" value="5918" />
           <entry key="JavaScript" value="484" />
           <entry key="PLAIN_TEXT" value="8" />
-          <entry key="Python" value="9934" />
+          <entry key="Python" value="10603" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/companies/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="14" column="11" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="11" />
+              <folding>
+                <element signature="e#0#28#0" expanded="true" />
+                <marker date="1538728259830" expanded="true" signature="222:227" ph="..." />
+                <marker date="1538728259830" expanded="true" signature="496:497" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/leads/admin.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="38">
-              <caret line="268" column="39" selection-start-line="268" selection-start-column="39" selection-end-line="268" selection-end-column="39" />
+            <state relative-caret-position="164">
+              <caret line="32" column="53" selection-start-line="32" selection-start-column="53" selection-end-line="32" selection-end-column="53" />
+              <folding>
+                <element signature="e#0#37#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/leads/models.py">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/employee/admin.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1326">
-              <caret line="89" column="47" selection-start-line="89" selection-start-column="47" selection-end-line="89" selection-end-column="47" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/employee/models.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="697">
-              <caret line="48" selection-start-line="48" selection-end-line="48" />
+            <state relative-caret-position="164">
+              <caret line="76" column="28" lean-forward="true" selection-start-line="76" selection-start-column="28" selection-end-line="76" selection-end-column="28" />
+              <folding>
+                <element signature="e#0#32#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -184,6 +191,14 @@
       <find>AchievementYearWiseListAPIView</find>
       <find>AchievementYearWiseSerializer</find>
       <find>('branch','0001_initial')</find>
+      <find>get_query</find>
+      <find>User</find>
+      <find>get_quer</find>
+      <find>Q</find>
+      <find>inlines</find>
+      <find>fore</find>
+      <find>coun</find>
+      <find>count</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -192,11 +207,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/spartansales/templates/admin/index.html" />
-        <option value="$PROJECT_DIR$/report/FusionCharts.py" />
-        <option value="$PROJECT_DIR$/report/fusioncharts.py" />
-        <option value="$PROJECT_DIR$/templates/admin/index.html" />
-        <option value="$PROJECT_DIR$/leads/serializers.py" />
         <option value="$PROJECT_DIR$/leads/urls.py" />
         <option value="$PROJECT_DIR$/static/admin/js/cutom.js" />
         <option value="$PROJECT_DIR$/static/js/custom.js" />
@@ -232,7 +242,6 @@
         <option value="$PROJECT_DIR$/leads/models.py" />
         <option value="$PROJECT_DIR$/product/admin.py" />
         <option value="$PROJECT_DIR$/product/models.py" />
-        <option value="$PROJECT_DIR$/spartansales/settings.py" />
         <option value="$PROJECT_DIR$/report/templates/admin/report/productcontributioncumulative/change_list.html" />
         <option value="$PROJECT_DIR$/report/models.py" />
         <option value="$PROJECT_DIR$/report/admin.py" />
@@ -241,8 +250,14 @@
         <option value="$PROJECT_DIR$/report/templates/admin/report/quarterlyreport/change_list.html" />
         <option value="$PROJECT_DIR$/report/templates/admin/report/achievementyearwise/change_list.html" />
         <option value="$PROJECT_DIR$/report/views.py" />
-        <option value="$PROJECT_DIR$/employee/models.py" />
         <option value="$PROJECT_DIR$/leads/admin.py" />
+        <option value="$PROJECT_DIR$/achievement/models.py" />
+        <option value="$PROJECT_DIR$/spartansales/settings.py" />
+        <option value="$PROJECT_DIR$/companies/admin.py" />
+        <option value="$PROJECT_DIR$/insentive/migrations/0001_initial.py" />
+        <option value="$PROJECT_DIR$/companies/models.py" />
+        <option value="$PROJECT_DIR$/employee/models.py" />
+        <option value="$PROJECT_DIR$/employee/admin.py" />
       </list>
     </option>
   </component>
@@ -266,7 +281,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -288,27 +302,34 @@
             <path>
               <item name="spartansales" type="b2602c69:ProjectViewProjectNode" />
               <item name="spartansales" type="462c0819:PsiDirectoryNode" />
+              <item name="companies" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="spartansales" type="b2602c69:ProjectViewProjectNode" />
+              <item name="spartansales" type="462c0819:PsiDirectoryNode" />
               <item name="employee" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="spartansales" type="b2602c69:ProjectViewProjectNode" />
+              <item name="spartansales" type="462c0819:PsiDirectoryNode" />
+              <item name="insentive" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="spartansales" type="b2602c69:ProjectViewProjectNode" />
+              <item name="spartansales" type="462c0819:PsiDirectoryNode" />
+              <item name="insentive" type="462c0819:PsiDirectoryNode" />
+              <item name="migrations" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="spartansales" type="b2602c69:ProjectViewProjectNode" />
               <item name="spartansales" type="462c0819:PsiDirectoryNode" />
               <item name="leads" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="spartansales" type="b2602c69:ProjectViewProjectNode" />
-              <item name="spartansales" type="462c0819:PsiDirectoryNode" />
-              <item name="product" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="spartansales" type="b2602c69:ProjectViewProjectNode" />
-              <item name="spartansales" type="462c0819:PsiDirectoryNode" />
-              <item name="report" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -328,11 +349,11 @@
       <recent name="C:\xampp\htdocs\work\projects\spartansales\report\templates\admin\report" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\work\projects\spartansales\insentive" />
       <recent name="C:\xampp\htdocs\work\projects\spartansales\report\templates\admin\report\DepartmentWiseReport" />
       <recent name="C:\xampp\htdocs\work\projects\spartansales\leads\templates\admin" />
       <recent name="C:\xampp\htdocs\work\projects\spartansales\report\templates\admin\report" />
       <recent name="C:\xampp\htdocs\work\projects\spartansales\report\templates\admin" />
-      <recent name="C:\xampp\htdocs\work\projects\spartansales\report\templates" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -396,9 +417,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16220239" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16220239" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -412,7 +434,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5014881" side_tool="true" weight="0.23895253" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.4985119" visible="true" weight="0.3584288" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.4985119" visible="true" weight="0.17348608" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.1685761" />
       <window_info anchor="bottom" id="Concurrent Activities Diagram" order="13" weight="0.32843137" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -439,40 +461,14 @@
           <url>file://$PROJECT_DIR$/report/admin.py</url>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/employee/models.py</url>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/leads/serializers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="26" lean-forward="true" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/leads/templates/admin/leads/AssignLeads/change_form.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="14" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/leads/templates/admin/change_form.html" />
-    <entry file="file://$PROJECT_DIR$/leads/templates/admin/base_site.html" />
-    <entry file="file://$PROJECT_DIR$/product/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="10" column="60" lean-forward="true" selection-start-line="10" selection-start-column="60" selection-end-line="10" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templatess/admin/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templatess/admin/base_site.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -612,20 +608,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/product/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="36" column="68" lean-forward="true" selection-start-line="36" selection-start-column="68" selection-end-line="36" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spartansales/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="56" column="27" lean-forward="true" selection-start-line="56" selection-start-column="27" selection-end-line="56" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/report/templates/admin/report/productcontributioncumulative/base.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
@@ -744,24 +726,100 @@
     <entry file="file://$PROJECT_DIR$/employee/views.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/leads/admin.py">
+    <entry file="file://$PROJECT_DIR$/leads/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="268" column="39" selection-start-line="268" selection-start-column="39" selection-end-line="268" selection-end-column="39" />
+        <state relative-caret-position="411">
+          <caret line="89" column="47" selection-start-line="89" selection-start-column="47" selection-end-line="89" selection-end-column="47" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/leads/models.py">
+    <entry file="file://$PROJECT_DIR$/product/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1326">
-          <caret line="89" column="47" selection-start-line="89" selection-start-column="47" selection-end-line="89" selection-end-column="47" />
+        <state relative-caret-position="578">
+          <caret line="34" column="4" selection-start-line="34" selection-start-column="4" selection-end-line="34" selection-end-column="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spartansales/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="56" column="6" selection-start-line="56" selection-start-column="6" selection-end-line="56" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/insentive/0001_initial.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="13" column="38" selection-start-line="13" selection-start-column="38" selection-end-line="13" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/insentive/migrations/0001_initial.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="37" column="14" selection-start-line="37" selection-start-column="14" selection-end-line="37" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/achievement/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="7" selection-end-column="53" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/employee/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="697">
-          <caret line="48" selection-start-line="48" selection-end-line="48" />
+        <state relative-caret-position="272">
+          <caret line="34" column="78" selection-start-line="34" selection-start-column="78" selection-end-line="34" selection-end-column="78" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/companies/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="32" lean-forward="true" selection-start-line="3" selection-start-column="32" selection-end-line="3" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/companies/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="11" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="11" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+            <marker date="1538728259830" expanded="true" signature="222:227" ph="..." />
+            <marker date="1538728259830" expanded="true" signature="496:497" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/leads/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="32" column="53" selection-start-line="32" selection-start-column="53" selection-end-line="32" selection-end-column="53" />
+          <folding>
+            <element signature="e#0#37#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/employee/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="76" column="28" lean-forward="true" selection-start-line="76" selection-start-column="28" selection-end-line="76" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

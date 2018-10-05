@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'region',
     'role',
     'report',
+    'companies',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

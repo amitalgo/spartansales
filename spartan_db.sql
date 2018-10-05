@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 03, 2018 at 06:06 AM
+-- Generation Time: Oct 05, 2018 at 02:47 PM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.1
 
@@ -341,6 +341,45 @@ INSERT INTO `auth_group_permissions` (`id`, `group_id`, `permission_id`) VALUES
 (208, 2, 103),
 (209, 2, 104),
 (210, 2, 105),
+(372, 2, 106),
+(373, 2, 107),
+(374, 2, 108),
+(375, 2, 109),
+(376, 2, 110),
+(377, 2, 111),
+(378, 2, 112),
+(379, 2, 113),
+(380, 2, 114),
+(381, 2, 115),
+(382, 2, 116),
+(383, 2, 117),
+(384, 2, 118),
+(385, 2, 119),
+(386, 2, 120),
+(387, 2, 121),
+(388, 2, 122),
+(389, 2, 123),
+(390, 2, 124),
+(391, 2, 125),
+(392, 2, 126),
+(393, 2, 127),
+(355, 2, 128),
+(356, 2, 129),
+(357, 2, 130),
+(358, 2, 131),
+(359, 2, 132),
+(360, 2, 133),
+(361, 2, 134),
+(362, 2, 135),
+(363, 2, 136),
+(364, 2, 137),
+(365, 2, 138),
+(366, 2, 139),
+(367, 2, 140),
+(368, 2, 141),
+(369, 2, 142),
+(370, 2, 143),
+(371, 2, 144),
 (211, 3, 1),
 (212, 3, 2),
 (213, 3, 3),
@@ -478,7 +517,13 @@ INSERT INTO `auth_group_permissions` (`id`, `group_id`, `permission_id`) VALUES
 (345, 3, 135),
 (346, 3, 136),
 (347, 3, 137),
-(348, 3, 138);
+(348, 3, 138),
+(349, 3, 139),
+(350, 3, 140),
+(351, 3, 141),
+(353, 3, 142),
+(354, 3, 143),
+(352, 3, 144);
 
 -- --------------------------------------------------------
 
@@ -635,7 +680,13 @@ INSERT INTO `auth_permission` (`id`, `name`, `content_type_id`, `codename`) VALU
 (135, 'Can delete quarterly report', 43, 'delete_quarterlyreport'),
 (136, 'Can add achievement year wise', 44, 'add_achievementyearwise'),
 (137, 'Can change achievement year wise', 44, 'change_achievementyearwise'),
-(138, 'Can delete achievement year wise', 44, 'delete_achievementyearwise');
+(138, 'Can delete achievement year wise', 44, 'delete_achievementyearwise'),
+(139, 'Can add companies', 45, 'add_companies'),
+(140, 'Can change companies', 45, 'change_companies'),
+(141, 'Can delete companies', 45, 'delete_companies'),
+(142, 'Can add companies users', 46, 'add_companiesusers'),
+(143, 'Can change companies users', 46, 'change_companiesusers'),
+(144, 'Can delete companies users', 46, 'delete_companiesusers');
 
 -- --------------------------------------------------------
 
@@ -654,21 +705,33 @@ CREATE TABLE `auth_user` (
   `email` varchar(254) NOT NULL,
   `is_staff` tinyint(1) NOT NULL,
   `is_active` tinyint(1) NOT NULL,
-  `date_joined` datetime(6) NOT NULL
+  `date_joined` datetime(6) NOT NULL,
+  `is_superadmin` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `auth_user`
 --
 
-INSERT INTO `auth_user` (`id`, `password`, `last_login`, `is_superuser`, `username`, `first_name`, `last_name`, `email`, `is_staff`, `is_active`, `date_joined`) VALUES
-(1, 'pbkdf2_sha256$36000$JaKRg6BKEHml$KhtzmD8N2N490Gi22Nr9Bv9HT1SH3YBT9wqv6EIp31w=', '2018-09-19 10:48:39.567575', 1, 'admin', 'Admin', 'Admin', 'admin@admin.com', 1, 1, '2018-09-04 11:48:56.000000'),
-(2, 'pbkdf2_sha256$36000$K1gSkrDUUD8k$YwUWO0yMdy/wHmZhWIpuz/vbHECvn8sHz+Pnj5YvAgo=', '2018-09-05 05:34:47.000000', 0, 'aditya', 'Aditya', 'Rao', 'aditya@technople.in', 1, 1, '2018-09-04 12:35:31.000000'),
-(3, 'pbkdf2_sha256$36000$MNebyHGimwxx$dHzMjcz1FBiyS21ZRRMdM6rG7VsfXO5jZqtnQZOYMuk=', '2018-09-19 13:05:46.718927', 0, 'Asim', 'Asim', 'Sagir', 'asim@technople.in', 1, 1, '2018-09-04 12:41:17.000000'),
-(4, 'pbkdf2_sha256$36000$WUHtJILzLqWv$WPRpEtKpeg+0lTuieFT02NvFvBGwFGpPtuWcsU2yb9Q=', '2018-09-14 04:11:27.232496', 0, 'amit', 'Amit', 'Chaurasia', 'amitc@technople.in', 1, 1, '2018-09-04 12:42:12.000000'),
-(5, 'pbkdf2_sha256$36000$knDkqj0tkOaW$bfV4+iv4UTz35yxzJDEhAFruHJ0BRjJ4n3Vw8OKqpzA=', NULL, 0, 'Ram', 'Ram', 'Sir', 'ram@technople.in', 1, 1, '2018-09-04 12:43:14.000000'),
-(6, 'pbkdf2_sha256$36000$eWEvNGw2zLgn$rWdmnT+RbjuzHbLlh1pIrpCuukL75hh7jcmhQKfXvIA=', '2018-09-17 05:28:54.804525', 0, 'yogendra', 'Yogendra', 'Sir', 'yogendra@technople.in', 1, 1, '2018-09-04 12:44:14.000000'),
-(7, 'pbkdf2_sha256$36000$2OhfKhIaPg3y$J/HpXnrFu7Gh7Kk0YqsBZdYgIykKMoG3MvADerdHY0E=', '2018-09-19 12:51:04.644844', 0, 'gawde', 'Pandurang', 'Gawde', 'gawde@technople.in', 1, 1, '2018-09-04 12:45:11.000000');
+INSERT INTO `auth_user` (`id`, `password`, `last_login`, `is_superuser`, `username`, `first_name`, `last_name`, `email`, `is_staff`, `is_active`, `date_joined`, `is_superadmin`) VALUES
+(1, 'pbkdf2_sha256$36000$JaKRg6BKEHml$KhtzmD8N2N490Gi22Nr9Bv9HT1SH3YBT9wqv6EIp31w=', '2018-10-05 06:57:15.580585', 1, 'admin', 'Admin', 'Admin', 'admin@admin.com', 1, 1, '2018-09-04 11:48:56.000000', 0),
+(2, 'pbkdf2_sha256$36000$K1gSkrDUUD8k$YwUWO0yMdy/wHmZhWIpuz/vbHECvn8sHz+Pnj5YvAgo=', '2018-10-05 06:57:41.284795', 0, 'aditya', 'Aditya', 'Rao', 'aditya@technople.in', 1, 1, '2018-09-04 12:35:31.000000', 0),
+(3, 'pbkdf2_sha256$36000$MNebyHGimwxx$dHzMjcz1FBiyS21ZRRMdM6rG7VsfXO5jZqtnQZOYMuk=', '2018-09-19 13:05:46.718927', 0, 'Asim', 'Asim', 'Sagir', 'asim@technople.in', 1, 1, '2018-09-04 12:41:17.000000', 0),
+(4, 'pbkdf2_sha256$36000$WUHtJILzLqWv$WPRpEtKpeg+0lTuieFT02NvFvBGwFGpPtuWcsU2yb9Q=', '2018-09-14 04:11:27.232496', 0, 'amit', 'Amit', 'Chaurasia', 'amitc@technople.in', 1, 1, '2018-09-04 12:42:12.000000', 0),
+(5, 'pbkdf2_sha256$36000$knDkqj0tkOaW$bfV4+iv4UTz35yxzJDEhAFruHJ0BRjJ4n3Vw8OKqpzA=', NULL, 0, 'Ram', 'Ram', 'Sir', 'ram@technople.in', 1, 1, '2018-09-04 12:43:14.000000', 0),
+(6, 'pbkdf2_sha256$36000$eWEvNGw2zLgn$rWdmnT+RbjuzHbLlh1pIrpCuukL75hh7jcmhQKfXvIA=', '2018-09-17 05:28:54.804525', 0, 'yogendra', 'Yogendra', 'Sir', 'yogendra@technople.in', 1, 1, '2018-09-04 12:44:14.000000', 0),
+(7, 'pbkdf2_sha256$36000$2OhfKhIaPg3y$J/HpXnrFu7Gh7Kk0YqsBZdYgIykKMoG3MvADerdHY0E=', '2018-10-05 04:11:31.000377', 0, 'gawde', 'Pandurang', 'Gawde', 'gawde@technople.in', 1, 1, '2018-09-04 12:45:11.000000', 0),
+(8, 'pbkdf2_sha256$36000$a54XRjpiNRGV$wWOXguIvcDWzX2U9J1HB7eHQfd67MiGcztZ9ZB4f/WI=', NULL, 0, 'sachin', 'Sachin', '', 'sachin@technople.in', 1, 1, '2018-10-04 09:16:57.000000', 0),
+(10, '', '2018-10-05 04:16:47.000000', 1, 'super', 'super', '', '', 1, 1, '2018-10-04 10:45:27.000000', 1),
+(21, 'pbkdf2_sha256$36000$OVoz4Wd55Kfq$67E0/u1nbCPGJ7qNGiWdyGuR7FFDju4CdKbX+woZfYA=', '2018-10-05 08:49:30.324002', 1, 'parag', 'Parag', 'Ved', 'parag@technople.com', 1, 1, '2018-10-05 06:02:34.000000', 0),
+(22, 'pbkdf2_sha256$36000$yBXTmjEyAqwk$4365zBfVHCSQDFKOKJfFnEmTgFbJqynqPMyys0h8P+0=', NULL, 1, 'hemant', 'Hemant', 'Shash', 'hemant@gmail.com', 1, 1, '2018-10-05 06:19:10.000000', 0),
+(23, '', '2018-10-05 10:47:19.912676', 1, 'superadmin', '', '', '', 1, 1, '2018-10-05 06:21:38.932192', 1),
+(29, 'pbkdf2_sha256$36000$vMYM5pLI4xtx$0DwH10ove2rYJ+EzLgbQz4NwyUm0/wFRIH/HQf2zGHo=', '2018-10-05 08:50:11.921735', 0, 'paraguser1', 'paraguser1', 'yy', 'paraguser1@gmail.com', 1, 1, '2018-10-05 08:32:26.000000', 0),
+(31, 'pbkdf2_sha256$36000$2hISNj3zWSMS$WIekDYUV5jK1RDwJb2hG/GQLP8DjmeXX4iUa9QflnKM=', '2018-10-05 08:46:56.872883', 0, 'paraguser2', 'paraguser2', 'parag', 'parag@technople.com', 1, 1, '2018-10-05 08:39:47.000000', 0),
+(32, 'pbkdf2_sha256$36000$RwnESkB62D8J$BnkiC+k7aorZPvf1ApNZz6PGLVf6n1KlBZdIgE252xw=', '2018-10-05 11:13:02.790065', 1, 'Shashi', 'Shashi', 'Maurya', 'shashi@gmail.com', 1, 1, '2018-10-05 11:11:57.000000', 0),
+(33, 'pbkdf2_sha256$36000$TZPIFw8GA73S$FdlyLKFCHBywGKnnMJ+z5Lc8gNJ2ntOMaxrk8ZFvVec=', NULL, 0, 'shashiuser1', 'shashiuser1', 'm', 'shashiuser1@gmail.com', 1, 1, '2018-10-05 11:13:42.000000', 0),
+(34, 'pbkdf2_sha256$36000$bVIpQDTBChpA$Bq/SJAtKuwnjHxSDuCHsFVWXEA/VyvKwldPC3QlN5kA=', NULL, 0, 'ranjit', '', '', '', 0, 1, '2018-10-05 12:02:50.128348', 0),
+(35, 'pbkdf2_sha256$36000$uieiCGrASE5q$sDxAzaMynkEVGz51FPvjpNS/xQZnQWZ42VXRYvdHF1Y=', '2018-10-05 12:08:33.749820', 1, 'yash', 'Yeash', 'ii', 'yogendra@technople.in', 1, 1, '2018-10-05 12:07:53.000000', 0);
 
 -- --------------------------------------------------------
 
@@ -692,7 +755,11 @@ INSERT INTO `auth_user_groups` (`id`, `user_id`, `group_id`) VALUES
 (3, 4, 3),
 (4, 5, 3),
 (5, 6, 3),
-(6, 7, 3);
+(6, 7, 3),
+(7, 8, 3),
+(8, 29, 2),
+(9, 31, 3),
+(10, 33, 2);
 
 -- --------------------------------------------------------
 
@@ -729,6 +796,58 @@ CREATE TABLE `branch_branch` (
 INSERT INTO `branch_branch` (`id`, `branch_name`, `branch_address`, `status`, `created_at`, `updated_at`, `region_id`) VALUES
 (1, 'Allahabad', 'Civil Lines', 1, '2018-09-04 11:50:27.732857', '2018-09-04 11:50:27.732857', 1),
 (2, 'Kandivali', 'Station Road', 1, '2018-09-04 11:50:50.012167', '2018-09-04 11:50:50.012167', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `companies_companies`
+--
+
+CREATE TABLE `companies_companies` (
+  `id` int(11) NOT NULL,
+  `company_name` varchar(250) NOT NULL,
+  `company_address` varchar(250) NOT NULL,
+  `company_email` varchar(250) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `companies_companies`
+--
+
+INSERT INTO `companies_companies` (`id`, `company_name`, `company_address`, `company_email`) VALUES
+(10, 'Technople', 'tech', 'tech@gmail.com'),
+(11, 'Evaluworks', 'Kandivali', 'hemant@technople.com'),
+(12, 'Serdia', 'Lower Parel', 'serdia@gmail.com'),
+(13, 'megatech', 'kandivali', 'test@gmail.com');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `companies_companiesusers`
+--
+
+CREATE TABLE `companies_companiesusers` (
+  `id` int(11) NOT NULL,
+  `created_at` datetime(6) DEFAULT NULL,
+  `updated_at` datetime(6) DEFAULT NULL,
+  `company_id` int(11) DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `is_admin` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `companies_companiesusers`
+--
+
+INSERT INTO `companies_companiesusers` (`id`, `created_at`, `updated_at`, `company_id`, `user_id`, `is_admin`) VALUES
+(1, '2018-10-05 06:02:34.575640', '2018-10-05 06:02:34.575640', 10, 21, 1),
+(2, '2018-10-05 06:19:10.167463', '2018-10-05 06:19:10.167463', 11, 22, 1),
+(4, '2018-10-05 08:32:26.890868', '2018-10-05 08:32:26.890868', 10, 29, 0),
+(5, '2018-10-05 08:39:47.763062', '2018-10-05 08:39:47.763062', 10, 31, 0),
+(6, '2018-10-05 11:11:57.399011', '2018-10-05 11:11:57.399011', 12, 32, 1),
+(7, '2018-10-05 11:13:42.971812', '2018-10-05 11:13:42.971812', 12, 33, 0),
+(8, '2018-10-05 12:02:50.214952', '2018-10-05 12:02:50.214952', 13, 34, 1),
+(9, '2018-10-05 12:07:53.550348', '2018-10-05 12:07:53.550348', 13, 35, 1);
 
 -- --------------------------------------------------------
 
@@ -855,7 +974,51 @@ INSERT INTO `django_admin_log` (`id`, `action_time`, `object_id`, `object_repr`,
 (79, '2018-09-17 06:09:13.938563', '3', 'SBM62', 2, '[{\"changed\": {\"name\": \"product price\", \"object\": \"SBM62\", \"fields\": [\"year\"]}}, {\"changed\": {\"name\": \"product price\", \"object\": \"SBM62\", \"fields\": [\"year\"]}}]', 21, 7),
 (80, '2018-09-17 06:46:38.310544', '3', 'Employee', 2, '[]', 32, 7),
 (81, '2018-09-18 08:25:18.842470', '3', 'Employee', 2, '[]', 32, 7),
-(82, '2018-09-18 09:52:23.265372', '3', 'Employee', 2, '[]', 32, 7);
+(82, '2018-09-18 09:52:23.265372', '3', 'Employee', 2, '[]', 32, 7),
+(83, '2018-10-04 09:16:57.228936', '8', 'sachin', 1, '[{\"added\": {}}]', 33, 7),
+(84, '2018-10-04 09:17:32.075498', '8', 'sachin', 2, '[{\"changed\": {\"fields\": [\"first_name\", \"email\", \"is_staff\"]}}, {\"added\": {\"name\": \"employee\", \"object\": \"Sachin \"}}, {\"added\": {\"name\": \"employee branch\", \"object\": \"Sachin  -- Employee\"}}]', 33, 7),
+(85, '2018-10-04 10:03:47.283527', '3', 'Employee', 2, '[]', 32, 7),
+(86, '2018-10-04 11:59:04.606344', '1', 'admin', 2, '[{\"added\": {\"name\": \"companies\", \"object\": \"Companies object\"}}]', 33, 10),
+(87, '2018-10-04 13:10:32.581114', '1', 'Companies object', 2, '[{\"changed\": {\"fields\": [\"user\"]}}]', 45, 10),
+(88, '2018-10-04 13:14:42.775133', '11', 'admin2', 1, '[{\"added\": {}}]', 33, 10),
+(89, '2018-10-05 04:00:49.015110', '11', 'jeet', 1, '[{\"added\": {}}, {\"added\": {\"name\": \"companies\", \"object\": \"Companies object\"}}]', 33, 10),
+(90, '2018-10-05 04:11:02.535640', '12', 'hitesh', 1, '[{\"added\": {}}, {\"added\": {\"name\": \"companies\", \"object\": \"rr\"}}]', 33, 10),
+(91, '2018-10-05 04:21:26.194252', '13', 'sumeet', 1, '[{\"added\": {}}]', 33, 10),
+(92, '2018-10-05 04:25:43.283476', '14', 'yogi', 1, '[{\"added\": {}}, {\"added\": {\"name\": \"companies\", \"object\": \"Technople\"}}]', 33, 10),
+(93, '2018-10-05 04:27:39.663601', '15', 'ee', 1, '[{\"added\": {}}, {\"added\": {\"name\": \"companies\", \"object\": \"Technople\"}}]', 33, 10),
+(94, '2018-10-05 04:31:30.682221', '16', 'uu', 1, '[{\"added\": {}}, {\"added\": {\"name\": \"companies\", \"object\": \"Spartan\"}}]', 33, 10),
+(95, '2018-10-05 04:35:17.992688', '17', 'ww', 1, '[{\"added\": {}}]', 33, 10),
+(96, '2018-10-05 04:36:15.930465', '17', 'ww', 2, '[{\"changed\": {\"fields\": [\"first_name\", \"email\", \"is_staff\", \"is_superuser\"]}}, {\"added\": {\"name\": \"companies\", \"object\": \"ww\"}}]', 33, 10),
+(97, '2018-10-05 04:37:12.024305', '18', 'ash', 1, '[{\"added\": {}}]', 33, 10),
+(98, '2018-10-05 04:37:48.545714', '18', 'ash', 2, '[{\"changed\": {\"fields\": [\"first_name\", \"last_name\", \"email\", \"is_staff\", \"is_superuser\"]}}, {\"added\": {\"name\": \"companies\", \"object\": \"Spartan\"}}]', 33, 10),
+(99, '2018-10-05 04:47:18.887278', '19', 'eewww', 1, '[{\"added\": {}}]', 33, 10),
+(100, '2018-10-05 05:52:22.430832', '20', 'ii', 1, '[{\"added\": {}}, {\"added\": {\"name\": \"companies\", \"object\": \"ii\"}}]', 33, 10),
+(101, '2018-10-05 05:52:43.170904', '20', 'ii', 2, '[{\"changed\": {\"fields\": [\"first_name\", \"last_name\", \"email\", \"is_staff\", \"is_superuser\"]}}]', 33, 10),
+(102, '2018-10-05 06:02:32.077787', '10', 'Technople', 1, '[{\"added\": {}}]', 45, 10),
+(103, '2018-10-05 06:02:34.596642', '21', 'parag', 1, '[{\"added\": {}}, {\"added\": {\"name\": \"companies users\", \"object\": \"CompaniesUsers object\"}}]', 33, 10),
+(104, '2018-10-05 06:02:54.236164', '21', 'parag', 2, '[{\"changed\": {\"fields\": [\"first_name\", \"last_name\", \"email\", \"is_staff\", \"is_superuser\"]}}]', 33, 10),
+(105, '2018-10-05 06:19:07.206169', '11', 'Evaluworks', 1, '[{\"added\": {}}]', 45, 10),
+(106, '2018-10-05 06:19:10.284470', '22', 'hemant', 1, '[{\"added\": {}}, {\"added\": {\"name\": \"companies users\", \"object\": \"CompaniesUsers object\"}}]', 33, 10),
+(107, '2018-10-05 06:19:37.832767', '22', 'hemant', 2, '[{\"changed\": {\"fields\": [\"first_name\", \"last_name\", \"email\", \"is_staff\", \"is_superuser\"]}}]', 33, 10),
+(108, '2018-10-05 06:37:42.417581', '10', 'super', 2, '[{\"changed\": {\"fields\": [\"first_name\"]}}]', 33, 1),
+(109, '2018-10-05 07:27:21.802270', '24', 'paraguser1', 1, '[{\"added\": {}}]', 33, 21),
+(110, '2018-10-05 08:32:26.958872', '29', 'paraguser1', 1, '[{\"added\": {}}, {\"added\": {\"name\": \"companies users\", \"object\": \"CompaniesUsers object\"}}]', 33, 21),
+(111, '2018-10-05 08:33:35.419961', '29', 'paraguser1', 2, '[{\"changed\": {\"fields\": [\"first_name\", \"last_name\", \"email\", \"is_staff\"]}}]', 33, 21),
+(112, '2018-10-05 08:39:47.764063', '31', 'paraguser2', 1, '[{\"added\": {}}, {\"added\": {\"name\": \"employee\", \"object\": \" \"}}, {\"added\": {\"name\": \"employee branch\", \"object\": \"  -- Admin\"}}, {\"added\": {\"name\": \"companies users\", \"object\": \"CompaniesUsers object\"}}]', 33, 21),
+(113, '2018-10-05 08:40:11.641896', '31', 'paraguser2', 2, '[{\"changed\": {\"fields\": [\"first_name\", \"last_name\", \"email\", \"is_staff\"]}}]', 33, 21),
+(114, '2018-10-05 08:40:39.500181', '29', 'paraguser1', 2, '[{\"added\": {\"name\": \"employee\", \"object\": \"paraguser1 yy\"}}, {\"added\": {\"name\": \"employee branch\", \"object\": \"paraguser1 yy -- Manager\"}}]', 33, 21),
+(115, '2018-10-05 10:29:33.636651', '3', 'Employee', 2, '[]', 32, 29),
+(116, '2018-10-05 10:29:50.758004', '2', 'Manager', 2, '[{\"changed\": {\"fields\": [\"parent\"]}}]', 32, 29),
+(117, '2018-10-05 10:29:56.046272', '3', 'Employee', 2, '[{\"changed\": {\"fields\": [\"parent\"]}}]', 32, 29),
+(118, '2018-10-05 11:11:55.158521', '12', 'Serdia', 1, '[{\"added\": {}}]', 45, 23),
+(119, '2018-10-05 11:11:57.425012', '32', 'Shashi', 1, '[{\"added\": {}}, {\"added\": {\"name\": \"companies users\", \"object\": \"CompaniesUsers object\"}}]', 33, 23),
+(120, '2018-10-05 11:12:14.553930', '32', 'Shashi', 2, '[{\"changed\": {\"fields\": [\"first_name\", \"last_name\", \"email\", \"is_staff\", \"is_superuser\"]}}]', 33, 23),
+(121, '2018-10-05 11:13:42.972812', '33', 'shashiuser1', 1, '[{\"added\": {}}, {\"added\": {\"name\": \"employee branch\", \"object\": \"  -- Admin\"}}, {\"added\": {\"name\": \"companies users\", \"object\": \"CompaniesUsers object\"}}]', 33, 32),
+(122, '2018-10-05 11:14:04.829293', '33', 'shashiuser1', 2, '[{\"changed\": {\"fields\": [\"first_name\", \"last_name\", \"email\", \"is_staff\"]}}]', 33, 32),
+(123, '2018-10-05 12:02:48.189478', '13', 'megatech', 1, '[{\"added\": {}}]', 45, 23),
+(124, '2018-10-05 12:02:50.215952', '34', 'ranjit', 1, '[{\"added\": {}}, {\"added\": {\"name\": \"companies users\", \"object\": \"CompaniesUsers object\"}}]', 33, 23),
+(125, '2018-10-05 12:07:53.654353', '35', 'yash', 1, '[{\"added\": {}}, {\"added\": {\"name\": \"companies users\", \"object\": \"CompaniesUsers object\"}}]', 33, 23),
+(126, '2018-10-05 12:08:09.462058', '35', 'yash', 2, '[{\"changed\": {\"fields\": [\"first_name\", \"last_name\", \"email\", \"is_staff\", \"is_superuser\"]}}]', 33, 23);
 
 -- --------------------------------------------------------
 
@@ -882,6 +1045,8 @@ INSERT INTO `django_content_type` (`id`, `app_label`, `model`) VALUES
 (31, 'auth', 'permission'),
 (33, 'auth', 'user'),
 (4, 'branch', 'branch'),
+(45, 'companies', 'companies'),
+(46, 'companies', 'companiesusers'),
 (34, 'contenttypes', 'contenttype'),
 (5, 'country', 'country'),
 (6, 'employee', 'employee'),
@@ -995,7 +1160,27 @@ INSERT INTO `django_migrations` (`id`, `app`, `name`, `applied`) VALUES
 (56, 'report', '0006_achievementyearwise', '2018-09-18 09:51:17.788036'),
 (57, 'employee', '0008_remove_employeebranch_employee', '2018-09-19 12:47:56.859053'),
 (58, 'employee', '0009_employeebranch_employee', '2018-09-19 13:09:06.663042'),
-(59, 'employee', '0010_remove_employeebranch_employee', '2018-09-19 13:11:43.662771');
+(59, 'employee', '0010_remove_employeebranch_employee', '2018-09-19 13:11:43.662771'),
+(60, 'companies', '0001_initial', '2018-10-04 10:02:48.493558'),
+(61, 'companies', '0002_companies_company_email', '2018-10-04 10:02:48.929764'),
+(62, 'auth', '0010_remove_group_parent', '2018-10-04 11:54:19.352756'),
+(63, 'auth', '0011_group_parent', '2018-10-04 11:54:20.933765'),
+(64, 'companies', '0003_companies_user', '2018-10-04 11:54:22.401573'),
+(65, 'companies', '0004_auto_20181004_1726', '2018-10-04 11:56:14.668378'),
+(66, 'companies', '0005_auto_20181004_1728', '2018-10-04 11:58:25.054712'),
+(67, 'companies', '0006_remove_companies_user', '2018-10-04 12:01:27.002988'),
+(68, 'auth', '0012_user_company_id', '2018-10-04 12:01:28.577996'),
+(69, 'auth', '0013_remove_user_company_id', '2018-10-04 12:08:40.382545'),
+(70, 'companies', '0007_companies_user', '2018-10-04 12:08:41.714151'),
+(71, 'companies', '0008_auto_20181005_1000', '2018-10-05 04:30:34.537254'),
+(72, 'companies', '0009_auto_20181005_1003', '2018-10-05 04:33:47.734489'),
+(73, 'companies', '0010_companies_is_admin', '2018-10-05 05:50:26.866987'),
+(74, 'companies', '0011_auto_20181005_1129', '2018-10-05 05:59:13.248823'),
+(75, 'companies', '0012_auto_20181005_1134', '2018-10-05 06:04:25.100271'),
+(76, 'auth', '0010_user_is_superadmin', '2018-10-05 06:35:18.683427'),
+(77, 'companies', '0013_auto_20181005_1351', '2018-10-05 08:21:30.644049'),
+(78, 'employee', '0011_auto_20181005_1354', '2018-10-05 08:24:21.116043'),
+(79, 'employee', '0012_auto_20181005_1408', '2018-10-05 08:38:45.073578');
 
 -- --------------------------------------------------------
 
@@ -1014,7 +1199,9 @@ CREATE TABLE `django_session` (
 --
 
 INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
-('7d48isty0n0f1305fbt2dfq1l5miuzk2', 'MjcxMmJkYzUwYzBkMzFiODJiOGNkYzIxZjY1ODAyZmM4YTg2Y2ZiNzp7Il9hdXRoX3VzZXJfaWQiOiI0IiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI2ZmMzOTg0NzYwZjg1NzcwNjliM2ZiODRiMjQyMzk4OTEyYzZhNzBkIn0=', '2018-09-21 10:37:37.954615');
+('0kez1eje7ayn03dm8bxyj26mpit6o86g', 'YjBiNDkwMzZjMTE3MjZkMzhlN2Y5NDBmNmM1YTcyMmZiYzYwODA0NDp7Il9hdXRoX3VzZXJfaWQiOiIyMyIsIl9hdXRoX3VzZXJfYmFja2VuZCI6InNwYXJ0YW5zdXBlcmFkbWluLmF1dGhlbnRpY2F0aW9uLlNldHRpbmdzQmFja2VuZCIsIl9hdXRoX3VzZXJfaGFzaCI6IjUwOGZkYTgzZWVkNDZmMzJkZDE2Y2VjMzI1OGI3NTMzOThiY2Y1YWQifQ==', '2018-10-19 10:47:20.020682'),
+('7d48isty0n0f1305fbt2dfq1l5miuzk2', 'MjcxMmJkYzUwYzBkMzFiODJiOGNkYzIxZjY1ODAyZmM4YTg2Y2ZiNzp7Il9hdXRoX3VzZXJfaWQiOiI0IiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI2ZmMzOTg0NzYwZjg1NzcwNjliM2ZiODRiMjQyMzk4OTEyYzZhNzBkIn0=', '2018-09-21 10:37:37.954615'),
+('xs7oe6y6spx77zqnu15hroa3z5p8kx0l', 'YzJhNTdiMTBkY2JmMjNlMzk4OGU4NDFlMWY3Mzk0NGY0YzZjZWUyZTp7Il9hdXRoX3VzZXJfaWQiOiIzNSIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9oYXNoIjoiYmIyYTEzNDhhNzc1NTE0MzdhODEyMGYyOWNkYWU0NWI5NmM2N2EyNyJ9', '2018-10-19 12:08:33.919830');
 
 -- --------------------------------------------------------
 
@@ -1028,9 +1215,9 @@ CREATE TABLE `employee_employee` (
   `gender` varchar(7) NOT NULL,
   `photo` varchar(100) NOT NULL,
   `address` longtext NOT NULL,
-  `created_at` datetime(6) NOT NULL,
-  `updated_at` datetime(6) NOT NULL,
-  `created_by_id` int(11) NOT NULL,
+  `created_at` datetime(6) DEFAULT NULL,
+  `updated_at` datetime(6) DEFAULT NULL,
+  `created_by_id` int(11) DEFAULT NULL,
   `user_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -1044,7 +1231,10 @@ INSERT INTO `employee_employee` (`id`, `mobile`, `gender`, `photo`, `address`, `
 (3, '7878787878', 'male', 'image/employee/profile/Lighthouse_q7l9YAJ.jpg', 'Kandivali', '2018-09-04 12:42:56.187831', '2018-09-04 12:42:56.187831', 1, 4),
 (4, '7878787878', 'male', 'image/employee/profile/Lighthouse_ib8zONz.jpg', 'Allahabad', '2018-09-04 12:43:44.255316', '2018-09-04 12:43:44.255316', 1, 5),
 (5, '7878787878', 'male', 'image/employee/profile/Lighthouse_CVt4317.jpg', 'Allahabad', '2018-09-04 12:44:51.538635', '2018-09-04 12:44:51.538635', 1, 6),
-(6, '7878787878', 'male', 'image/employee/profile/Lighthouse_B8mlzkg.jpg', 'Kandivali', '2018-09-04 12:45:45.469342', '2018-09-04 12:45:45.469342', 1, 7);
+(6, '7878787878', 'male', 'image/employee/profile/Lighthouse_B8mlzkg.jpg', 'Kandivali', '2018-09-04 12:45:45.469342', '2018-09-04 12:45:45.469342', 1, 7),
+(7, '7878787878', 'male', 'image/employee/profile/Chrysanthemum_IB3nBpS.jpg', 'NSP', '2018-10-04 09:17:32.070498', '2018-10-04 09:17:32.070498', 7, 8),
+(8, '7878787878', 'male', 'image/employee/profile/Desert_KgkLFU0.jpg', 'dd', '2018-10-05 08:39:47.664057', '2018-10-05 08:39:47.664057', NULL, 31),
+(9, '7878787878', 'male', 'image/employee/profile/Hydrangeas_F9QHO2V.jpg', 'r', '2018-10-05 08:40:39.398175', '2018-10-05 08:40:39.398175', NULL, 29);
 
 -- --------------------------------------------------------
 
@@ -1054,8 +1244,8 @@ INSERT INTO `employee_employee` (`id`, `mobile`, `gender`, `photo`, `address`, `
 
 CREATE TABLE `employee_employeebranch` (
   `id` int(11) NOT NULL,
-  `created_at` datetime(6) NOT NULL,
-  `updated_at` datetime(6) NOT NULL,
+  `created_at` datetime(6) DEFAULT NULL,
+  `updated_at` datetime(6) DEFAULT NULL,
   `branch_id` int(11) NOT NULL,
   `user_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -1070,7 +1260,11 @@ INSERT INTO `employee_employeebranch` (`id`, `created_at`, `updated_at`, `branch
 (3, '2018-09-04 12:42:56.188831', '2018-09-10 05:34:53.046511', 2, 4),
 (4, '2018-09-04 12:43:44.316320', '2018-09-10 04:53:20.286982', 1, 5),
 (5, '2018-09-04 12:44:51.539635', '2018-09-10 04:53:26.743627', 1, 6),
-(6, '2018-09-04 12:45:45.542347', '2018-09-10 04:53:13.360724', 2, 7);
+(6, '2018-09-04 12:45:45.542347', '2018-09-10 04:53:13.360724', 2, 7),
+(7, '2018-10-04 09:17:32.071498', '2018-10-04 09:17:32.071498', 1, 8),
+(8, '2018-10-05 08:39:47.669057', '2018-10-05 08:39:47.669057', 1, 31),
+(9, '2018-10-05 08:40:39.406175', '2018-10-05 08:40:39.406175', 1, 29),
+(10, '2018-10-05 11:13:42.879806', '2018-10-05 11:13:42.879806', 1, 33);
 
 -- --------------------------------------------------------
 
@@ -1630,6 +1824,20 @@ ALTER TABLE `branch_branch`
   ADD KEY `branch_branch_region_id_bf1732fb_fk_region_region_id` (`region_id`);
 
 --
+-- Indexes for table `companies_companies`
+--
+ALTER TABLE `companies_companies`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `companies_companiesusers`
+--
+ALTER TABLE `companies_companiesusers`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `user_id` (`user_id`),
+  ADD KEY `companies_companiesu_company_id_073fb8e3_fk_companies` (`company_id`);
+
+--
 -- Indexes for table `country_country`
 --
 ALTER TABLE `country_country`
@@ -1882,25 +2090,25 @@ ALTER TABLE `auth_group`
 -- AUTO_INCREMENT for table `auth_group_permissions`
 --
 ALTER TABLE `auth_group_permissions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=349;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=394;
 
 --
 -- AUTO_INCREMENT for table `auth_permission`
 --
 ALTER TABLE `auth_permission`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=139;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=145;
 
 --
 -- AUTO_INCREMENT for table `auth_user`
 --
 ALTER TABLE `auth_user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT for table `auth_user_groups`
 --
 ALTER TABLE `auth_user_groups`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `auth_user_user_permissions`
@@ -1915,6 +2123,18 @@ ALTER TABLE `branch_branch`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT for table `companies_companies`
+--
+ALTER TABLE `companies_companies`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT for table `companies_companiesusers`
+--
+ALTER TABLE `companies_companiesusers`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
 -- AUTO_INCREMENT for table `country_country`
 --
 ALTER TABLE `country_country`
@@ -1924,31 +2144,31 @@ ALTER TABLE `country_country`
 -- AUTO_INCREMENT for table `django_admin_log`
 --
 ALTER TABLE `django_admin_log`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=83;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=127;
 
 --
 -- AUTO_INCREMENT for table `django_content_type`
 --
 ALTER TABLE `django_content_type`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT for table `django_migrations`
 --
 ALTER TABLE `django_migrations`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
 
 --
 -- AUTO_INCREMENT for table `employee_employee`
 --
 ALTER TABLE `employee_employee`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `employee_employeebranch`
 --
 ALTER TABLE `employee_employeebranch`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `employee_employeemedia`
@@ -2154,6 +2374,13 @@ ALTER TABLE `auth_user_user_permissions`
 --
 ALTER TABLE `branch_branch`
   ADD CONSTRAINT `branch_branch_region_id_bf1732fb_fk_region_region_id` FOREIGN KEY (`region_id`) REFERENCES `region_region` (`id`);
+
+--
+-- Constraints for table `companies_companiesusers`
+--
+ALTER TABLE `companies_companiesusers`
+  ADD CONSTRAINT `companies_companiesu_company_id_073fb8e3_fk_companies` FOREIGN KEY (`company_id`) REFERENCES `companies_companies` (`id`),
+  ADD CONSTRAINT `companies_companiesusers_user_id_238cc247_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`);
 
 --
 -- Constraints for table `country_country`

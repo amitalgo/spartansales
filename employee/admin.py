@@ -2,6 +2,7 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from .models import Employee, EmployeeBranch, EmployeeReport
 from django.contrib.auth.models import User,Group
+from companies.models import Companies,CompaniesUsers
 
 
 # Changing Groups Name To Role
@@ -12,6 +13,18 @@ from django.contrib.auth.models import Group
 # admin.site.unregister(Group)
 # admin.site.register(Role, GroupAdmin)
 # End
+
+class CompanyInline(admin.TabularInline):
+    model = CompaniesUsers
+    can_delete = False
+    exclude = ['is_admin']
+
+    def formfield_for_foreignkey(self, db_field, request, **kwargs):
+        if db_field.name == 'company':
+            company_id = request.user.companiesusers.company.id
+            kwargs['queryset'] = Companies.objects.filter(pk=company_id)
+
+        return super().formfield_for_foreignkey(db_field, request, **kwargs)
 
 class BranchInline(admin.TabularInline):
     can_delete = False
@@ -30,7 +43,7 @@ class EmployeeInine(admin.StackedInline):
         return super(EmployeeInine, self).get_formset(request, obj, **kwargs)
 
 class CustomUserAdmin(UserAdmin):
-    inlines  = [EmployeeInine, BranchInline ]
+    inlines  = [ BranchInline, CompanyInline, ]
     model = User
 
     list_display = ['first_name','email','get_groups','get_branch',]
@@ -51,17 +64,22 @@ class CustomUserAdmin(UserAdmin):
     get_branch.short_description = 'Branch'
 
 
-    def get_inline_instances(self, request, obj=None):
-        if not obj:
-            return list()
-        return super(CustomUserAdmin, self).get_inline_instances(request, obj)
+    # def get_inline_instances(self, request, obj=None):
+    #     if not obj:
+    #         return list()
+    #     return super(CustomUserAdmin, self).get_inline_instances(request, obj)
+    #
+    # def save_formset(self, request, form, formset, change):
+    #     instances = formset.save(commit=False)
+    #     for instance in instances:
+    #         instance.created_by = request.user
+    #         instance.save()
+    #     formset.save_m2m()
 
-    def save_formset(self, request, form, formset, change):
-        instances = formset.save(commit=False)
-        for instance in instances:
-            instance.created_by = request.user
-            instance.save()
-        formset.save_m2m()
+    def get_queryset(self, request):
+        qs = super(CustomUserAdmin, self).get_queryset(request)
+        company_id = request.user.companiesusers.company.id
+        return qs.filter(is_superadmin=False,companiesusers__company_id=company_id)
 
 admin.site.unregister(User)
 admin.site.register(User, CustomUserAdmin)

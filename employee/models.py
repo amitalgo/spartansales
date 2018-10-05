@@ -3,6 +3,7 @@ from  django.contrib.auth.models import User
 from branch.models import Branch
 from country.models import Country
 from region.models import Region
+from companies.models import Companies
 
 # Changing Groups Name To Role
 from django.contrib.auth.models import Group
@@ -18,6 +19,7 @@ from django.contrib.auth.models import Group
 
 # Adding Extra Field to Group Model
 Group.add_to_class('parent',models.ForeignKey(Group,null=True,blank=True,related_name='children',on_delete=models.SET_NULL))
+User.add_to_class('is_superadmin',models.IntegerField(default=0))
 
 class Employee(models.Model):
     user = models.OneToOneField(User,blank=False,null=True, on_delete=models.CASCADE)
@@ -30,9 +32,9 @@ class Employee(models.Model):
     photo = models.FileField(upload_to='image/employee/profile/')
     address = models.TextField()
     # status = models.IntegerField(default=1, help_text='Active/Inactive', choices=((1, 'Active'), (0, 'Inactive'),))
-    created_by = models.ForeignKey(User, related_name='creator_id', on_delete=models.CASCADE,blank=False,default=None)
-    created_at = models.DateTimeField(auto_now_add=True, blank=True)
-    updated_at = models.DateTimeField(auto_now=True)
+    created_by = models.ForeignKey(User, related_name='creator_id', null=True, on_delete=models.CASCADE,blank=False,default=None)
+    created_at = models.DateTimeField(auto_now_add=True, blank=True, null=True)
+    updated_at = models.DateTimeField(auto_now=True, null=True)
     def __str__(self):
         return self.user.first_name + ' ' + self.user.last_name
     def display_ss(self):
@@ -52,8 +54,8 @@ class EmployeeBranch(models.Model):
     branch = models.ForeignKey(Branch, on_delete=models.CASCADE)
     # employee = models.OneToOneField(Employee, on_delete=models.CASCADE, blank=False, null=True ,default=None)
     user = models.OneToOneField(User, on_delete=models.CASCADE, blank=False,null=True ,default=None)
-    created_at = models.DateTimeField(auto_now_add=True, blank=True)
-    updated_at = models.DateTimeField(auto_now=True)
+    created_at = models.DateTimeField(auto_now_add=True, blank=True, null=True)
+    updated_at = models.DateTimeField(auto_now=True, null=True)
 
     def __str__(self):
        return self.user.first_name+' '+self.user.last_name+' -- '+(','.join([g.name for g in self.user.groups.all()]) if self.user.groups.count() else 'Admin')
