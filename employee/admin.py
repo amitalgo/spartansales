@@ -43,10 +43,15 @@ class EmployeeInine(admin.StackedInline):
         return super(EmployeeInine, self).get_formset(request, obj, **kwargs)
 
 class CustomUserAdmin(UserAdmin):
-    inlines  = [ BranchInline, CompanyInline, ]
+    inlines  = [  EmployeeInine  ,BranchInline,CompanyInline, ]
     model = User
 
-    list_display = ['first_name','email','get_groups','get_branch',]
+    list_display = ['first_name','email','get_groups','get_branch','get_company',]
+
+    def get_company(self, obj):
+        return obj.companiesusers.company.company_name
+
+    get_company.short_description = 'Company'
 
     # Displaying Group Name in Display List
     def get_groups(self, obj):

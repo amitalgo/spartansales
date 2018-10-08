@@ -10,10 +10,12 @@ from region.models import Region
 from product.models import Product, ProductDepartment
 from employee.models import Employee
 from smart_selects.db_fields import ChainedForeignKey
+from companies.models import Companies
 
 # Create your models here.
 class LeadSource(models.Model):
     source_name = models.CharField(max_length=250)
+    company = models.ForeignKey(Companies, null=True, blank=False, on_delete=models.CASCADE)
     status = models.IntegerField(default=1, help_text='Active/Inactive', choices=((1, 'Active'), (0, 'Inactive'),))
     created_at = models.DateTimeField(auto_now_add=True, blank=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -22,6 +24,7 @@ class LeadSource(models.Model):
 
 class Department(models.Model):
     department = models.CharField(max_length=250)
+    company = models.ForeignKey(Companies, null=True, blank=False, on_delete=models.CASCADE)
     status = models.IntegerField(default=1, help_text='Active/Inactive', choices=((1, 'Active'), (0, 'Inactive'),))
     created_at = models.DateTimeField(auto_now_add=True, blank=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -32,6 +35,7 @@ class LeadStatusType(models.Model):
     status_type = models.CharField(max_length=250)
     status = models.IntegerField(default=1, help_text='Active/Inactive', choices=((1, 'Active'), (0, 'Inactive'),))
     isEditable = models.BooleanField(default=1)
+    company = models.ForeignKey(Companies, null=True, blank=False, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True, blank=True)
     updated_at = models.DateTimeField(auto_now=True)
     def __str__(self):
@@ -51,6 +55,7 @@ class OrganizationDetails(models.Model):
     address = models.TextField(null=True)
     website = models.CharField(max_length=500, null=True)
     description = models.TextField(null=True)
+    company = models.ForeignKey(Companies, null=True, blank=False, on_delete=models.CASCADE)
     status = models.IntegerField(default=1, help_text='Active/Inactive', choices=((1, 'Active'), (0, 'Inactive'),))
     created_at = models.DateTimeField(auto_now_add=True, blank=True)
     updated_at = models.DateTimeField(auto_now=True)

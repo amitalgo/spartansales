@@ -6,21 +6,52 @@ from branch.models import Branch
 from leads.forms import LeadDetailsForm
 from django.contrib.auth.models import Group, User
 from django.utils.html import format_html
+from companies.models import Companies
 
 class LeadSourceAdmin(admin.ModelAdmin):
     list_display = ['source_name','status',]
 
+    # To Store Company Record
+    def save_model(self, request, obj, form, change):
+        obj.company = request.user.companiesusers.company
+        super().save_model(request, obj, form, change)
+
+    def save_formset(self, request, form, formset, change):
+        instances = formset.save(commit=False)
+        for instance in instances:
+            instance.company = request.user.companiesusers.company
+            instance.save()
+        form.save_m2m()
+
     def get_form(self, request, obj=None, **kwargs):
         if obj:
-            kwargs['exclude'] = ['']
+            kwargs['exclude'] = ['company',]
         else:
-            kwargs['exclude'] = ['status', ]
+            kwargs['exclude'] = ['status','company', ]
         return super(LeadSourceAdmin, self).get_form(request, obj, **kwargs)
+
+    # Filter List by User Company Id
+    def get_queryset(self, request):
+        qs = super(LeadSourceAdmin, self).get_queryset(request)
+        company_id = request.user.companiesusers.company.id
+        return qs.filter(company_id=company_id)
 
 class LeadStatusTypeAdmin(admin.ModelAdmin):
     list_display = ['get_status_type','status',]
     list_display_links = None
     editable_objs = [1,]
+
+    # To Store Company Id Record
+    def save_model(self, request, obj, form, change):
+        obj.company = request.user.companiesusers.company
+        super().save_model(request, obj, form, change)
+
+    def save_formset(self, request, form, formset, change):
+        instances = formset.save(commit=False)
+        for instance in instances:
+            instance.company = request.user.companiesusers.company
+            instance.save()
+        form.save_m2m()
 
     # Make Some field not editable where is_editable=0
     def get_status_type(self,obj):        
@@ -57,15 +88,21 @@ class LeadStatusTypeAdmin(admin.ModelAdmin):
 
     def get_form(self, request, obj=None, **kwargs):
         if obj:
-            kwargs['exclude'] = ['isEditable',]
+            kwargs['exclude'] = ['isEditable','company',]
         else:
-            kwargs['exclude'] = ['status','isEditable',]
+            kwargs['exclude'] = ['status','isEditable','company',]
         return super(LeadStatusTypeAdmin, self).get_form(request, obj, **kwargs)
+
+    # Filter List by User Company Id
+    def get_queryset(self, request):
+        qs = super(LeadStatusTypeAdmin, self).get_queryset(request)
+        company_id = request.user.companiesusers.company.id
+        return qs.filter(company_id=company_id)
 
 class LeadStatusAdmin(admin.ModelAdmin):
 
     list_display = ['assignedLead','get_meeting_date','get_organization_name','get_contact_name','get_contact_mobile','get_department','description','remarks','lead_status','get_created_at',]
-    list_filter = ('lead_status','assignedLead__lead__department',)
+    # list_filter = ('lead_status','assignedLead__lead__department',)
 
     def get_meeting_date(self,obj):
         return obj.assignedLead.lead.meeting_date
@@ -109,49 +146,53 @@ class LeadStatusAdmin(admin.ModelAdmin):
            return qs.filter()
        else:
            employee_id = Employee.objects.get(user=request.user)
-           return qs.filter(assignedLead__assignTo=employee_id,assignedLead__status=1)
+           company_id = request.user.companiesusers.company.id
+           return qs.filter(assignedLead__assignTo=employee_id,assignedLead__status=1,assignedLead__lead__organisation__company=company_id)
 
-
-# class OrganizationLeadInline(admin.TabularInline):
-#     can_delete = False
-#     model = OrganizationLeadDetails
-#     fk_name = 'organisation_id'
-#
-#     def get_formset(self, request, obj=None, **kwargs):
-#         if obj:
-#             kwargs['exclude'] = [ 'created_by' ,]
-#         else:
-#             kwargs['exclude'] = ['status' ,]
-#         return super(OrganizationLeadInline, self).get_formset(request, obj, **kwargs)
-
-
-# class LeadDetailsAdmin(admin.ModelAdmin):
-#     can_delete = False
-#     list_display = ['first_name',]
-#     inlines = [
-#         OrganizationLeadInline
-#     ]
-#
-#     def get_form(self, request, obj=None, **kwargs):
-#         if obj:
-#             kwargs['exclude'] = ['']
-#         else:
-#             kwargs['exclude'] = ['status', ]
-#         return super(LeadDetailsAdmin, self).get_form(request, obj, **kwargs)
+    # Filter Foreign Key Value
+    def formfield_for_foreignkey(self, db_field, request, **kwargs):
+       company_id = request.user.companiesusers.company.id
+       if db_field.name == 'assignedLead':
+           kwargs['queryset'] = AssignLeads.objects.filter(lead__organisation__company=company_id)
+       return super().formfield_for_foreignkey(db_field, request, **kwargs)
 
 class DepartmentAdmin(admin.ModelAdmin):
     list_display = ('department', 'status',)
+
+    # To Store Company Records
+    def save_model(self, request, obj, form, change):
+        obj.company = request.user.companiesusers.company
+        super().save_model(request, obj, form, change)
+
+    def save_formset(self, request, form, formset, change):
+        instances = formset.save(commit=False)
+        for instance in instances:
+            instance.company = request.user.companiesusers.company
+            instance.save()
+        form.save_m2m()
+
+    # Filter List by User Company Id
+    def get_queryset(self, request):
+        qs = super(DepartmentAdmin, self).get_queryset(request)
+        company_id = request.user.companiesusers.company.id
+        return qs.filter(company_id=company_id)
+
     def get_form(self, request, obj=None, **kwargs):
         if obj:
-            kwargs['exclude'] = ['']
+            kwargs['exclude'] = ['company',]
         else:
-            kwargs['exclude'] = ['status', ]
+            kwargs['exclude'] = ['status', 'company',]
         return super(DepartmentAdmin, self).get_form(request, obj, **kwargs)
 
 
 class OrganizationLeadDetailsAdmin(admin.ModelAdmin):
-    list_display = ['contact_person','mobile','organisation','department','lead_source','description','status']
+    list_display = ['lead_title','contact_person','mobile','organisation','department','lead_source','description','get_branch','status']
     # form = LeadDetailsForm
+
+    # fetch branch of lead
+    def get_branch(self,obj):
+        return obj.branch.branch_name
+    get_branch.short_description="Branch"
 
     # Fetch Lead BranchWise which is assigned to User
     def fetchBranch(self,request):
@@ -165,10 +206,48 @@ class OrganizationLeadDetailsAdmin(admin.ModelAdmin):
         if not request.user.is_superuser:
             return qs.filter(branch_id=self.fetchBranch(request))
         else:
-            return qs.filter()
+            company_id = request.user.companiesusers.company.id
+            return qs.filter(organisation__company_id=company_id)
+
+    # Filter Foreign Key Value
+    def formfield_for_foreignkey(self, db_field, request, **kwargs):
+        company_id = request.user.companiesusers.company.id
+        if db_field.name == 'organisation':
+            kwargs['queryset'] = OrganizationDetails.objects.filter(company_id=company_id)
+        if db_field.name == 'department':
+            kwargs['queryset'] = Department.objects.filter(company_id=company_id)
+        if db_field.name == 'branch':
+            kwargs['queryset'] = Branch.objects.filter(region__company_id=company_id)
+
+        return super().formfield_for_foreignkey(db_field, request, **kwargs)
 
 class OrganizationDetailsAdmin(admin.ModelAdmin):
     list_display = ['first_name','last_name','organisation_name','email','website','address']
+
+    # To Store Company Record
+    def save_model(self, request, obj, form, change):
+        obj.company = request.user.companiesusers.company
+        super().save_model(request, obj, form, change)
+
+    def save_formset(self, request, form, formset, change):
+        instances = formset.save(commit=False)
+        for instance in instances:
+            instance.company = request.user.companiesusers.company
+            instance.save()
+        form.save_m2m()
+
+    def get_form(self, request, obj=None, **kwargs):
+        if obj:
+            kwargs['exclude'] = ['company',]
+        else:
+            kwargs['exclude'] = ['status','company',]
+        return super(OrganizationDetailsAdmin, self).get_form(request, obj, **kwargs)
+
+    # Filter List by User Company Id
+    def get_queryset(self, request):
+        qs = super(OrganizationDetailsAdmin, self).get_queryset(request)
+        company_id = request.user.companiesusers.company.id
+        return qs.filter(company_id=company_id)
 
 class AssignLeadsAdmin(admin.ModelAdmin):
     model = AssignLeads
@@ -259,23 +338,30 @@ class AssignLeadsAdmin(admin.ModelAdmin):
 
     # Filter Foreign Key Value
     def formfield_for_foreignkey(self, db_field, request, **kwargs):
+        company_id = request.user.companiesusers.company.id
         if db_field.name == 'lead':
             # Condition to check is logged in User is Admin or
             if request.user.is_superuser:
-                pass
+                kwargs['queryset'] = OrganizationLeadDetails.objects.filter(organisation__company_id=company_id)
             else:
-                kwargs['queryset'] = OrganizationLeadDetails.objects.filter(branch_id=self.fetchBranch(request))
+                kwargs['queryset'] = OrganizationLeadDetails.objects.filter(organisation__company_id=company_id,branch_id=self.fetchBranch(request))
 
         if db_field.name == 'assignTo':
             if request.user.is_superuser:
-                pass
+                kwargs['queryset'] = Employee.objects.filter(~Q(user_id = request.user),user__companiesusers__company=company_id)
             else:
                 childObj = False
                 childrenarr =[]
-                # kwargs['queryset'] =  Employee.objects.filter(~Q(user_id = request.user),employeebranch__branch_id=self.fetchBranch(request),user_id__in = self.getChildren(request,childObj,childrenarr))
-                kwargs['queryset'] = Employee.objects.filter(~Q(user_id=request.user),user_id__in = self.getChildren(request,childObj,childrenarr))
+                # kwargs['queryset'] =  Employee.objects.filter(~Q(user_id = request.user),user__companiesusers__company=company_id,employeebranch__branch_id=self.fetchBranch(request),user_id__in = self.getChildren(request,childObj,childrenarr))
+                kwargs['queryset'] = Employee.objects.filter(~Q(user_id=request.user),user__companiesusers__company=company_id,user_id__in = self.getChildren(request,childObj,childrenarr))
                    
         return super().formfield_for_foreignkey(db_field, request, **kwargs)
+
+    # Filter List by User Company Id
+    def get_queryset(self, request):
+        qs = super(AssignLeadsAdmin, self).get_queryset(request)
+        company_id = request.user.companiesusers.company.id
+        return qs.filter(lead__organisation__company_id=company_id)
 
 admin.site.register(OrganizationLeadDetails,OrganizationLeadDetailsAdmin)
 admin.site.register(OrganizationDetails,OrganizationDetailsAdmin)   

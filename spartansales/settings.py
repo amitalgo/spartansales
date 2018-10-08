@@ -52,7 +52,6 @@ INSTALLED_APPS = [
     'leads',
     'product',
     'region',
-    'role',
     'report',
     'companies',
     'django.contrib.admin',

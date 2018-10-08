@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 05, 2018 at 02:47 PM
+-- Generation Time: Oct 08, 2018 at 03:24 PM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.1
 
@@ -714,24 +714,18 @@ CREATE TABLE `auth_user` (
 --
 
 INSERT INTO `auth_user` (`id`, `password`, `last_login`, `is_superuser`, `username`, `first_name`, `last_name`, `email`, `is_staff`, `is_active`, `date_joined`, `is_superadmin`) VALUES
-(1, 'pbkdf2_sha256$36000$JaKRg6BKEHml$KhtzmD8N2N490Gi22Nr9Bv9HT1SH3YBT9wqv6EIp31w=', '2018-10-05 06:57:15.580585', 1, 'admin', 'Admin', 'Admin', 'admin@admin.com', 1, 1, '2018-09-04 11:48:56.000000', 0),
-(2, 'pbkdf2_sha256$36000$K1gSkrDUUD8k$YwUWO0yMdy/wHmZhWIpuz/vbHECvn8sHz+Pnj5YvAgo=', '2018-10-05 06:57:41.284795', 0, 'aditya', 'Aditya', 'Rao', 'aditya@technople.in', 1, 1, '2018-09-04 12:35:31.000000', 0),
-(3, 'pbkdf2_sha256$36000$MNebyHGimwxx$dHzMjcz1FBiyS21ZRRMdM6rG7VsfXO5jZqtnQZOYMuk=', '2018-09-19 13:05:46.718927', 0, 'Asim', 'Asim', 'Sagir', 'asim@technople.in', 1, 1, '2018-09-04 12:41:17.000000', 0),
-(4, 'pbkdf2_sha256$36000$WUHtJILzLqWv$WPRpEtKpeg+0lTuieFT02NvFvBGwFGpPtuWcsU2yb9Q=', '2018-09-14 04:11:27.232496', 0, 'amit', 'Amit', 'Chaurasia', 'amitc@technople.in', 1, 1, '2018-09-04 12:42:12.000000', 0),
+(2, 'pbkdf2_sha256$36000$K1gSkrDUUD8k$YwUWO0yMdy/wHmZhWIpuz/vbHECvn8sHz+Pnj5YvAgo=', '2018-10-08 12:00:03.370837', 0, 'aditya', 'Aditya', 'Rao', 'aditya@technople.in', 1, 1, '2018-09-04 12:35:31.000000', 0),
+(3, 'pbkdf2_sha256$36000$MNebyHGimwxx$dHzMjcz1FBiyS21ZRRMdM6rG7VsfXO5jZqtnQZOYMuk=', '2018-09-19 13:05:46.000000', 0, 'Asim', 'Asim', 'Sagir', 'asim@technople.in', 1, 1, '2018-09-04 12:41:17.000000', 0),
+(4, 'pbkdf2_sha256$36000$WUHtJILzLqWv$WPRpEtKpeg+0lTuieFT02NvFvBGwFGpPtuWcsU2yb9Q=', '2018-09-14 04:11:27.000000', 0, 'amit', 'Amit', 'Chaurasia', 'amitc@technople.in', 1, 1, '2018-09-04 12:42:12.000000', 0),
 (5, 'pbkdf2_sha256$36000$knDkqj0tkOaW$bfV4+iv4UTz35yxzJDEhAFruHJ0BRjJ4n3Vw8OKqpzA=', NULL, 0, 'Ram', 'Ram', 'Sir', 'ram@technople.in', 1, 1, '2018-09-04 12:43:14.000000', 0),
-(6, 'pbkdf2_sha256$36000$eWEvNGw2zLgn$rWdmnT+RbjuzHbLlh1pIrpCuukL75hh7jcmhQKfXvIA=', '2018-09-17 05:28:54.804525', 0, 'yogendra', 'Yogendra', 'Sir', 'yogendra@technople.in', 1, 1, '2018-09-04 12:44:14.000000', 0),
-(7, 'pbkdf2_sha256$36000$2OhfKhIaPg3y$J/HpXnrFu7Gh7Kk0YqsBZdYgIykKMoG3MvADerdHY0E=', '2018-10-05 04:11:31.000377', 0, 'gawde', 'Pandurang', 'Gawde', 'gawde@technople.in', 1, 1, '2018-09-04 12:45:11.000000', 0),
+(6, 'pbkdf2_sha256$36000$eWEvNGw2zLgn$rWdmnT+RbjuzHbLlh1pIrpCuukL75hh7jcmhQKfXvIA=', '2018-09-17 05:28:54.000000', 0, 'yogendra', 'Yogendra', 'Sir', 'yogendra@technople.in', 1, 1, '2018-09-04 12:44:14.000000', 0),
+(7, 'pbkdf2_sha256$36000$2OhfKhIaPg3y$J/HpXnrFu7Gh7Kk0YqsBZdYgIykKMoG3MvADerdHY0E=', '2018-10-08 12:00:51.950493', 0, 'gawde', 'Pandurang', 'Gawde', 'gawde@technople.in', 1, 1, '2018-09-04 12:45:11.000000', 0),
 (8, 'pbkdf2_sha256$36000$a54XRjpiNRGV$wWOXguIvcDWzX2U9J1HB7eHQfd67MiGcztZ9ZB4f/WI=', NULL, 0, 'sachin', 'Sachin', '', 'sachin@technople.in', 1, 1, '2018-10-04 09:16:57.000000', 0),
-(10, '', '2018-10-05 04:16:47.000000', 1, 'super', 'super', '', '', 1, 1, '2018-10-04 10:45:27.000000', 1),
-(21, 'pbkdf2_sha256$36000$OVoz4Wd55Kfq$67E0/u1nbCPGJ7qNGiWdyGuR7FFDju4CdKbX+woZfYA=', '2018-10-05 08:49:30.324002', 1, 'parag', 'Parag', 'Ved', 'parag@technople.com', 1, 1, '2018-10-05 06:02:34.000000', 0),
+(21, 'pbkdf2_sha256$36000$OVoz4Wd55Kfq$67E0/u1nbCPGJ7qNGiWdyGuR7FFDju4CdKbX+woZfYA=', '2018-10-08 11:47:28.354421', 1, 'parag', 'Parag', 'Ved', 'parag@technople.com', 1, 1, '2018-10-05 06:02:34.000000', 0),
 (22, 'pbkdf2_sha256$36000$yBXTmjEyAqwk$4365zBfVHCSQDFKOKJfFnEmTgFbJqynqPMyys0h8P+0=', NULL, 1, 'hemant', 'Hemant', 'Shash', 'hemant@gmail.com', 1, 1, '2018-10-05 06:19:10.000000', 0),
-(23, '', '2018-10-05 10:47:19.912676', 1, 'superadmin', '', '', '', 1, 1, '2018-10-05 06:21:38.932192', 1),
-(29, 'pbkdf2_sha256$36000$vMYM5pLI4xtx$0DwH10ove2rYJ+EzLgbQz4NwyUm0/wFRIH/HQf2zGHo=', '2018-10-05 08:50:11.921735', 0, 'paraguser1', 'paraguser1', 'yy', 'paraguser1@gmail.com', 1, 1, '2018-10-05 08:32:26.000000', 0),
-(31, 'pbkdf2_sha256$36000$2hISNj3zWSMS$WIekDYUV5jK1RDwJb2hG/GQLP8DjmeXX4iUa9QflnKM=', '2018-10-05 08:46:56.872883', 0, 'paraguser2', 'paraguser2', 'parag', 'parag@technople.com', 1, 1, '2018-10-05 08:39:47.000000', 0),
-(32, 'pbkdf2_sha256$36000$RwnESkB62D8J$BnkiC+k7aorZPvf1ApNZz6PGLVf6n1KlBZdIgE252xw=', '2018-10-05 11:13:02.790065', 1, 'Shashi', 'Shashi', 'Maurya', 'shashi@gmail.com', 1, 1, '2018-10-05 11:11:57.000000', 0),
-(33, 'pbkdf2_sha256$36000$TZPIFw8GA73S$FdlyLKFCHBywGKnnMJ+z5Lc8gNJ2ntOMaxrk8ZFvVec=', NULL, 0, 'shashiuser1', 'shashiuser1', 'm', 'shashiuser1@gmail.com', 1, 1, '2018-10-05 11:13:42.000000', 0),
-(34, 'pbkdf2_sha256$36000$bVIpQDTBChpA$Bq/SJAtKuwnjHxSDuCHsFVWXEA/VyvKwldPC3QlN5kA=', NULL, 0, 'ranjit', '', '', '', 0, 1, '2018-10-05 12:02:50.128348', 0),
-(35, 'pbkdf2_sha256$36000$uieiCGrASE5q$sDxAzaMynkEVGz51FPvjpNS/xQZnQWZ42VXRYvdHF1Y=', '2018-10-05 12:08:33.749820', 1, 'yash', 'Yeash', 'ii', 'yogendra@technople.in', 1, 1, '2018-10-05 12:07:53.000000', 0);
+(23, '', '2018-10-08 05:34:06.506469', 1, 'superadmin', '', '', '', 1, 1, '2018-10-05 06:21:38.932192', 1),
+(32, 'pbkdf2_sha256$36000$RwnESkB62D8J$BnkiC+k7aorZPvf1ApNZz6PGLVf6n1KlBZdIgE252xw=', '2018-10-08 09:19:21.462319', 1, 'Shashi', 'Shashi', 'Maurya', 'shashi@gmail.com', 1, 1, '2018-10-05 11:11:57.000000', 0),
+(33, 'pbkdf2_sha256$36000$TZPIFw8GA73S$FdlyLKFCHBywGKnnMJ+z5Lc8gNJ2ntOMaxrk8ZFvVec=', NULL, 0, 'shashiuser1', 'shashiuser1', 'm', 'shashiuser1@gmail.com', 1, 1, '2018-10-05 11:13:42.000000', 0);
 
 -- --------------------------------------------------------
 
@@ -757,8 +751,6 @@ INSERT INTO `auth_user_groups` (`id`, `user_id`, `group_id`) VALUES
 (5, 6, 3),
 (6, 7, 3),
 (7, 8, 3),
-(8, 29, 2),
-(9, 31, 3),
 (10, 33, 2);
 
 -- --------------------------------------------------------
@@ -794,8 +786,8 @@ CREATE TABLE `branch_branch` (
 --
 
 INSERT INTO `branch_branch` (`id`, `branch_name`, `branch_address`, `status`, `created_at`, `updated_at`, `region_id`) VALUES
-(1, 'Allahabad', 'Civil Lines', 1, '2018-09-04 11:50:27.732857', '2018-09-04 11:50:27.732857', 1),
-(2, 'Kandivali', 'Station Road', 1, '2018-09-04 11:50:50.012167', '2018-09-04 11:50:50.012167', 2);
+(3, 'Allahabad', 'Civil Lines', 1, '2018-10-08 06:58:58.905122', '2018-10-08 06:58:58.905122', 3),
+(4, 'Kandivali', 'Bajaj road', 1, '2018-10-08 06:59:10.191374', '2018-10-08 06:59:10.191374', 4);
 
 -- --------------------------------------------------------
 
@@ -842,12 +834,15 @@ CREATE TABLE `companies_companiesusers` (
 INSERT INTO `companies_companiesusers` (`id`, `created_at`, `updated_at`, `company_id`, `user_id`, `is_admin`) VALUES
 (1, '2018-10-05 06:02:34.575640', '2018-10-05 06:02:34.575640', 10, 21, 1),
 (2, '2018-10-05 06:19:10.167463', '2018-10-05 06:19:10.167463', 11, 22, 1),
-(4, '2018-10-05 08:32:26.890868', '2018-10-05 08:32:26.890868', 10, 29, 0),
-(5, '2018-10-05 08:39:47.763062', '2018-10-05 08:39:47.763062', 10, 31, 0),
 (6, '2018-10-05 11:11:57.399011', '2018-10-05 11:11:57.399011', 12, 32, 1),
 (7, '2018-10-05 11:13:42.971812', '2018-10-05 11:13:42.971812', 12, 33, 0),
-(8, '2018-10-05 12:02:50.214952', '2018-10-05 12:02:50.214952', 13, 34, 1),
-(9, '2018-10-05 12:07:53.550348', '2018-10-05 12:07:53.550348', 13, 35, 1);
+(10, '2018-10-08 05:51:53.726696', '2018-10-08 05:51:53.726696', 10, 2, 0),
+(11, '2018-10-08 05:52:01.646235', '2018-10-08 05:52:01.646235', 10, 4, 0),
+(12, '2018-10-08 05:52:09.818327', '2018-10-08 05:52:09.818327', 10, 3, 0),
+(13, '2018-10-08 05:52:18.018183', '2018-10-08 05:52:18.018183', 10, 7, 0),
+(14, '2018-10-08 05:52:25.223620', '2018-10-08 05:52:25.223620', 10, 5, 0),
+(15, '2018-10-08 05:52:33.680685', '2018-10-08 05:52:33.680685', 10, 8, 0),
+(16, '2018-10-08 05:53:38.383577', '2018-10-08 05:53:38.384577', 10, 6, 0);
 
 -- --------------------------------------------------------
 
@@ -869,7 +864,7 @@ CREATE TABLE `country_country` (
 --
 
 INSERT INTO `country_country` (`id`, `country_name`, `status`, `created_at`, `updated_at`, `created_by_id`) VALUES
-(1, 'India', 1, '2018-09-04 11:50:04.705978', '2018-09-04 11:50:04.705978', 1);
+(2, 'India', 1, '2018-10-08 06:09:01.012881', '2018-10-08 06:09:01.012881', 23);
 
 -- --------------------------------------------------------
 
@@ -893,55 +888,12 @@ CREATE TABLE `django_admin_log` (
 --
 
 INSERT INTO `django_admin_log` (`id`, `action_time`, `object_id`, `object_repr`, `action_flag`, `change_message`, `content_type_id`, `user_id`) VALUES
-(1, '2018-09-04 11:50:04.754981', '1', 'India', 1, '[{\"added\": {}}, {\"added\": {\"name\": \"region\", \"object\": \"UP\"}}, {\"added\": {\"name\": \"region\", \"object\": \"Mumbai\"}}]', 5, 1),
-(2, '2018-09-04 11:50:27.752858', '1', 'Allahabad', 1, '[{\"added\": {}}]', 4, 1),
-(3, '2018-09-04 11:50:50.032168', '2', 'Kandivali', 1, '[{\"added\": {}}]', 4, 1),
-(4, '2018-09-04 11:52:27.568063', '1', 'Sales', 1, '[{\"added\": {}}]', 13, 1),
-(5, '2018-09-04 11:52:34.058438', '2', 'AMC', 1, '[{\"added\": {}}]', 13, 1),
-(6, '2018-09-04 11:52:42.992754', '3', 'Service', 1, '[{\"added\": {}}]', 13, 1),
-(7, '2018-09-04 11:52:53.945543', '4', 'Parts', 1, '[{\"added\": {}}]', 13, 1),
-(8, '2018-09-04 12:00:50.220634', '1', 'Pending', 1, '[{\"added\": {}}]', 14, 1),
-(9, '2018-09-04 12:00:58.850415', '2', 'Completed', 1, '[{\"added\": {}}]', 14, 1),
-(10, '2018-09-04 12:01:03.666108', '3', 'Progress', 1, '[{\"added\": {}}]', 14, 1),
-(11, '2018-09-04 12:07:34.205535', '1', 'Newspaper', 1, '[{\"added\": {}}]', 12, 1),
-(12, '2018-09-04 12:07:42.408085', '2', 'Social Network', 1, '[{\"added\": {}}]', 12, 1),
-(13, '2018-09-04 12:09:04.572822', '1', 'SBM52', 1, '[{\"added\": {}}, {\"added\": {\"name\": \"product price\", \"object\": \"ProductPrice object\"}}, {\"added\": {\"name\": \"product department\", \"object\": \"ProductDepartment object\"}}, {\"added\": {\"name\": \"product media\", \"object\": \"SBM52\"}}]', 21, 1),
-(14, '2018-09-04 12:09:29.674160', '2', 'SBM42', 1, '[{\"added\": {}}, {\"added\": {\"name\": \"product price\", \"object\": \"ProductPrice object\"}}, {\"added\": {\"name\": \"product department\", \"object\": \"ProductDepartment object\"}}, {\"added\": {\"name\": \"product media\", \"object\": \"SBM42\"}}]', 21, 1),
-(15, '2018-09-04 12:09:41.461885', '2', 'SBM42', 2, '[{\"changed\": {\"fields\": [\"product_code\"]}}]', 21, 1),
-(16, '2018-09-04 12:11:09.913452', '1', 'Technople', 1, '[{\"added\": {}}]', 15, 1),
-(17, '2018-09-04 12:33:58.305726', '1', 'Purchase of SBM', 1, '[{\"added\": {}}]', 16, 1),
-(18, '2018-09-04 12:34:26.727254', '1', 'Branch Head', 1, '[{\"added\": {}}]', 32, 1),
-(19, '2018-09-04 12:34:35.557534', '2', 'Manager', 1, '[{\"added\": {}}]', 32, 1),
-(20, '2018-09-04 12:34:45.034364', '3', 'Employee', 1, '[{\"added\": {}}]', 32, 1),
-(21, '2018-09-04 12:34:50.669001', '2', 'Manager', 2, '[{\"changed\": {\"fields\": [\"parent\"]}}]', 32, 1),
-(22, '2018-09-04 12:35:31.678026', '2', 'aditya', 1, '[{\"added\": {}}]', 33, 1),
-(23, '2018-09-04 12:38:23.744982', '1', 'admin', 2, '[{\"changed\": {\"fields\": [\"first_name\", \"last_name\"]}}]', 33, 1),
-(24, '2018-09-04 12:41:01.080376', '2', 'aditya', 2, '[{\"changed\": {\"fields\": [\"first_name\", \"last_name\", \"email\", \"is_staff\"]}}, {\"added\": {\"name\": \"employee\", \"object\": \"Aditya Rao\"}}, {\"added\": {\"name\": \"employee branch\", \"object\": \"Aditya Rao -- Manager\"}}]', 33, 1),
-(25, '2018-09-04 12:41:17.584508', '3', 'Asim', 1, '[{\"added\": {}}]', 33, 1),
-(26, '2018-09-04 12:41:53.135214', '3', 'Asim', 2, '[{\"changed\": {\"fields\": [\"first_name\", \"last_name\", \"email\", \"is_staff\"]}}, {\"added\": {\"name\": \"employee\", \"object\": \"Asim Sagir\"}}, {\"added\": {\"name\": \"employee branch\", \"object\": \"Asim Sagir -- Manager\"}}]', 33, 1),
-(27, '2018-09-04 12:42:12.573121', '4', 'amit', 1, '[{\"added\": {}}]', 33, 1),
-(28, '2018-09-04 12:42:56.192831', '4', 'amit', 2, '[{\"changed\": {\"fields\": [\"first_name\", \"last_name\", \"email\", \"is_staff\"]}}, {\"added\": {\"name\": \"employee\", \"object\": \"Amit Chaurasia\"}}, {\"added\": {\"name\": \"employee branch\", \"object\": \"Amit Chaurasia -- Employee\"}}]', 33, 1),
-(29, '2018-09-04 12:43:14.378097', '5', 'Ram', 1, '[{\"added\": {}}]', 33, 1),
-(30, '2018-09-04 12:43:44.561334', '5', 'Ram', 2, '[{\"changed\": {\"fields\": [\"first_name\", \"last_name\", \"email\", \"is_staff\"]}}, {\"added\": {\"name\": \"employee\", \"object\": \"Ram Sir\"}}, {\"added\": {\"name\": \"employee branch\", \"object\": \"Ram Sir -- Employee\"}}]', 33, 1),
-(31, '2018-09-04 12:44:15.048793', '6', 'yogendra', 1, '[{\"added\": {}}]', 33, 1),
-(32, '2018-09-04 12:44:51.543635', '6', 'yogendra', 2, '[{\"changed\": {\"fields\": [\"first_name\", \"last_name\", \"email\", \"is_staff\"]}}, {\"added\": {\"name\": \"employee\", \"object\": \"Yogendra Sir\"}}, {\"added\": {\"name\": \"employee branch\", \"object\": \"Yogendra Sir -- Employee\"}}]', 33, 1),
-(33, '2018-09-04 12:45:11.623337', '7', 'gawde', 1, '[{\"added\": {}}]', 33, 1),
-(34, '2018-09-04 12:45:45.640352', '7', 'gawde', 2, '[{\"changed\": {\"fields\": [\"first_name\", \"last_name\", \"email\", \"is_staff\"]}}, {\"added\": {\"name\": \"employee\", \"object\": \"Pandurang Gawde\"}}, {\"added\": {\"name\": \"employee branch\", \"object\": \"Pandurang Gawde -- Employee\"}}]', 33, 1),
-(35, '2018-09-04 12:46:48.530167', '1', 'Purchase of SBM', 2, '[{\"changed\": {\"fields\": [\"branch\"]}}]', 16, 1),
-(36, '2018-09-04 12:47:39.497064', '2', 'aditya', 2, '[{\"changed\": {\"name\": \"employee branch\", \"object\": \"Aditya Rao -- Manager\", \"fields\": [\"employee\"]}}]', 33, 1),
-(37, '2018-09-04 12:47:46.863920', '4', 'amit', 2, '[{\"changed\": {\"name\": \"employee branch\", \"object\": \"Amit Chaurasia -- Employee\", \"fields\": [\"employee\"]}}]', 33, 1),
-(38, '2018-09-04 12:47:54.557769', '3', 'Asim', 2, '[{\"changed\": {\"name\": \"employee branch\", \"object\": \"Asim Sagir -- Manager\", \"fields\": [\"employee\"]}}]', 33, 1),
-(39, '2018-09-04 12:48:02.299035', '7', 'gawde', 2, '[{\"changed\": {\"name\": \"employee branch\", \"object\": \"Pandurang Gawde -- Employee\", \"fields\": [\"employee\"]}}]', 33, 1),
-(40, '2018-09-04 12:48:12.851547', '5', 'Ram', 2, '[{\"changed\": {\"name\": \"employee branch\", \"object\": \"Ram Sir -- Employee\", \"fields\": [\"employee\"]}}]', 33, 1),
-(41, '2018-09-04 12:48:18.845773', '7', 'gawde', 2, '[]', 33, 1),
-(42, '2018-09-04 12:48:24.464197', '6', 'yogendra', 2, '[{\"changed\": {\"name\": \"employee branch\", \"object\": \"Yogendra Sir -- Employee\", \"fields\": [\"employee\"]}}]', 33, 1),
 (43, '2018-09-04 12:51:20.936175', '1', 'Purchase of SBM', 1, '[{\"added\": {}}]', 17, 3),
 (44, '2018-09-04 12:52:07.622458', '2', 'Purchase of SBM', 2, '[{\"changed\": {\"fields\": [\"assignTo\"]}}]', 17, 3),
 (45, '2018-09-04 12:53:39.613257', '1', '100 INR Business', 1, '[{\"added\": {}}]', 1, 3),
 (46, '2018-09-04 12:54:37.606916', '1', '50 INR Kandivali', 1, '[{\"added\": {}}]', 2, 3),
 (47, '2018-09-04 12:55:26.748048', '2', '50 INR Bussines', 1, '[{\"added\": {}}]', 2, 3),
 (48, '2018-09-04 12:55:37.894952', '2', '50 INR Allahabad', 2, '[{\"changed\": {\"fields\": [\"goal_name\"]}}]', 2, 3),
-(49, '2018-09-05 06:21:47.125528', '1', 'SBM52', 2, '[{\"added\": {\"name\": \"product department\", \"object\": \"SBM52\"}}]', 21, 1),
 (50, '2018-09-06 03:50:31.017485', '1', 'Purchase of SBM', 2, '[{\"changed\": {\"fields\": [\"department\", \"product\"]}}]', 16, 4),
 (51, '2018-09-06 03:50:59.731602', '1', 'Purchase of SBM', 2, '[{\"changed\": {\"fields\": [\"product\"]}}]', 16, 4),
 (52, '2018-09-06 07:34:48.236496', '1', 'Purchase of SBM', 2, '[]', 16, 4),
@@ -978,38 +930,12 @@ INSERT INTO `django_admin_log` (`id`, `action_time`, `object_id`, `object_repr`,
 (83, '2018-10-04 09:16:57.228936', '8', 'sachin', 1, '[{\"added\": {}}]', 33, 7),
 (84, '2018-10-04 09:17:32.075498', '8', 'sachin', 2, '[{\"changed\": {\"fields\": [\"first_name\", \"email\", \"is_staff\"]}}, {\"added\": {\"name\": \"employee\", \"object\": \"Sachin \"}}, {\"added\": {\"name\": \"employee branch\", \"object\": \"Sachin  -- Employee\"}}]', 33, 7),
 (85, '2018-10-04 10:03:47.283527', '3', 'Employee', 2, '[]', 32, 7),
-(86, '2018-10-04 11:59:04.606344', '1', 'admin', 2, '[{\"added\": {\"name\": \"companies\", \"object\": \"Companies object\"}}]', 33, 10),
-(87, '2018-10-04 13:10:32.581114', '1', 'Companies object', 2, '[{\"changed\": {\"fields\": [\"user\"]}}]', 45, 10),
-(88, '2018-10-04 13:14:42.775133', '11', 'admin2', 1, '[{\"added\": {}}]', 33, 10),
-(89, '2018-10-05 04:00:49.015110', '11', 'jeet', 1, '[{\"added\": {}}, {\"added\": {\"name\": \"companies\", \"object\": \"Companies object\"}}]', 33, 10),
-(90, '2018-10-05 04:11:02.535640', '12', 'hitesh', 1, '[{\"added\": {}}, {\"added\": {\"name\": \"companies\", \"object\": \"rr\"}}]', 33, 10),
-(91, '2018-10-05 04:21:26.194252', '13', 'sumeet', 1, '[{\"added\": {}}]', 33, 10),
-(92, '2018-10-05 04:25:43.283476', '14', 'yogi', 1, '[{\"added\": {}}, {\"added\": {\"name\": \"companies\", \"object\": \"Technople\"}}]', 33, 10),
-(93, '2018-10-05 04:27:39.663601', '15', 'ee', 1, '[{\"added\": {}}, {\"added\": {\"name\": \"companies\", \"object\": \"Technople\"}}]', 33, 10),
-(94, '2018-10-05 04:31:30.682221', '16', 'uu', 1, '[{\"added\": {}}, {\"added\": {\"name\": \"companies\", \"object\": \"Spartan\"}}]', 33, 10),
-(95, '2018-10-05 04:35:17.992688', '17', 'ww', 1, '[{\"added\": {}}]', 33, 10),
-(96, '2018-10-05 04:36:15.930465', '17', 'ww', 2, '[{\"changed\": {\"fields\": [\"first_name\", \"email\", \"is_staff\", \"is_superuser\"]}}, {\"added\": {\"name\": \"companies\", \"object\": \"ww\"}}]', 33, 10),
-(97, '2018-10-05 04:37:12.024305', '18', 'ash', 1, '[{\"added\": {}}]', 33, 10),
-(98, '2018-10-05 04:37:48.545714', '18', 'ash', 2, '[{\"changed\": {\"fields\": [\"first_name\", \"last_name\", \"email\", \"is_staff\", \"is_superuser\"]}}, {\"added\": {\"name\": \"companies\", \"object\": \"Spartan\"}}]', 33, 10),
-(99, '2018-10-05 04:47:18.887278', '19', 'eewww', 1, '[{\"added\": {}}]', 33, 10),
-(100, '2018-10-05 05:52:22.430832', '20', 'ii', 1, '[{\"added\": {}}, {\"added\": {\"name\": \"companies\", \"object\": \"ii\"}}]', 33, 10),
-(101, '2018-10-05 05:52:43.170904', '20', 'ii', 2, '[{\"changed\": {\"fields\": [\"first_name\", \"last_name\", \"email\", \"is_staff\", \"is_superuser\"]}}]', 33, 10),
-(102, '2018-10-05 06:02:32.077787', '10', 'Technople', 1, '[{\"added\": {}}]', 45, 10),
-(103, '2018-10-05 06:02:34.596642', '21', 'parag', 1, '[{\"added\": {}}, {\"added\": {\"name\": \"companies users\", \"object\": \"CompaniesUsers object\"}}]', 33, 10),
-(104, '2018-10-05 06:02:54.236164', '21', 'parag', 2, '[{\"changed\": {\"fields\": [\"first_name\", \"last_name\", \"email\", \"is_staff\", \"is_superuser\"]}}]', 33, 10),
-(105, '2018-10-05 06:19:07.206169', '11', 'Evaluworks', 1, '[{\"added\": {}}]', 45, 10),
-(106, '2018-10-05 06:19:10.284470', '22', 'hemant', 1, '[{\"added\": {}}, {\"added\": {\"name\": \"companies users\", \"object\": \"CompaniesUsers object\"}}]', 33, 10),
-(107, '2018-10-05 06:19:37.832767', '22', 'hemant', 2, '[{\"changed\": {\"fields\": [\"first_name\", \"last_name\", \"email\", \"is_staff\", \"is_superuser\"]}}]', 33, 10),
-(108, '2018-10-05 06:37:42.417581', '10', 'super', 2, '[{\"changed\": {\"fields\": [\"first_name\"]}}]', 33, 1),
 (109, '2018-10-05 07:27:21.802270', '24', 'paraguser1', 1, '[{\"added\": {}}]', 33, 21),
 (110, '2018-10-05 08:32:26.958872', '29', 'paraguser1', 1, '[{\"added\": {}}, {\"added\": {\"name\": \"companies users\", \"object\": \"CompaniesUsers object\"}}]', 33, 21),
 (111, '2018-10-05 08:33:35.419961', '29', 'paraguser1', 2, '[{\"changed\": {\"fields\": [\"first_name\", \"last_name\", \"email\", \"is_staff\"]}}]', 33, 21),
 (112, '2018-10-05 08:39:47.764063', '31', 'paraguser2', 1, '[{\"added\": {}}, {\"added\": {\"name\": \"employee\", \"object\": \" \"}}, {\"added\": {\"name\": \"employee branch\", \"object\": \"  -- Admin\"}}, {\"added\": {\"name\": \"companies users\", \"object\": \"CompaniesUsers object\"}}]', 33, 21),
 (113, '2018-10-05 08:40:11.641896', '31', 'paraguser2', 2, '[{\"changed\": {\"fields\": [\"first_name\", \"last_name\", \"email\", \"is_staff\"]}}]', 33, 21),
 (114, '2018-10-05 08:40:39.500181', '29', 'paraguser1', 2, '[{\"added\": {\"name\": \"employee\", \"object\": \"paraguser1 yy\"}}, {\"added\": {\"name\": \"employee branch\", \"object\": \"paraguser1 yy -- Manager\"}}]', 33, 21),
-(115, '2018-10-05 10:29:33.636651', '3', 'Employee', 2, '[]', 32, 29),
-(116, '2018-10-05 10:29:50.758004', '2', 'Manager', 2, '[{\"changed\": {\"fields\": [\"parent\"]}}]', 32, 29),
-(117, '2018-10-05 10:29:56.046272', '3', 'Employee', 2, '[{\"changed\": {\"fields\": [\"parent\"]}}]', 32, 29),
 (118, '2018-10-05 11:11:55.158521', '12', 'Serdia', 1, '[{\"added\": {}}]', 45, 23),
 (119, '2018-10-05 11:11:57.425012', '32', 'Shashi', 1, '[{\"added\": {}}, {\"added\": {\"name\": \"companies users\", \"object\": \"CompaniesUsers object\"}}]', 33, 23),
 (120, '2018-10-05 11:12:14.553930', '32', 'Shashi', 2, '[{\"changed\": {\"fields\": [\"first_name\", \"last_name\", \"email\", \"is_staff\", \"is_superuser\"]}}]', 33, 23),
@@ -1018,7 +944,65 @@ INSERT INTO `django_admin_log` (`id`, `action_time`, `object_id`, `object_repr`,
 (123, '2018-10-05 12:02:48.189478', '13', 'megatech', 1, '[{\"added\": {}}]', 45, 23),
 (124, '2018-10-05 12:02:50.215952', '34', 'ranjit', 1, '[{\"added\": {}}, {\"added\": {\"name\": \"companies users\", \"object\": \"CompaniesUsers object\"}}]', 33, 23),
 (125, '2018-10-05 12:07:53.654353', '35', 'yash', 1, '[{\"added\": {}}, {\"added\": {\"name\": \"companies users\", \"object\": \"CompaniesUsers object\"}}]', 33, 23),
-(126, '2018-10-05 12:08:09.462058', '35', 'yash', 2, '[{\"changed\": {\"fields\": [\"first_name\", \"last_name\", \"email\", \"is_staff\", \"is_superuser\"]}}]', 33, 23);
+(126, '2018-10-05 12:08:09.462058', '35', 'yash', 2, '[{\"changed\": {\"fields\": [\"first_name\", \"last_name\", \"email\", \"is_staff\", \"is_superuser\"]}}]', 33, 23),
+(127, '2018-10-08 05:34:16.579109', '34', 'ranjit', 3, '', 33, 23),
+(128, '2018-10-08 05:34:29.581425', '35', 'yash', 3, '', 33, 23),
+(129, '2018-10-08 05:51:53.731696', '2', 'aditya', 2, '[{\"added\": {\"name\": \"companies users\", \"object\": \"CompaniesUsers object\"}}]', 33, 21),
+(130, '2018-10-08 05:52:01.654235', '4', 'amit', 2, '[{\"added\": {\"name\": \"companies users\", \"object\": \"CompaniesUsers object\"}}]', 33, 21),
+(131, '2018-10-08 05:52:09.837328', '3', 'Asim', 2, '[{\"added\": {\"name\": \"companies users\", \"object\": \"CompaniesUsers object\"}}]', 33, 21),
+(132, '2018-10-08 05:52:18.027184', '7', 'gawde', 2, '[{\"added\": {\"name\": \"companies users\", \"object\": \"CompaniesUsers object\"}}]', 33, 21),
+(133, '2018-10-08 05:52:25.233621', '5', 'Ram', 2, '[{\"added\": {\"name\": \"companies users\", \"object\": \"CompaniesUsers object\"}}]', 33, 21),
+(134, '2018-10-08 05:52:33.692686', '8', 'sachin', 2, '[{\"added\": {\"name\": \"companies users\", \"object\": \"CompaniesUsers object\"}}]', 33, 21),
+(135, '2018-10-08 05:53:16.821669', '10', 'super', 3, '', 33, 21),
+(136, '2018-10-08 05:53:38.388577', '6', 'yogendra', 2, '[{\"added\": {\"name\": \"companies users\", \"object\": \"CompaniesUsers object\"}}]', 33, 21),
+(137, '2018-10-08 05:53:50.215731', '29', 'paraguser1', 3, '', 33, 21),
+(138, '2018-10-08 05:53:58.531382', '31', 'paraguser2', 3, '', 33, 21),
+(139, '2018-10-08 05:55:41.142367', '1', 'admin', 3, '', 33, 21),
+(140, '2018-10-08 06:09:01.025882', '2', 'India', 1, '[{\"added\": {}}]', 5, 23),
+(141, '2018-10-08 06:38:28.623548', '3', 'Uttar Pradesh', 1, '[{\"added\": {}}]', 25, 21),
+(142, '2018-10-08 06:54:25.756542', '4', 'Maharashtra', 1, '[{\"added\": {}}]', 25, 21),
+(143, '2018-10-08 06:58:58.939124', '3', 'Allahabad', 1, '[{\"added\": {}}]', 4, 21),
+(144, '2018-10-08 06:59:10.230975', '4', 'Kandivali', 1, '[{\"added\": {}}]', 4, 21),
+(145, '2018-10-08 08:33:16.592016', '5', 'Gujrat', 1, '[{\"added\": {}}]', 25, 21),
+(146, '2018-10-08 08:41:45.841955', '6', 'Gujrat', 1, '[{\"added\": {}}]', 25, 21),
+(147, '2018-10-08 08:42:09.352194', '7', 'J&K', 1, '[{\"added\": {}}]', 25, 21),
+(148, '2018-10-08 08:45:09.242208', '3', 'Campaign', 1, '[{\"added\": {}}]', 12, 21),
+(149, '2018-10-08 08:46:49.051832', '5', 'test', 1, '[{\"added\": {}}]', 13, 21),
+(150, '2018-10-08 08:47:10.367895', '6', 'Sales', 1, '[{\"added\": {}}]', 13, 32),
+(151, '2018-10-08 08:47:19.343339', '6', 'Sales', 3, '', 13, 32),
+(152, '2018-10-08 08:47:33.172112', '5', 'test', 3, '', 13, 21),
+(153, '2018-10-08 08:52:20.748304', '4', 'Client Not Avaliable', 1, '[{\"added\": {}}]', 14, 21),
+(154, '2018-10-08 08:52:57.489838', '5', 'Not Interested', 1, '[{\"added\": {}}]', 14, 21),
+(155, '2018-10-08 08:56:37.753886', '6', 'hello', 1, '[{\"added\": {}}]', 14, 21),
+(156, '2018-10-08 08:56:57.055467', '6', 'hello', 3, '', 14, 21),
+(157, '2018-10-08 09:05:27.624757', '3', 'Ola', 1, '[{\"added\": {}}]', 15, 21),
+(158, '2018-10-08 09:15:11.115314', '4', 'Purchase of SBM', 1, '[{\"added\": {}}]', 16, 21),
+(159, '2018-10-08 09:23:11.516177', '5', 'Maintenance', 1, '[{\"added\": {}}]', 16, 21),
+(160, '2018-10-08 09:25:35.163857', '2', 'aditya', 2, '[{\"added\": {\"name\": \"employee branch\", \"object\": \"Aditya Rao -- Manager\"}}]', 33, 21),
+(161, '2018-10-08 09:25:43.274764', '4', 'amit', 2, '[{\"added\": {\"name\": \"employee branch\", \"object\": \"Amit Chaurasia -- Employee\"}}]', 33, 21),
+(162, '2018-10-08 09:25:51.075412', '3', 'Asim', 2, '[{\"added\": {\"name\": \"employee branch\", \"object\": \"Asim Sagir -- Manager\"}}]', 33, 21),
+(163, '2018-10-08 09:25:58.648703', '7', 'gawde', 2, '[{\"added\": {\"name\": \"employee branch\", \"object\": \"Pandurang Gawde -- Employee\"}}]', 33, 21),
+(164, '2018-10-08 09:26:12.145025', '5', 'Ram', 2, '[{\"added\": {\"name\": \"employee branch\", \"object\": \"Ram Sir -- Employee\"}}]', 33, 21),
+(165, '2018-10-08 09:26:21.623773', '8', 'sachin', 2, '[{\"added\": {\"name\": \"employee branch\", \"object\": \"Sachin  -- Employee\"}}]', 33, 21),
+(166, '2018-10-08 09:26:31.175306', '6', 'yogendra', 2, '[{\"added\": {\"name\": \"employee branch\", \"object\": \"Yogendra Sir -- Employee\"}}]', 33, 21),
+(167, '2018-10-08 09:27:44.550361', '4', 'Purchase of SBM', 2, '[{\"changed\": {\"fields\": [\"branch\", \"product\"]}}]', 16, 21),
+(168, '2018-10-08 09:37:01.828255', '2', 'aditya', 2, '[]', 33, 21),
+(169, '2018-10-08 09:37:19.842409', '2', 'aditya', 2, '[{\"added\": {\"name\": \"employee\", \"object\": \"Aditya Rao\"}}]', 33, 21),
+(170, '2018-10-08 09:37:31.376236', '4', 'amit', 2, '[{\"added\": {\"name\": \"employee\", \"object\": \"Amit Chaurasia\"}}]', 33, 21),
+(171, '2018-10-08 09:37:59.799600', '3', 'Asim', 2, '[{\"added\": {\"name\": \"employee\", \"object\": \"Asim Sagir\"}}]', 33, 21),
+(172, '2018-10-08 09:38:13.645318', '7', 'gawde', 2, '[{\"added\": {\"name\": \"employee\", \"object\": \"Pandurang Gawde\"}}]', 33, 21),
+(173, '2018-10-08 09:38:35.424006', '21', 'parag', 2, '[{\"added\": {\"name\": \"employee\", \"object\": \"Parag Ved\"}}]', 33, 21),
+(174, '2018-10-08 09:38:53.265581', '5', 'Ram', 2, '[{\"added\": {\"name\": \"employee\", \"object\": \"Ram Sir\"}}]', 33, 21),
+(175, '2018-10-08 09:39:20.201736', '6', 'yogendra', 2, '[{\"added\": {\"name\": \"employee\", \"object\": \"Yogendra Sir\"}}]', 33, 21),
+(176, '2018-10-08 09:41:53.256130', '3', 'Maintenance', 1, '[{\"added\": {}}]', 17, 21),
+(177, '2018-10-08 11:02:26.366403', '4', 'Maintenance', 1, '[{\"added\": {}}]', 17, 21),
+(178, '2018-10-08 11:02:46.959028', '3', 'Maintenance', 3, '', 17, 21),
+(179, '2018-10-08 11:02:50.581394', '4', 'Maintenance', 3, '', 17, 21),
+(180, '2018-10-08 11:02:59.198313', '5', 'Maintenance', 1, '[{\"added\": {}}]', 17, 21),
+(181, '2018-10-08 11:20:14.228197', '6', 'Maintenance', 1, '[{\"added\": {}}]', 17, 21),
+(182, '2018-10-08 11:20:21.424448', '6', 'Maintenance', 3, '', 17, 21),
+(183, '2018-10-08 11:20:32.890461', '7', 'Maintenance', 2, '[{\"changed\": {\"fields\": [\"assignTo\"]}}]', 17, 21),
+(184, '2018-10-08 11:48:23.059152', '6', 'Purchase of SBM', 1, '[{\"added\": {}}]', 16, 21);
 
 -- --------------------------------------------------------
 
@@ -1180,7 +1164,15 @@ INSERT INTO `django_migrations` (`id`, `app`, `name`, `applied`) VALUES
 (76, 'auth', '0010_user_is_superadmin', '2018-10-05 06:35:18.683427'),
 (77, 'companies', '0013_auto_20181005_1351', '2018-10-05 08:21:30.644049'),
 (78, 'employee', '0011_auto_20181005_1354', '2018-10-05 08:24:21.116043'),
-(79, 'employee', '0012_auto_20181005_1408', '2018-10-05 08:38:45.073578');
+(79, 'employee', '0012_auto_20181005_1408', '2018-10-05 08:38:45.073578'),
+(80, 'region', '0002_region_company', '2018-10-08 06:25:14.049122'),
+(81, 'region', '0003_auto_20181008_1206', '2018-10-08 06:36:41.047810'),
+(82, 'leads', '0010_leadsource_company', '2018-10-08 07:23:04.188015'),
+(83, 'leads', '0011_department_company', '2018-10-08 07:30:06.333545'),
+(84, 'region', '0004_auto_20181008_1408', '2018-10-08 08:38:53.241105'),
+(85, 'leads', '0012_leadstatustype_company', '2018-10-08 08:51:43.992312'),
+(86, 'region', '0005_auto_20181008_1421', '2018-10-08 08:51:45.166380'),
+(87, 'leads', '0013_organizationdetails_company', '2018-10-08 08:59:39.224446');
 
 -- --------------------------------------------------------
 
@@ -1201,7 +1193,8 @@ CREATE TABLE `django_session` (
 INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
 ('0kez1eje7ayn03dm8bxyj26mpit6o86g', 'YjBiNDkwMzZjMTE3MjZkMzhlN2Y5NDBmNmM1YTcyMmZiYzYwODA0NDp7Il9hdXRoX3VzZXJfaWQiOiIyMyIsIl9hdXRoX3VzZXJfYmFja2VuZCI6InNwYXJ0YW5zdXBlcmFkbWluLmF1dGhlbnRpY2F0aW9uLlNldHRpbmdzQmFja2VuZCIsIl9hdXRoX3VzZXJfaGFzaCI6IjUwOGZkYTgzZWVkNDZmMzJkZDE2Y2VjMzI1OGI3NTMzOThiY2Y1YWQifQ==', '2018-10-19 10:47:20.020682'),
 ('7d48isty0n0f1305fbt2dfq1l5miuzk2', 'MjcxMmJkYzUwYzBkMzFiODJiOGNkYzIxZjY1ODAyZmM4YTg2Y2ZiNzp7Il9hdXRoX3VzZXJfaWQiOiI0IiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI2ZmMzOTg0NzYwZjg1NzcwNjliM2ZiODRiMjQyMzk4OTEyYzZhNzBkIn0=', '2018-09-21 10:37:37.954615'),
-('xs7oe6y6spx77zqnu15hroa3z5p8kx0l', 'YzJhNTdiMTBkY2JmMjNlMzk4OGU4NDFlMWY3Mzk0NGY0YzZjZWUyZTp7Il9hdXRoX3VzZXJfaWQiOiIzNSIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9oYXNoIjoiYmIyYTEzNDhhNzc1NTE0MzdhODEyMGYyOWNkYWU0NWI5NmM2N2EyNyJ9', '2018-10-19 12:08:33.919830');
+('mn1z0cx59xr3h7pyba69ego68zx1rfg0', 'ZjQ1MGM3MGJjZjFhNjU2MzQwY2VhNTA0NzU1YTlhMzk1NzM5MjhkNzp7Il9hdXRoX3VzZXJfaWQiOiI3IiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI1MDExZGU4ZDQxNDkxZDA0NGM4OWNkNDc1ZjQxOGY2ZWVhZjM5ZWExIn0=', '2018-10-22 12:00:52.000496'),
+('y8ys2pytqau4b3skqn0spwqkg6r2lw3c', 'YjBiNDkwMzZjMTE3MjZkMzhlN2Y5NDBmNmM1YTcyMmZiYzYwODA0NDp7Il9hdXRoX3VzZXJfaWQiOiIyMyIsIl9hdXRoX3VzZXJfYmFja2VuZCI6InNwYXJ0YW5zdXBlcmFkbWluLmF1dGhlbnRpY2F0aW9uLlNldHRpbmdzQmFja2VuZCIsIl9hdXRoX3VzZXJfaGFzaCI6IjUwOGZkYTgzZWVkNDZmMzJkZDE2Y2VjMzI1OGI3NTMzOThiY2Y1YWQifQ==', '2018-10-22 05:34:06.622476');
 
 -- --------------------------------------------------------
 
@@ -1226,15 +1219,14 @@ CREATE TABLE `employee_employee` (
 --
 
 INSERT INTO `employee_employee` (`id`, `mobile`, `gender`, `photo`, `address`, `created_at`, `updated_at`, `created_by_id`, `user_id`) VALUES
-(1, '7878787878', 'male', 'image/employee/profile/Lighthouse.jpg', 's', '2018-09-04 12:41:01.075376', '2018-09-04 12:41:01.075376', 1, 2),
-(2, '7878787878', 'male', 'image/employee/profile/Jellyfish_GtcTQm4.jpg', 'Kandivali', '2018-09-04 12:41:53.130214', '2018-09-04 12:41:53.130214', 1, 3),
-(3, '7878787878', 'male', 'image/employee/profile/Lighthouse_q7l9YAJ.jpg', 'Kandivali', '2018-09-04 12:42:56.187831', '2018-09-04 12:42:56.187831', 1, 4),
-(4, '7878787878', 'male', 'image/employee/profile/Lighthouse_ib8zONz.jpg', 'Allahabad', '2018-09-04 12:43:44.255316', '2018-09-04 12:43:44.255316', 1, 5),
-(5, '7878787878', 'male', 'image/employee/profile/Lighthouse_CVt4317.jpg', 'Allahabad', '2018-09-04 12:44:51.538635', '2018-09-04 12:44:51.538635', 1, 6),
-(6, '7878787878', 'male', 'image/employee/profile/Lighthouse_B8mlzkg.jpg', 'Kandivali', '2018-09-04 12:45:45.469342', '2018-09-04 12:45:45.469342', 1, 7),
 (7, '7878787878', 'male', 'image/employee/profile/Chrysanthemum_IB3nBpS.jpg', 'NSP', '2018-10-04 09:17:32.070498', '2018-10-04 09:17:32.070498', 7, 8),
-(8, '7878787878', 'male', 'image/employee/profile/Desert_KgkLFU0.jpg', 'dd', '2018-10-05 08:39:47.664057', '2018-10-05 08:39:47.664057', NULL, 31),
-(9, '7878787878', 'male', 'image/employee/profile/Hydrangeas_F9QHO2V.jpg', 'r', '2018-10-05 08:40:39.398175', '2018-10-05 08:40:39.398175', NULL, 29);
+(10, '7878787878', 'male', 'image/employee/profile/Desert_CsMY0iA.jpg', 'ss', '2018-10-08 09:37:19.807407', '2018-10-08 09:37:19.807407', NULL, 2),
+(11, '7878787878', 'male', 'image/employee/profile/Hydrangeas_6NG2pgP.jpg', 'ss', '2018-10-08 09:37:31.373236', '2018-10-08 09:37:31.373236', NULL, 4),
+(12, '7878787878', 'male', 'image/employee/profile/Chrysanthemum_NppK4io.jpg', 'ss', '2018-10-08 09:37:59.795600', '2018-10-08 09:37:59.795600', NULL, 3),
+(13, '7878787878', 'male', 'image/employee/profile/Desert_fenDRkQ.jpg', 'ss', '2018-10-08 09:38:13.642318', '2018-10-08 09:38:13.642318', NULL, 7),
+(14, '7878787878', 'male', 'image/employee/profile/Hydrangeas_cw3QwBr.jpg', 'ss', '2018-10-08 09:38:35.406005', '2018-10-08 09:38:35.406005', NULL, 21),
+(15, '7878787878', 'male', 'image/employee/profile/Tulips.jpg', '8', '2018-10-08 09:38:53.258581', '2018-10-08 09:38:53.259581', NULL, 5),
+(16, '7878787878', 'male', 'image/employee/profile/Tulips_oT5JVTM.jpg', 'ee', '2018-10-08 09:39:20.194736', '2018-10-08 09:39:20.194736', NULL, 6);
 
 -- --------------------------------------------------------
 
@@ -1255,16 +1247,13 @@ CREATE TABLE `employee_employeebranch` (
 --
 
 INSERT INTO `employee_employeebranch` (`id`, `created_at`, `updated_at`, `branch_id`, `user_id`) VALUES
-(1, '2018-09-04 12:41:01.076376', '2018-09-10 04:52:43.249909', 1, 2),
-(2, '2018-09-04 12:41:53.131214', '2018-09-10 04:53:03.558052', 2, 3),
-(3, '2018-09-04 12:42:56.188831', '2018-09-10 05:34:53.046511', 2, 4),
-(4, '2018-09-04 12:43:44.316320', '2018-09-10 04:53:20.286982', 1, 5),
-(5, '2018-09-04 12:44:51.539635', '2018-09-10 04:53:26.743627', 1, 6),
-(6, '2018-09-04 12:45:45.542347', '2018-09-10 04:53:13.360724', 2, 7),
-(7, '2018-10-04 09:17:32.071498', '2018-10-04 09:17:32.071498', 1, 8),
-(8, '2018-10-05 08:39:47.669057', '2018-10-05 08:39:47.669057', 1, 31),
-(9, '2018-10-05 08:40:39.406175', '2018-10-05 08:40:39.406175', 1, 29),
-(10, '2018-10-05 11:13:42.879806', '2018-10-05 11:13:42.879806', 1, 33);
+(11, '2018-10-08 09:25:35.114854', '2018-10-08 09:25:35.114854', 3, 2),
+(12, '2018-10-08 09:25:43.254763', '2018-10-08 09:25:43.254763', 3, 4),
+(13, '2018-10-08 09:25:51.055411', '2018-10-08 09:25:51.055411', 4, 3),
+(14, '2018-10-08 09:25:58.643702', '2018-10-08 09:25:58.643702', 3, 7),
+(15, '2018-10-08 09:26:12.137024', '2018-10-08 09:26:12.137024', 4, 5),
+(16, '2018-10-08 09:26:21.617773', '2018-10-08 09:26:21.617773', 4, 8),
+(17, '2018-10-08 09:26:31.163305', '2018-10-08 09:26:31.163305', 3, 6);
 
 -- --------------------------------------------------------
 
@@ -1348,8 +1337,8 @@ CREATE TABLE `leads_assignleads` (
 --
 
 INSERT INTO `leads_assignleads` (`id`, `remarks`, `status`, `created_at`, `updated_at`, `assignTo_id`, `lead_id`) VALUES
-(1, 'Amit Remarks', 0, '2018-09-04 12:51:20.880172', '2018-09-04 12:51:20.880172', 3, 1),
-(2, 'Amit Remarks', 1, '2018-09-04 12:52:07.542453', '2018-09-04 12:52:07.542453', 6, 1);
+(5, 'xc', 0, '2018-10-08 11:02:59.184312', '2018-10-08 11:02:59.184312', 11, 5),
+(7, 'xc', 1, '2018-10-08 11:20:32.790455', '2018-10-08 11:20:32.790455', 13, 5);
 
 -- --------------------------------------------------------
 
@@ -1362,18 +1351,19 @@ CREATE TABLE `leads_department` (
   `department` varchar(250) NOT NULL,
   `status` int(11) NOT NULL,
   `created_at` datetime(6) NOT NULL,
-  `updated_at` datetime(6) NOT NULL
+  `updated_at` datetime(6) NOT NULL,
+  `company_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `leads_department`
 --
 
-INSERT INTO `leads_department` (`id`, `department`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'Sales', 1, '2018-09-04 11:52:27.553062', '2018-09-04 11:52:27.553062'),
-(2, 'AMC', 1, '2018-09-04 11:52:34.057438', '2018-09-04 11:52:34.057438'),
-(3, 'Service', 1, '2018-09-04 11:52:42.977154', '2018-09-04 11:52:42.977154'),
-(4, 'Parts', 1, '2018-09-04 11:52:53.929542', '2018-09-04 11:52:53.929542');
+INSERT INTO `leads_department` (`id`, `department`, `status`, `created_at`, `updated_at`, `company_id`) VALUES
+(1, 'Sales', 1, '2018-09-04 11:52:27.553062', '2018-09-04 11:52:27.553062', 10),
+(2, 'AMC', 1, '2018-09-04 11:52:34.057438', '2018-09-04 11:52:34.057438', 10),
+(3, 'Service', 1, '2018-09-04 11:52:42.977154', '2018-09-04 11:52:42.977154', 10),
+(4, 'Parts', 1, '2018-09-04 11:52:53.929542', '2018-09-04 11:52:53.929542', 10);
 
 -- --------------------------------------------------------
 
@@ -1386,16 +1376,18 @@ CREATE TABLE `leads_leadsource` (
   `source_name` varchar(250) NOT NULL,
   `status` int(11) NOT NULL,
   `created_at` datetime(6) NOT NULL,
-  `updated_at` datetime(6) NOT NULL
+  `updated_at` datetime(6) NOT NULL,
+  `company_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `leads_leadsource`
 --
 
-INSERT INTO `leads_leadsource` (`id`, `source_name`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'Newspaper', 1, '2018-09-04 12:07:34.187534', '2018-09-04 12:07:34.187534'),
-(2, 'Social Network', 1, '2018-09-04 12:07:42.396085', '2018-09-04 12:07:42.396085');
+INSERT INTO `leads_leadsource` (`id`, `source_name`, `status`, `created_at`, `updated_at`, `company_id`) VALUES
+(1, 'Newspaper', 1, '2018-09-04 12:07:34.187534', '2018-09-04 12:07:34.187534', 10),
+(2, 'Social Network', 1, '2018-09-04 12:07:42.396085', '2018-09-04 12:07:42.396085', 10),
+(3, 'Campaign', 1, '2018-10-08 08:45:09.228207', '2018-10-08 08:45:09.228207', 10);
 
 -- --------------------------------------------------------
 
@@ -1419,8 +1411,8 @@ CREATE TABLE `leads_leadstatus` (
 --
 
 INSERT INTO `leads_leadstatus` (`id`, `remarks`, `description`, `status`, `created_at`, `updated_at`, `assignedLead_id`, `lead_status_id`) VALUES
-(1, NULL, NULL, 1, '2018-09-04 12:51:20.920174', '2018-09-04 12:51:20.920174', 1, NULL),
-(2, NULL, NULL, 1, '2018-09-04 12:52:07.548453', '2018-09-04 12:52:07.548453', 2, NULL);
+(5, NULL, NULL, 1, '2018-10-08 11:02:59.197313', '2018-10-08 11:02:59.198313', 5, NULL),
+(7, NULL, NULL, 1, '2018-10-08 11:20:32.806456', '2018-10-08 11:20:32.806456', 7, NULL);
 
 -- --------------------------------------------------------
 
@@ -1434,17 +1426,20 @@ CREATE TABLE `leads_leadstatustype` (
   `status` int(11) NOT NULL,
   `isEditable` tinyint(1) NOT NULL,
   `created_at` datetime(6) NOT NULL,
-  `updated_at` datetime(6) NOT NULL
+  `updated_at` datetime(6) NOT NULL,
+  `company_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `leads_leadstatustype`
 --
 
-INSERT INTO `leads_leadstatustype` (`id`, `status_type`, `status`, `isEditable`, `created_at`, `updated_at`) VALUES
-(1, 'Pending', 1, 0, '2018-09-04 12:00:50.205633', '2018-09-04 12:00:50.205633'),
-(2, 'Completed', 1, 0, '2018-09-04 12:00:58.837414', '2018-09-04 12:00:58.837414'),
-(3, 'Progress', 1, 0, '2018-09-04 12:01:03.596505', '2018-09-04 12:01:03.596505');
+INSERT INTO `leads_leadstatustype` (`id`, `status_type`, `status`, `isEditable`, `created_at`, `updated_at`, `company_id`) VALUES
+(1, 'Pending', 1, 0, '2018-09-04 12:00:50.205633', '2018-09-04 12:00:50.205633', NULL),
+(2, 'Completed', 1, 0, '2018-09-04 12:00:58.837414', '2018-09-04 12:00:58.837414', NULL),
+(3, 'Progress', 1, 0, '2018-09-04 12:01:03.596505', '2018-09-04 12:01:03.596505', NULL),
+(4, 'Client Not Avaliable', 1, 1, '2018-10-08 08:52:20.725303', '2018-10-08 08:52:20.725303', 10),
+(5, 'Not Interested', 1, 1, '2018-10-08 08:52:57.470837', '2018-10-08 08:52:57.470837', 11);
 
 -- --------------------------------------------------------
 
@@ -1482,16 +1477,18 @@ CREATE TABLE `leads_organizationdetails` (
   `description` longtext,
   `status` int(11) NOT NULL,
   `created_at` datetime(6) NOT NULL,
-  `updated_at` datetime(6) NOT NULL
+  `updated_at` datetime(6) NOT NULL,
+  `company_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `leads_organizationdetails`
 --
 
-INSERT INTO `leads_organizationdetails` (`id`, `first_name`, `last_name`, `organisation_name`, `phone`, `mobile`, `fax`, `email`, `address`, `website`, `description`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'Asim', 'Sagir', 'Technople', '7878747878', '7474787874', '778877', 'asim@technople.in', 'Kandivali', 'www.technople.in', 'IT Company', 1, '2018-09-04 12:11:09.894451', '2018-09-04 12:11:09.894451'),
-(2, 'test company', 'test', 'test company', '7878747878', '7474747', '787874', 'test@test.com', 'test', 'www.technople.in', 'test', 1, '2018-09-10 05:32:55.341364', '2018-09-10 05:33:16.493852');
+INSERT INTO `leads_organizationdetails` (`id`, `first_name`, `last_name`, `organisation_name`, `phone`, `mobile`, `fax`, `email`, `address`, `website`, `description`, `status`, `created_at`, `updated_at`, `company_id`) VALUES
+(1, 'Asim', 'Sagir', 'Technople', '7878747878', '7474787874', '778877', 'asim@technople.in', 'Kandivali', 'www.technople.in', 'IT Company', 1, '2018-09-04 12:11:09.894451', '2018-09-04 12:11:09.894451', 10),
+(2, 'test company', 'test', 'test company', '7878747878', '7474747', '787874', 'test@test.com', 'test', 'www.technople.in', 'test', 1, '2018-09-10 05:32:55.341364', '2018-09-10 05:33:16.493852', 10),
+(3, 'Dharmendra', 'Singh', 'Ola', '7878747878', '78787878787', '874747', 'dharmendra@gmail.com', 'punjab', 'www.ola.com', 'This is cab service company.', 1, '2018-10-08 09:05:27.606756', '2018-10-08 09:05:27.606756', 12);
 
 -- --------------------------------------------------------
 
@@ -1526,9 +1523,9 @@ CREATE TABLE `leads_organizationleaddetails` (
 --
 
 INSERT INTO `leads_organizationleaddetails` (`id`, `contact_person`, `mobile`, `email`, `lead_title`, `convert`, `discount`, `description`, `meeting_date`, `lead_closed_date`, `selling_price`, `status`, `created_at`, `updated_at`, `branch_id`, `department_id`, `lead_source_id`, `organisation_id`, `product_id`) VALUES
-(1, 'Asim', '78787878787', 'asim@technople.in', 'Purchase of SBM', 1, 0, 'Desc', '2018-09-04', '2018-09-04', 45, 1, '2018-09-04 12:33:58.297726', '2018-09-10 05:35:53.846860', 2, 1, 1, 1, 2),
-(2, 'Aditya', '78787878787', 'aditya@technople.in', 'Sales Aditya', 1, 50, '55', '2018-09-10', '2018-08-10', 45, 1, '2018-09-10 05:34:02.875253', '2018-09-10 05:35:25.533676', 2, 1, 1, 2, 3),
-(3, 'd', '7474787874', 'aditya@technople.in', 'Maintenance', 1, 32, 'desc', '2018-09-10', '2017-09-10', 40, 1, '2018-09-10 05:36:40.588842', '2018-09-10 05:36:40.588842', 1, 2, 1, 2, 1);
+(4, 'Dharmendra', '7474787874', NULL, 'Purchase of SBM', 1, 0, 'e', '2018-10-08', '2018-10-08', 25, 1, '2018-10-08 09:15:11.087313', '2018-10-08 09:27:44.549361', 4, 1, 1, 3, NULL),
+(5, 'Aditya', '7474787874', 'amitc@technople.in', 'Maintenance', 1, 0, 'd', '2018-10-08', '2018-10-08', 50, 1, '2018-10-08 09:23:11.495176', '2018-10-08 09:23:11.495176', 3, 2, 2, 1, 1),
+(6, 'Asim', '7474787874', 'asim@technople.in', 'Purchase of SBM', 1, 0, 'hi', '2018-10-08', '2018-10-08', 40, 1, '2018-10-08 11:48:23.022150', '2018-10-08 11:48:23.022150', 4, 1, 2, 1, 2);
 
 -- --------------------------------------------------------
 
@@ -1658,16 +1655,19 @@ CREATE TABLE `region_region` (
   `updated_at` datetime(6) NOT NULL,
   `country_id` int(11) NOT NULL,
   `created_by_id` int(11) NOT NULL,
-  `parent_id` int(11) DEFAULT NULL
+  `parent_id` int(11) DEFAULT NULL,
+  `company_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `region_region`
 --
 
-INSERT INTO `region_region` (`id`, `region_name`, `status`, `created_at`, `updated_at`, `country_id`, `created_by_id`, `parent_id`) VALUES
-(1, 'UP', 1, '2018-09-04 11:50:04.742980', '2018-09-04 11:50:04.742980', 1, 1, NULL),
-(2, 'Mumbai', 1, '2018-09-04 11:50:04.754981', '2018-09-04 11:50:04.754981', 1, 1, NULL);
+INSERT INTO `region_region` (`id`, `region_name`, `status`, `created_at`, `updated_at`, `country_id`, `created_by_id`, `parent_id`, `company_id`) VALUES
+(3, 'Uttar Pradesh', 1, '2018-10-08 06:38:28.610547', '2018-10-08 06:38:28.610547', 2, 21, NULL, 10),
+(4, 'Maharashtra', 1, '2018-10-08 06:54:25.727541', '2018-10-08 06:54:25.727541', 2, 21, NULL, 10),
+(6, 'Gujrat', 1, '2018-10-08 08:41:45.826954', '2018-10-08 08:41:45.826954', 2, 21, NULL, 10),
+(7, 'J&K', 1, '2018-10-08 08:42:09.333193', '2018-10-08 08:42:09.333193', 2, 21, NULL, 10);
 
 -- --------------------------------------------------------
 
@@ -1929,13 +1929,15 @@ ALTER TABLE `leads_assignleads`
 -- Indexes for table `leads_department`
 --
 ALTER TABLE `leads_department`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `leads_department_company_id_1cad070b_fk_companies_companies_id` (`company_id`);
 
 --
 -- Indexes for table `leads_leadsource`
 --
 ALTER TABLE `leads_leadsource`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `leads_leadsource_company_id_929450b0_fk_companies_companies_id` (`company_id`);
 
 --
 -- Indexes for table `leads_leadstatus`
@@ -1949,7 +1951,8 @@ ALTER TABLE `leads_leadstatus`
 -- Indexes for table `leads_leadstatustype`
 --
 ALTER TABLE `leads_leadstatustype`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `leads_leadstatustype_company_id_bdd80710_fk_companies` (`company_id`);
 
 --
 -- Indexes for table `leads_orderlost`
@@ -1963,7 +1966,8 @@ ALTER TABLE `leads_orderlost`
 -- Indexes for table `leads_organizationdetails`
 --
 ALTER TABLE `leads_organizationdetails`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `leads_organizationde_company_id_ce53b2e0_fk_companies` (`company_id`);
 
 --
 -- Indexes for table `leads_organizationleaddetails`
@@ -2018,7 +2022,8 @@ ALTER TABLE `region_region`
   ADD PRIMARY KEY (`id`),
   ADD KEY `region_region_country_id_bab38730_fk_country_country_id` (`country_id`),
   ADD KEY `region_region_created_by_id_61ed3cb2_fk_auth_user_id` (`created_by_id`),
-  ADD KEY `region_region_parent_id_ad885a67_fk_region_region_id` (`parent_id`);
+  ADD KEY `region_region_parent_id_ad885a67_fk_region_region_id` (`parent_id`),
+  ADD KEY `region_region_company_id_fe6bdd6a_fk_companies_companies_id` (`company_id`);
 
 --
 -- Indexes for table `report_achievementyearwise`
@@ -2120,7 +2125,7 @@ ALTER TABLE `auth_user_user_permissions`
 -- AUTO_INCREMENT for table `branch_branch`
 --
 ALTER TABLE `branch_branch`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `companies_companies`
@@ -2132,19 +2137,19 @@ ALTER TABLE `companies_companies`
 -- AUTO_INCREMENT for table `companies_companiesusers`
 --
 ALTER TABLE `companies_companiesusers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `country_country`
 --
 ALTER TABLE `country_country`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `django_admin_log`
 --
 ALTER TABLE `django_admin_log`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=127;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=185;
 
 --
 -- AUTO_INCREMENT for table `django_content_type`
@@ -2156,19 +2161,19 @@ ALTER TABLE `django_content_type`
 -- AUTO_INCREMENT for table `django_migrations`
 --
 ALTER TABLE `django_migrations`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
 
 --
 -- AUTO_INCREMENT for table `employee_employee`
 --
 ALTER TABLE `employee_employee`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `employee_employeebranch`
 --
 ALTER TABLE `employee_employeebranch`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `employee_employeemedia`
@@ -2198,31 +2203,31 @@ ALTER TABLE `insentive_insentivematrix`
 -- AUTO_INCREMENT for table `leads_assignleads`
 --
 ALTER TABLE `leads_assignleads`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `leads_department`
 --
 ALTER TABLE `leads_department`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `leads_leadsource`
 --
 ALTER TABLE `leads_leadsource`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `leads_leadstatus`
 --
 ALTER TABLE `leads_leadstatus`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `leads_leadstatustype`
 --
 ALTER TABLE `leads_leadstatustype`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `leads_orderlost`
@@ -2234,13 +2239,13 @@ ALTER TABLE `leads_orderlost`
 -- AUTO_INCREMENT for table `leads_organizationdetails`
 --
 ALTER TABLE `leads_organizationdetails`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `leads_organizationleaddetails`
 --
 ALTER TABLE `leads_organizationleaddetails`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `leads_reasontype`
@@ -2276,7 +2281,7 @@ ALTER TABLE `product_productprice`
 -- AUTO_INCREMENT for table `region_region`
 --
 ALTER TABLE `region_region`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `report_achievementyearwise`
@@ -2437,6 +2442,18 @@ ALTER TABLE `leads_assignleads`
   ADD CONSTRAINT `leads_assignleads_lead_id_92abf28a_fk_leads_org` FOREIGN KEY (`lead_id`) REFERENCES `leads_organizationleaddetails` (`id`);
 
 --
+-- Constraints for table `leads_department`
+--
+ALTER TABLE `leads_department`
+  ADD CONSTRAINT `leads_department_company_id_1cad070b_fk_companies_companies_id` FOREIGN KEY (`company_id`) REFERENCES `companies_companies` (`id`);
+
+--
+-- Constraints for table `leads_leadsource`
+--
+ALTER TABLE `leads_leadsource`
+  ADD CONSTRAINT `leads_leadsource_company_id_929450b0_fk_companies_companies_id` FOREIGN KEY (`company_id`) REFERENCES `companies_companies` (`id`);
+
+--
 -- Constraints for table `leads_leadstatus`
 --
 ALTER TABLE `leads_leadstatus`
@@ -2444,11 +2461,23 @@ ALTER TABLE `leads_leadstatus`
   ADD CONSTRAINT `leads_leadstatus_lead_status_id_5b53b6e3_fk_leads_lea` FOREIGN KEY (`lead_status_id`) REFERENCES `leads_leadstatustype` (`id`);
 
 --
+-- Constraints for table `leads_leadstatustype`
+--
+ALTER TABLE `leads_leadstatustype`
+  ADD CONSTRAINT `leads_leadstatustype_company_id_bdd80710_fk_companies` FOREIGN KEY (`company_id`) REFERENCES `companies_companies` (`id`);
+
+--
 -- Constraints for table `leads_orderlost`
 --
 ALTER TABLE `leads_orderlost`
   ADD CONSTRAINT `leads_orderlost_lead_id_14765ef7_fk_leads_org` FOREIGN KEY (`lead_id`) REFERENCES `leads_organizationleaddetails` (`id`),
   ADD CONSTRAINT `leads_orderlost_reasontye_id_e64dfefd_fk_leads_reasontype_id` FOREIGN KEY (`reasontye_id`) REFERENCES `leads_reasontype` (`id`);
+
+--
+-- Constraints for table `leads_organizationdetails`
+--
+ALTER TABLE `leads_organizationdetails`
+  ADD CONSTRAINT `leads_organizationde_company_id_ce53b2e0_fk_companies` FOREIGN KEY (`company_id`) REFERENCES `companies_companies` (`id`);
 
 --
 -- Constraints for table `leads_organizationleaddetails`
@@ -2489,6 +2518,7 @@ ALTER TABLE `product_productprice`
 -- Constraints for table `region_region`
 --
 ALTER TABLE `region_region`
+  ADD CONSTRAINT `region_region_company_id_fe6bdd6a_fk_companies_companies_id` FOREIGN KEY (`company_id`) REFERENCES `companies_companies` (`id`),
   ADD CONSTRAINT `region_region_country_id_bab38730_fk_country_country_id` FOREIGN KEY (`country_id`) REFERENCES `country_country` (`id`),
   ADD CONSTRAINT `region_region_created_by_id_61ed3cb2_fk_auth_user_id` FOREIGN KEY (`created_by_id`) REFERENCES `auth_user` (`id`),
   ADD CONSTRAINT `region_region_parent_id_ad885a67_fk_region_region_id` FOREIGN KEY (`parent_id`) REFERENCES `region_region` (`id`);

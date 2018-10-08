@@ -8,9 +8,6 @@ class RegionInline(admin.TabularInline):
     can_delete = False
     fk_name = 'country'
 
-    def re(self):
-        return 'hie'
-
     def get_formset(self, request, obj=None, **kwargs):
         if obj:
             kwargs['exclude'] = [ 'created_by' ,]
@@ -28,7 +25,7 @@ class CountryAdmin(admin.ModelAdmin):
 
     list_filter = ('country_name', 'status', )
 
-    exclude = ['status','created_by']
+    exclude = ['status','','created_by']
 
     inlines = [
         RegionInline
@@ -45,6 +42,6 @@ class CountryAdmin(admin.ModelAdmin):
             instance.save()
         form.save_m2m()
 
-admin.site.register(Country,CountryAdmin)
+# admin.site.register(Country,CountryAdmin)
 
 
