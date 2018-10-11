@@ -141,9 +141,10 @@ class LeadStatusAdmin(admin.ModelAdmin):
 
     # Fetch Assigned Lead Data to User 
     def get_queryset(self, request):
+       employee_id = Employee.objects.get(user=request.user)
        qs = super(LeadStatusAdmin,self).get_queryset(request)
        if request.user.is_superuser:
-           return qs.filter()
+           return qs.filter(assignedLead__lead__organisation__company=company_id,assignedLead__assignTo=employee_id)
        else:
            employee_id = Employee.objects.get(user=request.user)
            company_id = request.user.companiesusers.company.id
@@ -187,7 +188,6 @@ class DepartmentAdmin(admin.ModelAdmin):
 
 class OrganizationLeadDetailsAdmin(admin.ModelAdmin):
     list_display = ['lead_title','contact_person','mobile','organisation','department','lead_source','description','get_branch','status']
-    # form = LeadDetailsForm
 
     # fetch branch of lead
     def get_branch(self,obj):
@@ -199,6 +199,18 @@ class OrganizationLeadDetailsAdmin(admin.ModelAdmin):
         branchDet = EmployeeBranch.objects.get(user_id=request.user.id)
         return branchDet.branch
 
+    # Save Company Id of Logged In User
+    def save_model(self, request, obj, form, change):
+        obj.company_id = request.user.companiesusers.company.id
+        super().save_model(request, obj, form, change)
+
+    def get_form(self, request, obj=None, **kwargs):
+        if obj:
+            kwargs['exclude'] = ['company',]
+        else:
+            kwargs['exclude'] = ['status','company',]
+        return super(OrganizationLeadDetailsAdmin, self).get_form(request, obj, **kwargs)
+
     # Fetch Leads By Branchwise
     def get_queryset(self, request):    
         qs = super(OrganizationLeadDetailsAdmin, self).get_queryset(request)
@@ -207,7 +219,7 @@ class OrganizationLeadDetailsAdmin(admin.ModelAdmin):
             return qs.filter(branch_id=self.fetchBranch(request))
         else:
             company_id = request.user.companiesusers.company.id
-            return qs.filter(organisation__company_id=company_id)
+            return qs.filter(company_id=company_id)
 
     # Filter Foreign Key Value
     def formfield_for_foreignkey(self, db_field, request, **kwargs):

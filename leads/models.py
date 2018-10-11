@@ -82,6 +82,7 @@ class OrganizationLeadDetails(models.Model):
     meeting_date = models.DateField(null=True,blank=True)
     lead_closed_date = models.DateField(null=True,blank=True)
     selling_price = models.FloatField(null=True,blank=True)
+    company = models.ForeignKey(Companies, null=True, blank=False, on_delete=models.CASCADE)
     status = models.IntegerField(default=1, help_text='Active/Inactive', choices=((1, 'Active'), (0, 'Inactive'),))
     created_at = models.DateTimeField(auto_now_add=True, blank=True)
     updated_at = models.DateTimeField(auto_now=True)

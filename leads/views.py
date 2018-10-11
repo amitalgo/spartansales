@@ -13,5 +13,8 @@ from .serializers import DepartmentSerializer
 
 # Create your views here.
 class DepartmentListAPIView(generics.ListAPIView):
-    queryset = Department.objects.filter(status=1)
     serializer_class = DepartmentSerializer
+
+    def get_queryset(self):
+        company_id = self.request.META.get('HTTP_COMPANY_ID', None)
+        return Department.objects.filter(company=company_id,status=1)

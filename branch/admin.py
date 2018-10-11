@@ -25,5 +25,11 @@ class BranchAdmin(admin.ModelAdmin):
             kwargs['exclude'] = ['status', 'created_by', ]
         return super(BranchAdmin, self).get_form(request, obj, **kwargs)
 
+    # Filter List by User Company Id
+    def get_queryset(self, request):
+        qs = super(BranchAdmin, self).get_queryset(request)
+        company_id = request.user.companiesusers.company.id
+        return qs.filter(region__company_id=company_id)
+
 # Register your models here.
 admin.site.register(Branch,BranchAdmin)

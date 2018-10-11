@@ -81,6 +81,9 @@
                         url : $url,
                         type : $type,
                         data : $data,
+                        headers: {
+                            'company-id':{{request.user.companiesusers.company.id}},
+                        },
                         dataType : "json",
                         async: false,
                         success:function(xyz){
@@ -100,7 +103,6 @@
                 var params = departmentId+productId+branchId+date;
 
                 graphData = init.callApi("/report/product/fetchGraphDataforReport?"+params,"get");
-
                 categories=[];
                 average_price = [];
                 achieved_price = [];

@@ -17,7 +17,7 @@ from django.contrib.auth.models import Group
 class CompanyInline(admin.TabularInline):
     model = CompaniesUsers
     can_delete = False
-    exclude = ['is_admin']
+    exclude = ['is_admin',]
 
     def formfield_for_foreignkey(self, db_field, request, **kwargs):
         if db_field.name == 'company':

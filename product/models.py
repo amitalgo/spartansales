@@ -1,4 +1,5 @@
 from django.db import models
+from companies.models import Companies
 
 # Create your models here.
 
@@ -6,6 +7,7 @@ class Product(models.Model):
     product_name = models.CharField(max_length=250)
     parent = models.ForeignKey('self', null=True,blank=True ,on_delete=models.CASCADE)
     product_code = models.CharField(max_length=250)
+    company = models.ForeignKey(Companies, null=True, blank=False, on_delete=models.CASCADE)
     status = models.IntegerField(default=1, help_text='Active/Inactive', choices=((1, 'Active'), (0, 'Inactive'),))
     created_at = models.DateTimeField(auto_now_add=True, blank=True)
     updated_at = models.DateTimeField(auto_now=True)

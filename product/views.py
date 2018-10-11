@@ -19,6 +19,8 @@ class ProductListAPIView(generics.ListAPIView):
     serializer_class = ProductSerializer
 
     def get_queryset(self):
-        query = "SELECT p.*,IFNULL(concat(p.id,',',GROUP_CONCAT(c.id)),p.id) as child FROM product_product as p left join product_product as c on c.parent_id=p.id where p.status=1 group by p.id"
+        company_id = self.request.META.get('HTTP_COMPANY_ID', None)
+
+        query = "SELECT p.*,IFNULL(concat(p.id,',',GROUP_CONCAT(c.id)),p.id) as child FROM product_product as p left join product_product as c on c.parent_id=p.id where p.status=1 and p.company_id=" +company_id+ " group by p.id"
 
         return Product.objects.raw(query)
