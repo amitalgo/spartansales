@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 08, 2018 at 03:24 PM
+-- Generation Time: Oct 12, 2018 at 02:34 PM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.1
 
@@ -35,7 +35,8 @@ CREATE TABLE `achievement_assigngoal` (
   `updated_at` datetime(6) NOT NULL,
   `assignTo_id` int(11) DEFAULT NULL,
   `branch_id` int(11) NOT NULL,
-  `goal_id` int(11) NOT NULL
+  `goal_id` int(11) NOT NULL,
+  `company_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -59,16 +60,17 @@ CREATE TABLE `achievement_goal` (
   `department_id` int(11) NOT NULL,
   `goal_matrix_id` int(11) NOT NULL,
   `parent_id` int(11) DEFAULT NULL,
-  `product_id` int(11) NOT NULL
+  `product_id` int(11) NOT NULL,
+  `company_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `achievement_goal`
 --
 
-INSERT INTO `achievement_goal` (`id`, `goal_name`, `target`, `financial_year`, `start_date`, `end_date`, `remarks`, `status`, `created_at`, `updated_at`, `created_by_id`, `department_id`, `goal_matrix_id`, `parent_id`, `product_id`) VALUES
-(1, '50 INR Kandivali', 55, '2018', '2018-08-01', '2018-08-30', 'remarks', 1, '2018-09-04 12:54:37.568914', '2018-09-11 04:35:03.046963', 4, 2, 1, NULL, 1),
-(2, '50 INR Allahabad', 50, '2018', '2018-09-01', '2018-09-30', 'remarks', 1, '2018-09-04 12:55:26.740048', '2018-09-04 12:55:37.893952', 3, 1, 1, NULL, 1);
+INSERT INTO `achievement_goal` (`id`, `goal_name`, `target`, `financial_year`, `start_date`, `end_date`, `remarks`, `status`, `created_at`, `updated_at`, `created_by_id`, `department_id`, `goal_matrix_id`, `parent_id`, `product_id`, `company_id`) VALUES
+(1, '50 INR Kandivali', 55, '2018', '2018-08-01', '2018-08-30', 'remarks', 1, '2018-09-04 12:54:37.568914', '2018-09-11 04:35:03.046963', 4, 2, 1, NULL, 1, 10),
+(2, '50 INR Allahabad', 50, '2018', '2018-09-01', '2018-09-30', 'remarks', 1, '2018-09-04 12:55:26.740048', '2018-09-04 12:55:37.893952', 3, 1, 1, NULL, 1, 10);
 
 -- --------------------------------------------------------
 
@@ -83,15 +85,16 @@ CREATE TABLE `achievement_goalmatrix` (
   `goal_type` varchar(20) NOT NULL,
   `status` int(11) NOT NULL,
   `created_at` datetime(6) NOT NULL,
-  `updated_at` datetime(6) NOT NULL
+  `updated_at` datetime(6) NOT NULL,
+  `company_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `achievement_goalmatrix`
 --
 
-INSERT INTO `achievement_goalmatrix` (`id`, `goal_name`, `target`, `goal_type`, `status`, `created_at`, `updated_at`) VALUES
-(1, '100 INR Business', 100, 'amount', 1, '2018-09-04 12:53:39.596256', '2018-09-04 12:53:39.596256');
+INSERT INTO `achievement_goalmatrix` (`id`, `goal_name`, `target`, `goal_type`, `status`, `created_at`, `updated_at`, `company_id`) VALUES
+(1, '100 INR Business', 100, 'amount', 1, '2018-09-04 12:53:39.596256', '2018-09-04 12:53:39.596256', 10);
 
 -- --------------------------------------------------------
 
@@ -721,11 +724,12 @@ INSERT INTO `auth_user` (`id`, `password`, `last_login`, `is_superuser`, `userna
 (6, 'pbkdf2_sha256$36000$eWEvNGw2zLgn$rWdmnT+RbjuzHbLlh1pIrpCuukL75hh7jcmhQKfXvIA=', '2018-09-17 05:28:54.000000', 0, 'yogendra', 'Yogendra', 'Sir', 'yogendra@technople.in', 1, 1, '2018-09-04 12:44:14.000000', 0),
 (7, 'pbkdf2_sha256$36000$2OhfKhIaPg3y$J/HpXnrFu7Gh7Kk0YqsBZdYgIykKMoG3MvADerdHY0E=', '2018-10-08 12:00:51.950493', 0, 'gawde', 'Pandurang', 'Gawde', 'gawde@technople.in', 1, 1, '2018-09-04 12:45:11.000000', 0),
 (8, 'pbkdf2_sha256$36000$a54XRjpiNRGV$wWOXguIvcDWzX2U9J1HB7eHQfd67MiGcztZ9ZB4f/WI=', NULL, 0, 'sachin', 'Sachin', '', 'sachin@technople.in', 1, 1, '2018-10-04 09:16:57.000000', 0),
-(21, 'pbkdf2_sha256$36000$OVoz4Wd55Kfq$67E0/u1nbCPGJ7qNGiWdyGuR7FFDju4CdKbX+woZfYA=', '2018-10-08 11:47:28.354421', 1, 'parag', 'Parag', 'Ved', 'parag@technople.com', 1, 1, '2018-10-05 06:02:34.000000', 0),
+(21, 'pbkdf2_sha256$36000$OVoz4Wd55Kfq$67E0/u1nbCPGJ7qNGiWdyGuR7FFDju4CdKbX+woZfYA=', '2018-10-11 13:23:15.649147', 1, 'parag', 'Parag', 'Ved', 'parag@technople.com', 1, 1, '2018-10-05 06:02:34.000000', 0),
 (22, 'pbkdf2_sha256$36000$yBXTmjEyAqwk$4365zBfVHCSQDFKOKJfFnEmTgFbJqynqPMyys0h8P+0=', NULL, 1, 'hemant', 'Hemant', 'Shash', 'hemant@gmail.com', 1, 1, '2018-10-05 06:19:10.000000', 0),
-(23, '', '2018-10-08 05:34:06.506469', 1, 'superadmin', '', '', '', 1, 1, '2018-10-05 06:21:38.932192', 1),
-(32, 'pbkdf2_sha256$36000$RwnESkB62D8J$BnkiC+k7aorZPvf1ApNZz6PGLVf6n1KlBZdIgE252xw=', '2018-10-08 09:19:21.462319', 1, 'Shashi', 'Shashi', 'Maurya', 'shashi@gmail.com', 1, 1, '2018-10-05 11:11:57.000000', 0),
-(33, 'pbkdf2_sha256$36000$TZPIFw8GA73S$FdlyLKFCHBywGKnnMJ+z5Lc8gNJ2ntOMaxrk8ZFvVec=', NULL, 0, 'shashiuser1', 'shashiuser1', 'm', 'shashiuser1@gmail.com', 1, 1, '2018-10-05 11:13:42.000000', 0);
+(23, '', '2018-10-11 04:54:59.390673', 1, 'superadmin', '', '', '', 1, 1, '2018-10-05 06:21:38.932192', 1),
+(32, 'pbkdf2_sha256$36000$RwnESkB62D8J$BnkiC+k7aorZPvf1ApNZz6PGLVf6n1KlBZdIgE252xw=', '2018-10-11 11:45:10.273868', 1, 'Shashi', 'Shashi', 'Maurya', 'shashi@gmail.com', 1, 1, '2018-10-05 11:11:57.000000', 0),
+(33, 'pbkdf2_sha256$36000$TZPIFw8GA73S$FdlyLKFCHBywGKnnMJ+z5Lc8gNJ2ntOMaxrk8ZFvVec=', NULL, 0, 'shashiuser1', 'shashiuser1', 'm', 'shashiuser1@gmail.com', 1, 1, '2018-10-05 11:13:42.000000', 0),
+(34, 'pbkdf2_sha256$36000$5sPW1VGmhpUX$Tu+d1L1WZ6AcZHxNM9Eu89/dgEcXpjTFsXyIKH2LGgw=', NULL, 0, 'nehha', '', '', '', 0, 1, '2018-10-11 13:28:23.812463', 0);
 
 -- --------------------------------------------------------
 
@@ -1002,7 +1006,22 @@ INSERT INTO `django_admin_log` (`id`, `action_time`, `object_id`, `object_repr`,
 (181, '2018-10-08 11:20:14.228197', '6', 'Maintenance', 1, '[{\"added\": {}}]', 17, 21),
 (182, '2018-10-08 11:20:21.424448', '6', 'Maintenance', 3, '', 17, 21),
 (183, '2018-10-08 11:20:32.890461', '7', 'Maintenance', 2, '[{\"changed\": {\"fields\": [\"assignTo\"]}}]', 17, 21),
-(184, '2018-10-08 11:48:23.059152', '6', 'Purchase of SBM', 1, '[{\"added\": {}}]', 16, 21);
+(184, '2018-10-08 11:48:23.059152', '6', 'Purchase of SBM', 1, '[{\"added\": {}}]', 16, 21),
+(185, '2018-10-11 05:03:38.597402', '2', 'e', 1, '[{\"added\": {}}]', 1, 21),
+(186, '2018-10-11 05:03:48.762116', '2', 'e', 3, '', 1, 21),
+(187, '2018-10-11 12:38:15.475250', '3', 'e', 1, '[{\"added\": {}}]', 2, 21),
+(188, '2018-10-11 12:38:58.169555', '3', 'e', 3, '', 2, 21),
+(189, '2018-10-11 12:40:46.294289', '1', '50 INR Kandivali', 1, '[{\"added\": {}}]', 3, 21),
+(190, '2018-10-11 12:41:05.782670', '1', '50 INR Kandivali', 3, '', 3, 21),
+(191, '2018-10-11 12:46:21.711819', '7', 'Purchase of SBM', 1, '[{\"added\": {}}]', 16, 21),
+(192, '2018-10-11 12:47:36.413431', '7', 'Purchase of SBM', 3, '', 16, 21),
+(193, '2018-10-11 12:48:04.869569', '8', 'Purchase of SBM', 1, '[{\"added\": {}}]', 16, 21),
+(194, '2018-10-11 12:50:43.359831', '8', 'Purchase of SBM', 3, '', 16, 21),
+(195, '2018-10-11 12:51:09.238098', '9', 'Purchase of SBM', 1, '[{\"added\": {}}]', 16, 21),
+(196, '2018-10-11 12:53:44.667733', '9', 'Purchase of SBM', 3, '', 16, 21),
+(197, '2018-10-11 12:54:11.984604', '10', 'Maintenance', 1, '[{\"added\": {}}]', 16, 21),
+(198, '2018-10-11 12:54:24.844735', '10', 'Maintenance', 3, '', 16, 21),
+(199, '2018-10-11 13:28:24.040476', '34', 'nehha', 1, '[{\"added\": {}}, {\"added\": {\"name\": \"employee\", \"object\": \" \"}}, {\"added\": {\"name\": \"employee branch\", \"object\": \"  -- Admin\"}}]', 33, 21);
 
 -- --------------------------------------------------------
 
@@ -1172,7 +1191,11 @@ INSERT INTO `django_migrations` (`id`, `app`, `name`, `applied`) VALUES
 (84, 'region', '0004_auto_20181008_1408', '2018-10-08 08:38:53.241105'),
 (85, 'leads', '0012_leadstatustype_company', '2018-10-08 08:51:43.992312'),
 (86, 'region', '0005_auto_20181008_1421', '2018-10-08 08:51:45.166380'),
-(87, 'leads', '0013_organizationdetails_company', '2018-10-08 08:59:39.224446');
+(87, 'leads', '0013_organizationdetails_company', '2018-10-08 08:59:39.224446'),
+(88, 'achievement', '0003_goalmatrix_company', '2018-10-11 04:59:42.404549'),
+(89, 'product', '0005_product_company', '2018-10-11 06:00:13.414758'),
+(90, 'achievement', '0004_auto_20181011_1804', '2018-10-11 12:34:29.943036'),
+(91, 'leads', '0014_organizationleaddetails_company', '2018-10-11 12:41:57.018282');
 
 -- --------------------------------------------------------
 
@@ -1193,7 +1216,9 @@ CREATE TABLE `django_session` (
 INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
 ('0kez1eje7ayn03dm8bxyj26mpit6o86g', 'YjBiNDkwMzZjMTE3MjZkMzhlN2Y5NDBmNmM1YTcyMmZiYzYwODA0NDp7Il9hdXRoX3VzZXJfaWQiOiIyMyIsIl9hdXRoX3VzZXJfYmFja2VuZCI6InNwYXJ0YW5zdXBlcmFkbWluLmF1dGhlbnRpY2F0aW9uLlNldHRpbmdzQmFja2VuZCIsIl9hdXRoX3VzZXJfaGFzaCI6IjUwOGZkYTgzZWVkNDZmMzJkZDE2Y2VjMzI1OGI3NTMzOThiY2Y1YWQifQ==', '2018-10-19 10:47:20.020682'),
 ('7d48isty0n0f1305fbt2dfq1l5miuzk2', 'MjcxMmJkYzUwYzBkMzFiODJiOGNkYzIxZjY1ODAyZmM4YTg2Y2ZiNzp7Il9hdXRoX3VzZXJfaWQiOiI0IiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI2ZmMzOTg0NzYwZjg1NzcwNjliM2ZiODRiMjQyMzk4OTEyYzZhNzBkIn0=', '2018-09-21 10:37:37.954615'),
+('9vee8a4eu04qzl19v2igoo99wjfkx73a', 'YjBiNDkwMzZjMTE3MjZkMzhlN2Y5NDBmNmM1YTcyMmZiYzYwODA0NDp7Il9hdXRoX3VzZXJfaWQiOiIyMyIsIl9hdXRoX3VzZXJfYmFja2VuZCI6InNwYXJ0YW5zdXBlcmFkbWluLmF1dGhlbnRpY2F0aW9uLlNldHRpbmdzQmFja2VuZCIsIl9hdXRoX3VzZXJfaGFzaCI6IjUwOGZkYTgzZWVkNDZmMzJkZDE2Y2VjMzI1OGI3NTMzOThiY2Y1YWQifQ==', '2018-10-25 04:54:59.440675'),
 ('mn1z0cx59xr3h7pyba69ego68zx1rfg0', 'ZjQ1MGM3MGJjZjFhNjU2MzQwY2VhNTA0NzU1YTlhMzk1NzM5MjhkNzp7Il9hdXRoX3VzZXJfaWQiOiI3IiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI1MDExZGU4ZDQxNDkxZDA0NGM4OWNkNDc1ZjQxOGY2ZWVhZjM5ZWExIn0=', '2018-10-22 12:00:52.000496'),
+('tuup2y4a8g2p9j4pgejhltbjzxzgubkk', 'NGRmMGI4NTdlMzZkMTBjNmY5MWQ2OGE3MzQwNDRjZThjNmJlZjg2ZTp7Il9hdXRoX3VzZXJfaWQiOiIyMSIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9oYXNoIjoiYWUyM2NiZTgzMzMyNWZkYzkwZDM1YzI5YmY0ZTY0NDkyOGY3YTUzMyJ9', '2018-10-25 13:23:15.799155'),
 ('y8ys2pytqau4b3skqn0spwqkg6r2lw3c', 'YjBiNDkwMzZjMTE3MjZkMzhlN2Y5NDBmNmM1YTcyMmZiYzYwODA0NDp7Il9hdXRoX3VzZXJfaWQiOiIyMyIsIl9hdXRoX3VzZXJfYmFja2VuZCI6InNwYXJ0YW5zdXBlcmFkbWluLmF1dGhlbnRpY2F0aW9uLlNldHRpbmdzQmFja2VuZCIsIl9hdXRoX3VzZXJfaGFzaCI6IjUwOGZkYTgzZWVkNDZmMzJkZDE2Y2VjMzI1OGI3NTMzOThiY2Y1YWQifQ==', '2018-10-22 05:34:06.622476');
 
 -- --------------------------------------------------------
@@ -1226,7 +1251,8 @@ INSERT INTO `employee_employee` (`id`, `mobile`, `gender`, `photo`, `address`, `
 (13, '7878787878', 'male', 'image/employee/profile/Desert_fenDRkQ.jpg', 'ss', '2018-10-08 09:38:13.642318', '2018-10-08 09:38:13.642318', NULL, 7),
 (14, '7878787878', 'male', 'image/employee/profile/Hydrangeas_cw3QwBr.jpg', 'ss', '2018-10-08 09:38:35.406005', '2018-10-08 09:38:35.406005', NULL, 21),
 (15, '7878787878', 'male', 'image/employee/profile/Tulips.jpg', '8', '2018-10-08 09:38:53.258581', '2018-10-08 09:38:53.259581', NULL, 5),
-(16, '7878787878', 'male', 'image/employee/profile/Tulips_oT5JVTM.jpg', 'ee', '2018-10-08 09:39:20.194736', '2018-10-08 09:39:20.194736', NULL, 6);
+(16, '7878787878', 'male', 'image/employee/profile/Tulips_oT5JVTM.jpg', 'ee', '2018-10-08 09:39:20.194736', '2018-10-08 09:39:20.194736', NULL, 6),
+(17, '7878787878', 'female', 'image/employee/profile/Desert_JyeHdyu.jpg', 'yh', '2018-10-11 13:28:23.916469', '2018-10-11 13:28:23.916469', NULL, 34);
 
 -- --------------------------------------------------------
 
@@ -1253,7 +1279,8 @@ INSERT INTO `employee_employeebranch` (`id`, `created_at`, `updated_at`, `branch
 (14, '2018-10-08 09:25:58.643702', '2018-10-08 09:25:58.643702', 3, 7),
 (15, '2018-10-08 09:26:12.137024', '2018-10-08 09:26:12.137024', 4, 5),
 (16, '2018-10-08 09:26:21.617773', '2018-10-08 09:26:21.617773', 4, 8),
-(17, '2018-10-08 09:26:31.163305', '2018-10-08 09:26:31.163305', 3, 6);
+(17, '2018-10-08 09:26:31.163305', '2018-10-08 09:26:31.163305', 3, 6),
+(18, '2018-10-11 13:28:24.027476', '2018-10-11 13:28:24.027476', 3, 34);
 
 -- --------------------------------------------------------
 
@@ -1515,17 +1542,18 @@ CREATE TABLE `leads_organizationleaddetails` (
   `department_id` int(11) NOT NULL,
   `lead_source_id` int(11) DEFAULT NULL,
   `organisation_id` int(11) NOT NULL,
-  `product_id` int(11) DEFAULT NULL
+  `product_id` int(11) DEFAULT NULL,
+  `company_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `leads_organizationleaddetails`
 --
 
-INSERT INTO `leads_organizationleaddetails` (`id`, `contact_person`, `mobile`, `email`, `lead_title`, `convert`, `discount`, `description`, `meeting_date`, `lead_closed_date`, `selling_price`, `status`, `created_at`, `updated_at`, `branch_id`, `department_id`, `lead_source_id`, `organisation_id`, `product_id`) VALUES
-(4, 'Dharmendra', '7474787874', NULL, 'Purchase of SBM', 1, 0, 'e', '2018-10-08', '2018-10-08', 25, 1, '2018-10-08 09:15:11.087313', '2018-10-08 09:27:44.549361', 4, 1, 1, 3, NULL),
-(5, 'Aditya', '7474787874', 'amitc@technople.in', 'Maintenance', 1, 0, 'd', '2018-10-08', '2018-10-08', 50, 1, '2018-10-08 09:23:11.495176', '2018-10-08 09:23:11.495176', 3, 2, 2, 1, 1),
-(6, 'Asim', '7474787874', 'asim@technople.in', 'Purchase of SBM', 1, 0, 'hi', '2018-10-08', '2018-10-08', 40, 1, '2018-10-08 11:48:23.022150', '2018-10-08 11:48:23.022150', 4, 1, 2, 1, 2);
+INSERT INTO `leads_organizationleaddetails` (`id`, `contact_person`, `mobile`, `email`, `lead_title`, `convert`, `discount`, `description`, `meeting_date`, `lead_closed_date`, `selling_price`, `status`, `created_at`, `updated_at`, `branch_id`, `department_id`, `lead_source_id`, `organisation_id`, `product_id`, `company_id`) VALUES
+(4, 'Dharmendra', '7474787874', NULL, 'Purchase of SBM', 1, 0, 'e', '2018-10-08', '2018-10-08', 25, 1, '2018-10-08 09:15:11.087313', '2018-10-08 09:27:44.549361', 4, 1, 1, 3, NULL, 12),
+(5, 'Aditya', '7474787874', 'amitc@technople.in', 'Maintenance', 1, 0, 'd', '2018-10-08', '2018-10-08', 50, 1, '2018-10-08 09:23:11.495176', '2018-10-08 09:23:11.495176', 3, 2, 2, 1, 1, 10),
+(6, 'Asim', '7474787874', 'asim@technople.in', 'Purchase of SBM', 1, 0, 'hi', '2018-10-08', '2018-10-08', 40, 1, '2018-10-08 11:48:23.022150', '2018-10-08 11:48:23.022150', 4, 1, 2, 1, 2, 10);
 
 -- --------------------------------------------------------
 
@@ -1554,17 +1582,18 @@ CREATE TABLE `product_product` (
   `status` int(11) NOT NULL,
   `created_at` datetime(6) NOT NULL,
   `updated_at` datetime(6) NOT NULL,
-  `parent_id` int(11) DEFAULT NULL
+  `parent_id` int(11) DEFAULT NULL,
+  `company_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `product_product`
 --
 
-INSERT INTO `product_product` (`id`, `product_name`, `product_code`, `status`, `created_at`, `updated_at`, `parent_id`) VALUES
-(1, 'SBM52', 'SBM52', 1, '2018-09-04 12:09:04.535820', '2018-09-12 07:35:30.192632', NULL),
-(2, 'SBM42', 'SBM42', 1, '2018-09-04 12:09:29.576154', '2018-09-04 12:09:41.455884', 1),
-(3, 'SBM62', 'SBM62', 1, '2018-09-17 06:08:08.298962', '2018-09-17 06:09:13.921562', NULL);
+INSERT INTO `product_product` (`id`, `product_name`, `product_code`, `status`, `created_at`, `updated_at`, `parent_id`, `company_id`) VALUES
+(1, 'SBM52', 'SBM52', 1, '2018-09-04 12:09:04.535820', '2018-09-12 07:35:30.192632', NULL, 10),
+(2, 'SBM42', 'SBM42', 1, '2018-09-04 12:09:29.576154', '2018-09-04 12:09:41.455884', 1, 10),
+(3, 'SBM62', 'SBM62', 1, '2018-09-17 06:08:08.298962', '2018-09-17 06:09:13.921562', NULL, 10);
 
 -- --------------------------------------------------------
 
@@ -1751,7 +1780,8 @@ ALTER TABLE `achievement_assigngoal`
   ADD PRIMARY KEY (`id`),
   ADD KEY `achievement_assigngoal_assignTo_id_5c09798c` (`assignTo_id`),
   ADD KEY `achievement_assigngoal_branch_id_2e9179e7_fk_branch_branch_id` (`branch_id`),
-  ADD KEY `achievement_assigngoal_goal_id_16356ebe_fk_achievement_goal_id` (`goal_id`);
+  ADD KEY `achievement_assigngoal_goal_id_16356ebe_fk_achievement_goal_id` (`goal_id`),
+  ADD KEY `achievement_assigngo_company_id_31fd6d83_fk_companies` (`company_id`);
 
 --
 -- Indexes for table `achievement_goal`
@@ -1762,13 +1792,15 @@ ALTER TABLE `achievement_goal`
   ADD KEY `achievement_goal_department_id_ff0e27c8_fk_leads_department_id` (`department_id`),
   ADD KEY `achievement_goal_goal_matrix_id_ba2b3aaf_fk_achieveme` (`goal_matrix_id`),
   ADD KEY `achievement_goal_parent_id_94b5e710_fk_achievement_goal_id` (`parent_id`),
-  ADD KEY `achievement_goal_product_id_ea15a814_fk_product_product_id` (`product_id`);
+  ADD KEY `achievement_goal_product_id_ea15a814_fk_product_product_id` (`product_id`),
+  ADD KEY `achievement_goal_company_id_d72c6cc5_fk_companies_companies_id` (`company_id`);
 
 --
 -- Indexes for table `achievement_goalmatrix`
 --
 ALTER TABLE `achievement_goalmatrix`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `achievement_goalmatr_company_id_23cfacf0_fk_companies` (`company_id`);
 
 --
 -- Indexes for table `auth_group`
@@ -1978,7 +2010,8 @@ ALTER TABLE `leads_organizationleaddetails`
   ADD KEY `leads_organizationle_department_id_a006f397_fk_leads_dep` (`department_id`),
   ADD KEY `leads_organizationle_organisation_id_a0cd5667_fk_leads_org` (`organisation_id`),
   ADD KEY `leads_organizationleaddetails_product_id_468692e6` (`product_id`),
-  ADD KEY `leads_organizationle_lead_source_id_d73b8237_fk_leads_lea` (`lead_source_id`);
+  ADD KEY `leads_organizationle_lead_source_id_d73b8237_fk_leads_lea` (`lead_source_id`),
+  ADD KEY `leads_organizationle_company_id_b43174ae_fk_companies` (`company_id`);
 
 --
 -- Indexes for table `leads_reasontype`
@@ -1991,7 +2024,8 @@ ALTER TABLE `leads_reasontype`
 --
 ALTER TABLE `product_product`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `product_product_parent_id_01fef757_fk_product_product_id` (`parent_id`);
+  ADD KEY `product_product_parent_id_01fef757_fk_product_product_id` (`parent_id`),
+  ADD KEY `product_product_company_id_0965fde9_fk_companies_companies_id` (`company_id`);
 
 --
 -- Indexes for table `product_productdepartment`
@@ -2107,7 +2141,7 @@ ALTER TABLE `auth_permission`
 -- AUTO_INCREMENT for table `auth_user`
 --
 ALTER TABLE `auth_user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `auth_user_groups`
@@ -2149,7 +2183,7 @@ ALTER TABLE `country_country`
 -- AUTO_INCREMENT for table `django_admin_log`
 --
 ALTER TABLE `django_admin_log`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=185;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=200;
 
 --
 -- AUTO_INCREMENT for table `django_content_type`
@@ -2161,19 +2195,19 @@ ALTER TABLE `django_content_type`
 -- AUTO_INCREMENT for table `django_migrations`
 --
 ALTER TABLE `django_migrations`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=92;
 
 --
 -- AUTO_INCREMENT for table `employee_employee`
 --
 ALTER TABLE `employee_employee`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `employee_employeebranch`
 --
 ALTER TABLE `employee_employeebranch`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `employee_employeemedia`
@@ -2209,7 +2243,7 @@ ALTER TABLE `leads_assignleads`
 -- AUTO_INCREMENT for table `leads_department`
 --
 ALTER TABLE `leads_department`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `leads_leadsource`
@@ -2227,7 +2261,7 @@ ALTER TABLE `leads_leadstatus`
 -- AUTO_INCREMENT for table `leads_leadstatustype`
 --
 ALTER TABLE `leads_leadstatustype`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `leads_orderlost`
@@ -2328,6 +2362,7 @@ ALTER TABLE `taskmaster_task`
 --
 ALTER TABLE `achievement_assigngoal`
   ADD CONSTRAINT `achievement_assigngo_assignTo_id_5c09798c_fk_employee_` FOREIGN KEY (`assignTo_id`) REFERENCES `employee_employeebranch` (`id`),
+  ADD CONSTRAINT `achievement_assigngo_company_id_31fd6d83_fk_companies` FOREIGN KEY (`company_id`) REFERENCES `companies_companies` (`id`),
   ADD CONSTRAINT `achievement_assigngoal_branch_id_2e9179e7_fk_branch_branch_id` FOREIGN KEY (`branch_id`) REFERENCES `branch_branch` (`id`),
   ADD CONSTRAINT `achievement_assigngoal_goal_id_16356ebe_fk_achievement_goal_id` FOREIGN KEY (`goal_id`) REFERENCES `achievement_goal` (`id`);
 
@@ -2335,11 +2370,18 @@ ALTER TABLE `achievement_assigngoal`
 -- Constraints for table `achievement_goal`
 --
 ALTER TABLE `achievement_goal`
+  ADD CONSTRAINT `achievement_goal_company_id_d72c6cc5_fk_companies_companies_id` FOREIGN KEY (`company_id`) REFERENCES `companies_companies` (`id`),
   ADD CONSTRAINT `achievement_goal_created_by_id_2d965818_fk_auth_user_id` FOREIGN KEY (`created_by_id`) REFERENCES `auth_user` (`id`),
   ADD CONSTRAINT `achievement_goal_department_id_ff0e27c8_fk_leads_department_id` FOREIGN KEY (`department_id`) REFERENCES `leads_department` (`id`),
   ADD CONSTRAINT `achievement_goal_goal_matrix_id_ba2b3aaf_fk_achieveme` FOREIGN KEY (`goal_matrix_id`) REFERENCES `achievement_goalmatrix` (`id`),
   ADD CONSTRAINT `achievement_goal_parent_id_94b5e710_fk_achievement_goal_id` FOREIGN KEY (`parent_id`) REFERENCES `achievement_goal` (`id`),
   ADD CONSTRAINT `achievement_goal_product_id_ea15a814_fk_product_product_id` FOREIGN KEY (`product_id`) REFERENCES `product_product` (`id`);
+
+--
+-- Constraints for table `achievement_goalmatrix`
+--
+ALTER TABLE `achievement_goalmatrix`
+  ADD CONSTRAINT `achievement_goalmatr_company_id_23cfacf0_fk_companies` FOREIGN KEY (`company_id`) REFERENCES `companies_companies` (`id`);
 
 --
 -- Constraints for table `auth_group`
@@ -2484,6 +2526,7 @@ ALTER TABLE `leads_organizationdetails`
 --
 ALTER TABLE `leads_organizationleaddetails`
   ADD CONSTRAINT `leads_organizationle_branch_id_9f6d01ed_fk_branch_br` FOREIGN KEY (`branch_id`) REFERENCES `branch_branch` (`id`),
+  ADD CONSTRAINT `leads_organizationle_company_id_b43174ae_fk_companies` FOREIGN KEY (`company_id`) REFERENCES `companies_companies` (`id`),
   ADD CONSTRAINT `leads_organizationle_department_id_a006f397_fk_leads_dep` FOREIGN KEY (`department_id`) REFERENCES `leads_department` (`id`),
   ADD CONSTRAINT `leads_organizationle_lead_source_id_d73b8237_fk_leads_lea` FOREIGN KEY (`lead_source_id`) REFERENCES `leads_leadsource` (`id`),
   ADD CONSTRAINT `leads_organizationle_organisation_id_a0cd5667_fk_leads_org` FOREIGN KEY (`organisation_id`) REFERENCES `leads_organizationdetails` (`id`),
@@ -2493,6 +2536,7 @@ ALTER TABLE `leads_organizationleaddetails`
 -- Constraints for table `product_product`
 --
 ALTER TABLE `product_product`
+  ADD CONSTRAINT `product_product_company_id_0965fde9_fk_companies_companies_id` FOREIGN KEY (`company_id`) REFERENCES `companies_companies` (`id`),
   ADD CONSTRAINT `product_product_parent_id_01fef757_fk_product_product_id` FOREIGN KEY (`parent_id`) REFERENCES `product_product` (`id`);
 
 --
