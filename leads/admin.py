@@ -54,7 +54,7 @@ class LeadStatusTypeAdmin(admin.ModelAdmin):
         form.save_m2m()
 
     # Make Some field not editable where is_editable=0
-    def get_status_type(self,obj):        
+    def get_status_type(self,obj):
         if obj.isEditable in self.editable_objs:
             return format_html("<b><a href='{id}'>{status_type}</a></b>",id=obj.id, status_type=obj.status_type,)
         else:
@@ -139,7 +139,7 @@ class LeadStatusAdmin(admin.ModelAdmin):
             kwargs['exclude'] = ['status', ]
         return super(LeadStatusAdmin, self).get_form(request, obj, **kwargs)
 
-    # Fetch Assigned Lead Data to User 
+    # Fetch Assigned Lead Data to User
     def get_queryset(self, request):
        employee_id = Employee.objects.get(user=request.user)
        qs = super(LeadStatusAdmin,self).get_queryset(request)
@@ -154,7 +154,8 @@ class LeadStatusAdmin(admin.ModelAdmin):
     def formfield_for_foreignkey(self, db_field, request, **kwargs):
        company_id = request.user.companiesusers.company.id
        if db_field.name == 'assignedLead':
-           kwargs['queryset'] = AssignLeads.objects.filter(lead__organisation__company=company_id)
+           employee_id = Employee.objects.get(user=request.user)
+           kwargs['queryset'] = AssignLeads.objects.filter(~Q(status=0),lead__organisation__company=company_id,assignTo=employee_id)
        return super().formfield_for_foreignkey(db_field, request, **kwargs)
 
 class DepartmentAdmin(admin.ModelAdmin):
@@ -206,13 +207,13 @@ class OrganizationLeadDetailsAdmin(admin.ModelAdmin):
 
     def get_form(self, request, obj=None, **kwargs):
         if obj:
-            kwargs['exclude'] = ['company',]
+            kwargs['exclude'] = ['company','convert','discount','lead_closed_date','selling_price',]
         else:
-            kwargs['exclude'] = ['status','company',]
+            kwargs['exclude'] = ['status','company','convert','discount','lead_closed_date','selling_price',]
         return super(OrganizationLeadDetailsAdmin, self).get_form(request, obj, **kwargs)
 
     # Fetch Leads By Branchwise
-    def get_queryset(self, request):    
+    def get_queryset(self, request):
         qs = super(OrganizationLeadDetailsAdmin, self).get_queryset(request)
         # Condition to disable for admin for fetching lead details
         if not request.user.is_superuser:
@@ -230,7 +231,6 @@ class OrganizationLeadDetailsAdmin(admin.ModelAdmin):
             kwargs['queryset'] = Department.objects.filter(company_id=company_id)
         if db_field.name == 'branch':
             kwargs['queryset'] = Branch.objects.filter(region__company_id=company_id)
-
         return super().formfield_for_foreignkey(db_field, request, **kwargs)
 
 class OrganizationDetailsAdmin(admin.ModelAdmin):
@@ -286,7 +286,7 @@ class AssignLeadsAdmin(admin.ModelAdmin):
         more_context.update(extra_context or {})
         return super().add_view(request, form_url, more_context)
 
-    # to remove save button and delete button      
+    # to remove save button and delete button
     def change_view(self, request, object_id, form_url='', extra_context=None):
         obj = AssignLeads.objects.get(pk=object_id)
         editable = obj.status
@@ -312,7 +312,7 @@ class AssignLeadsAdmin(admin.ModelAdmin):
     def get_lead_desc(self,obj):
         leadDesc = LeadStatus.objects.get(assignedLead_id=obj.pk)
         return leadDesc.description
-    
+
     def fetch_current_lead(self,obj):
         leadDesc = AssignLeads.objects.get(pk=obj.pk)
         return lead
@@ -338,7 +338,7 @@ class AssignLeadsAdmin(admin.ModelAdmin):
         if not childObj:
             user = auth.get_user(request)
             group_id = user.groups.values_list('id',flat=True).first()
-        else: 
+        else:
             group_id = childObj
 
         childGroup = Group.objects.filter(parent = group_id, parent__isnull=False)
@@ -365,8 +365,8 @@ class AssignLeadsAdmin(admin.ModelAdmin):
                 childObj = False
                 childrenarr =[]
                 # kwargs['queryset'] =  Employee.objects.filter(~Q(user_id = request.user),user__companiesusers__company=company_id,employeebranch__branch_id=self.fetchBranch(request),user_id__in = self.getChildren(request,childObj,childrenarr))
-                kwargs['queryset'] = Employee.objects.filter(~Q(user_id=request.user),user__companiesusers__company=company_id,user_id__in = self.getChildren(request,childObj,childrenarr))
-                   
+                kwargs['queryset'] = Employee.objects.filter(~Q(user_id=request.user),user_id__employeebranch__branch_id=self.fetchBranch(request),user__companiesusers__company=company_id,user_id__in = self.getChildren(request,childObj,childrenarr))
+
         return super().formfield_for_foreignkey(db_field, request, **kwargs)
 
     # Filter List by User Company Id
@@ -376,7 +376,7 @@ class AssignLeadsAdmin(admin.ModelAdmin):
         return qs.filter(lead__organisation__company_id=company_id)
 
 admin.site.register(OrganizationLeadDetails,OrganizationLeadDetailsAdmin)
-admin.site.register(OrganizationDetails,OrganizationDetailsAdmin)   
+admin.site.register(OrganizationDetails,OrganizationDetailsAdmin)
 admin.site.register(LeadSource,LeadSourceAdmin)
 admin.site.register(AssignLeads, AssignLeadsAdmin)
 admin.site.register(LeadStatus,LeadStatusAdmin)

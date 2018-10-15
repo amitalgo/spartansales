@@ -132,7 +132,7 @@ class LeadStatus(models.Model):
     lead_status = models.ForeignKey(LeadStatusType,null=True, on_delete=models.CASCADE)
     remarks = models.TextField(null=True)
     description = models.TextField(null=True)
-    status = models.IntegerField(default=1, help_text='Active/Inactive', choices=((1, 'Active'), (0, 'Inactive'),))
+    # status = models.IntegerField(default=1, help_text='Active/Inactive', choices=((1, 'Active'), (0, 'Inactive'),))
     created_at = models.DateTimeField(auto_now_add=True, blank=True)
     updated_at = models.DateTimeField(auto_now=True)
     def __str__(self):
