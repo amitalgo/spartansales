@@ -8,9 +8,6 @@ from django.db import connection
 from django.views.generic.base import TemplateView
 from product.models import Product
 
-from rest_framework.views import APIView
-
-
 # models
 from leads.models import OrganizationLeadDetails
 

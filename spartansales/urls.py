@@ -32,6 +32,8 @@ urlpatterns = [
 
 # For Api
     url(r'^docs/', include_docs_urls(title='Spartan Sales Docs')),
+    # Login
+    url(r'^api/',include('employee.urls',namespace="login")),
     # Department
     url(r'^department/',include('leads.urls',namespace="leads")),
     # Branch

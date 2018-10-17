@@ -122,7 +122,7 @@ class AssignLeads(models.Model):
 
         if commit:
             parent = AssignLeads.objects.get(pk=self.id)
-            children = parent.leadstatus_set.create()      
+            children = parent.leadstatus_set.create()
 
     class Meta:
         verbose_name_plural = 'Assign Leads'
