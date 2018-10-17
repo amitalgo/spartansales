@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 12, 2018 at 02:34 PM
+-- Generation Time: Oct 17, 2018 at 03:25 PM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.1
 
@@ -95,6 +95,25 @@ CREATE TABLE `achievement_goalmatrix` (
 
 INSERT INTO `achievement_goalmatrix` (`id`, `goal_name`, `target`, `goal_type`, `status`, `created_at`, `updated_at`, `company_id`) VALUES
 (1, '100 INR Business', 100, 'amount', 1, '2018-09-04 12:53:39.596256', '2018-09-04 12:53:39.596256', 10);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `authtoken_token`
+--
+
+CREATE TABLE `authtoken_token` (
+  `key` varchar(40) NOT NULL,
+  `created` datetime(6) NOT NULL,
+  `user_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `authtoken_token`
+--
+
+INSERT INTO `authtoken_token` (`key`, `created`, `user_id`) VALUES
+('34ea549d65a91a4baf426e7374f42e774819c9f0', '2018-10-17 11:02:12.070588', 4);
 
 -- --------------------------------------------------------
 
@@ -689,7 +708,10 @@ INSERT INTO `auth_permission` (`id`, `name`, `content_type_id`, `codename`) VALU
 (141, 'Can delete companies', 45, 'delete_companies'),
 (142, 'Can add companies users', 46, 'add_companiesusers'),
 (143, 'Can change companies users', 46, 'change_companiesusers'),
-(144, 'Can delete companies users', 46, 'delete_companiesusers');
+(144, 'Can delete companies users', 46, 'delete_companiesusers'),
+(145, 'Can add Token', 47, 'add_token'),
+(146, 'Can change Token', 47, 'change_token'),
+(147, 'Can delete Token', 47, 'delete_token');
 
 -- --------------------------------------------------------
 
@@ -717,14 +739,14 @@ CREATE TABLE `auth_user` (
 --
 
 INSERT INTO `auth_user` (`id`, `password`, `last_login`, `is_superuser`, `username`, `first_name`, `last_name`, `email`, `is_staff`, `is_active`, `date_joined`, `is_superadmin`) VALUES
-(2, 'pbkdf2_sha256$36000$K1gSkrDUUD8k$YwUWO0yMdy/wHmZhWIpuz/vbHECvn8sHz+Pnj5YvAgo=', '2018-10-08 12:00:03.370837', 0, 'aditya', 'Aditya', 'Rao', 'aditya@technople.in', 1, 1, '2018-09-04 12:35:31.000000', 0),
+(2, 'pbkdf2_sha256$36000$K1gSkrDUUD8k$YwUWO0yMdy/wHmZhWIpuz/vbHECvn8sHz+Pnj5YvAgo=', '2018-10-15 07:04:49.774932', 0, 'aditya', 'Aditya', 'Rao', 'aditya@technople.in', 1, 1, '2018-09-04 12:35:31.000000', 0),
 (3, 'pbkdf2_sha256$36000$MNebyHGimwxx$dHzMjcz1FBiyS21ZRRMdM6rG7VsfXO5jZqtnQZOYMuk=', '2018-09-19 13:05:46.000000', 0, 'Asim', 'Asim', 'Sagir', 'asim@technople.in', 1, 1, '2018-09-04 12:41:17.000000', 0),
-(4, 'pbkdf2_sha256$36000$WUHtJILzLqWv$WPRpEtKpeg+0lTuieFT02NvFvBGwFGpPtuWcsU2yb9Q=', '2018-09-14 04:11:27.000000', 0, 'amit', 'Amit', 'Chaurasia', 'amitc@technople.in', 1, 1, '2018-09-04 12:42:12.000000', 0),
+(4, 'pbkdf2_sha256$36000$WUHtJILzLqWv$WPRpEtKpeg+0lTuieFT02NvFvBGwFGpPtuWcsU2yb9Q=', '2018-10-15 07:16:55.020413', 0, 'amit', 'Amit', 'Chaurasia', 'amitc@technople.in', 1, 1, '2018-09-04 12:42:12.000000', 0),
 (5, 'pbkdf2_sha256$36000$knDkqj0tkOaW$bfV4+iv4UTz35yxzJDEhAFruHJ0BRjJ4n3Vw8OKqpzA=', NULL, 0, 'Ram', 'Ram', 'Sir', 'ram@technople.in', 1, 1, '2018-09-04 12:43:14.000000', 0),
 (6, 'pbkdf2_sha256$36000$eWEvNGw2zLgn$rWdmnT+RbjuzHbLlh1pIrpCuukL75hh7jcmhQKfXvIA=', '2018-09-17 05:28:54.000000', 0, 'yogendra', 'Yogendra', 'Sir', 'yogendra@technople.in', 1, 1, '2018-09-04 12:44:14.000000', 0),
 (7, 'pbkdf2_sha256$36000$2OhfKhIaPg3y$J/HpXnrFu7Gh7Kk0YqsBZdYgIykKMoG3MvADerdHY0E=', '2018-10-08 12:00:51.950493', 0, 'gawde', 'Pandurang', 'Gawde', 'gawde@technople.in', 1, 1, '2018-09-04 12:45:11.000000', 0),
 (8, 'pbkdf2_sha256$36000$a54XRjpiNRGV$wWOXguIvcDWzX2U9J1HB7eHQfd67MiGcztZ9ZB4f/WI=', NULL, 0, 'sachin', 'Sachin', '', 'sachin@technople.in', 1, 1, '2018-10-04 09:16:57.000000', 0),
-(21, 'pbkdf2_sha256$36000$OVoz4Wd55Kfq$67E0/u1nbCPGJ7qNGiWdyGuR7FFDju4CdKbX+woZfYA=', '2018-10-11 13:23:15.649147', 1, 'parag', 'Parag', 'Ved', 'parag@technople.com', 1, 1, '2018-10-05 06:02:34.000000', 0),
+(21, 'pbkdf2_sha256$36000$OVoz4Wd55Kfq$67E0/u1nbCPGJ7qNGiWdyGuR7FFDju4CdKbX+woZfYA=', '2018-10-15 07:15:45.920461', 1, 'parag', 'Parag', 'Ved', 'parag@technople.com', 1, 1, '2018-10-05 06:02:34.000000', 0),
 (22, 'pbkdf2_sha256$36000$yBXTmjEyAqwk$4365zBfVHCSQDFKOKJfFnEmTgFbJqynqPMyys0h8P+0=', NULL, 1, 'hemant', 'Hemant', 'Shash', 'hemant@gmail.com', 1, 1, '2018-10-05 06:19:10.000000', 0),
 (23, '', '2018-10-11 04:54:59.390673', 1, 'superadmin', '', '', '', 1, 1, '2018-10-05 06:21:38.932192', 1),
 (32, 'pbkdf2_sha256$36000$RwnESkB62D8J$BnkiC+k7aorZPvf1ApNZz6PGLVf6n1KlBZdIgE252xw=', '2018-10-11 11:45:10.273868', 1, 'Shashi', 'Shashi', 'Maurya', 'shashi@gmail.com', 1, 1, '2018-10-05 11:11:57.000000', 0),
@@ -1021,7 +1043,10 @@ INSERT INTO `django_admin_log` (`id`, `action_time`, `object_id`, `object_repr`,
 (196, '2018-10-11 12:53:44.667733', '9', 'Purchase of SBM', 3, '', 16, 21),
 (197, '2018-10-11 12:54:11.984604', '10', 'Maintenance', 1, '[{\"added\": {}}]', 16, 21),
 (198, '2018-10-11 12:54:24.844735', '10', 'Maintenance', 3, '', 16, 21),
-(199, '2018-10-11 13:28:24.040476', '34', 'nehha', 1, '[{\"added\": {}}, {\"added\": {\"name\": \"employee\", \"object\": \" \"}}, {\"added\": {\"name\": \"employee branch\", \"object\": \"  -- Admin\"}}]', 33, 21);
+(199, '2018-10-11 13:28:24.040476', '34', 'nehha', 1, '[{\"added\": {}}, {\"added\": {\"name\": \"employee\", \"object\": \" \"}}, {\"added\": {\"name\": \"employee branch\", \"object\": \"  -- Admin\"}}]', 33, 21),
+(200, '2018-10-15 07:16:10.730880', '8', 'Maintenance', 1, '[{\"added\": {}}]', 17, 2),
+(201, '2018-10-15 07:16:25.086701', '8', 'Maintenance', 3, '', 17, 2),
+(202, '2018-10-15 07:16:31.288056', '9', 'Maintenance', 2, '[{\"changed\": {\"fields\": [\"assignTo\"]}}]', 17, 2);
 
 -- --------------------------------------------------------
 
@@ -1047,6 +1072,7 @@ INSERT INTO `django_content_type` (`id`, `app_label`, `model`) VALUES
 (32, 'auth', 'group'),
 (31, 'auth', 'permission'),
 (33, 'auth', 'user'),
+(47, 'authtoken', 'token'),
 (4, 'branch', 'branch'),
 (45, 'companies', 'companies'),
 (46, 'companies', 'companiesusers'),
@@ -1195,7 +1221,10 @@ INSERT INTO `django_migrations` (`id`, `app`, `name`, `applied`) VALUES
 (88, 'achievement', '0003_goalmatrix_company', '2018-10-11 04:59:42.404549'),
 (89, 'product', '0005_product_company', '2018-10-11 06:00:13.414758'),
 (90, 'achievement', '0004_auto_20181011_1804', '2018-10-11 12:34:29.943036'),
-(91, 'leads', '0014_organizationleaddetails_company', '2018-10-11 12:41:57.018282');
+(91, 'leads', '0014_organizationleaddetails_company', '2018-10-11 12:41:57.018282'),
+(92, 'leads', '0015_remove_leadstatus_status', '2018-10-15 12:50:41.387856'),
+(93, 'authtoken', '0001_initial', '2018-10-17 10:48:38.367485'),
+(94, 'authtoken', '0002_auto_20160226_1747', '2018-10-17 10:48:40.199323');
 
 -- --------------------------------------------------------
 
@@ -1216,9 +1245,9 @@ CREATE TABLE `django_session` (
 INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
 ('0kez1eje7ayn03dm8bxyj26mpit6o86g', 'YjBiNDkwMzZjMTE3MjZkMzhlN2Y5NDBmNmM1YTcyMmZiYzYwODA0NDp7Il9hdXRoX3VzZXJfaWQiOiIyMyIsIl9hdXRoX3VzZXJfYmFja2VuZCI6InNwYXJ0YW5zdXBlcmFkbWluLmF1dGhlbnRpY2F0aW9uLlNldHRpbmdzQmFja2VuZCIsIl9hdXRoX3VzZXJfaGFzaCI6IjUwOGZkYTgzZWVkNDZmMzJkZDE2Y2VjMzI1OGI3NTMzOThiY2Y1YWQifQ==', '2018-10-19 10:47:20.020682'),
 ('7d48isty0n0f1305fbt2dfq1l5miuzk2', 'MjcxMmJkYzUwYzBkMzFiODJiOGNkYzIxZjY1ODAyZmM4YTg2Y2ZiNzp7Il9hdXRoX3VzZXJfaWQiOiI0IiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI2ZmMzOTg0NzYwZjg1NzcwNjliM2ZiODRiMjQyMzk4OTEyYzZhNzBkIn0=', '2018-09-21 10:37:37.954615'),
+('8ce05kbcbgk3igqqvdogarcfilljtq09', 'MjcxMmJkYzUwYzBkMzFiODJiOGNkYzIxZjY1ODAyZmM4YTg2Y2ZiNzp7Il9hdXRoX3VzZXJfaWQiOiI0IiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI2ZmMzOTg0NzYwZjg1NzcwNjliM2ZiODRiMjQyMzk4OTEyYzZhNzBkIn0=', '2018-10-29 07:16:55.070416'),
 ('9vee8a4eu04qzl19v2igoo99wjfkx73a', 'YjBiNDkwMzZjMTE3MjZkMzhlN2Y5NDBmNmM1YTcyMmZiYzYwODA0NDp7Il9hdXRoX3VzZXJfaWQiOiIyMyIsIl9hdXRoX3VzZXJfYmFja2VuZCI6InNwYXJ0YW5zdXBlcmFkbWluLmF1dGhlbnRpY2F0aW9uLlNldHRpbmdzQmFja2VuZCIsIl9hdXRoX3VzZXJfaGFzaCI6IjUwOGZkYTgzZWVkNDZmMzJkZDE2Y2VjMzI1OGI3NTMzOThiY2Y1YWQifQ==', '2018-10-25 04:54:59.440675'),
 ('mn1z0cx59xr3h7pyba69ego68zx1rfg0', 'ZjQ1MGM3MGJjZjFhNjU2MzQwY2VhNTA0NzU1YTlhMzk1NzM5MjhkNzp7Il9hdXRoX3VzZXJfaWQiOiI3IiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI1MDExZGU4ZDQxNDkxZDA0NGM4OWNkNDc1ZjQxOGY2ZWVhZjM5ZWExIn0=', '2018-10-22 12:00:52.000496'),
-('tuup2y4a8g2p9j4pgejhltbjzxzgubkk', 'NGRmMGI4NTdlMzZkMTBjNmY5MWQ2OGE3MzQwNDRjZThjNmJlZjg2ZTp7Il9hdXRoX3VzZXJfaWQiOiIyMSIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9oYXNoIjoiYWUyM2NiZTgzMzMyNWZkYzkwZDM1YzI5YmY0ZTY0NDkyOGY3YTUzMyJ9', '2018-10-25 13:23:15.799155'),
 ('y8ys2pytqau4b3skqn0spwqkg6r2lw3c', 'YjBiNDkwMzZjMTE3MjZkMzhlN2Y5NDBmNmM1YTcyMmZiYzYwODA0NDp7Il9hdXRoX3VzZXJfaWQiOiIyMyIsIl9hdXRoX3VzZXJfYmFja2VuZCI6InNwYXJ0YW5zdXBlcmFkbWluLmF1dGhlbnRpY2F0aW9uLlNldHRpbmdzQmFja2VuZCIsIl9hdXRoX3VzZXJfaGFzaCI6IjUwOGZkYTgzZWVkNDZmMzJkZDE2Y2VjMzI1OGI3NTMzOThiY2Y1YWQifQ==', '2018-10-22 05:34:06.622476');
 
 -- --------------------------------------------------------
@@ -1365,7 +1394,8 @@ CREATE TABLE `leads_assignleads` (
 
 INSERT INTO `leads_assignleads` (`id`, `remarks`, `status`, `created_at`, `updated_at`, `assignTo_id`, `lead_id`) VALUES
 (5, 'xc', 0, '2018-10-08 11:02:59.184312', '2018-10-08 11:02:59.184312', 11, 5),
-(7, 'xc', 1, '2018-10-08 11:20:32.790455', '2018-10-08 11:20:32.790455', 13, 5);
+(7, 'xc', 0, '2018-10-08 11:20:32.790455', '2018-10-08 11:20:32.790455', 13, 5),
+(9, 'xc', 1, '2018-10-15 07:16:31.278055', '2018-10-15 07:16:31.278055', 11, 5);
 
 -- --------------------------------------------------------
 
@@ -1426,7 +1456,6 @@ CREATE TABLE `leads_leadstatus` (
   `id` int(11) NOT NULL,
   `remarks` longtext,
   `description` longtext,
-  `status` int(11) NOT NULL,
   `created_at` datetime(6) NOT NULL,
   `updated_at` datetime(6) NOT NULL,
   `assignedLead_id` int(11) DEFAULT NULL,
@@ -1437,9 +1466,10 @@ CREATE TABLE `leads_leadstatus` (
 -- Dumping data for table `leads_leadstatus`
 --
 
-INSERT INTO `leads_leadstatus` (`id`, `remarks`, `description`, `status`, `created_at`, `updated_at`, `assignedLead_id`, `lead_status_id`) VALUES
-(5, NULL, NULL, 1, '2018-10-08 11:02:59.197313', '2018-10-08 11:02:59.198313', 5, NULL),
-(7, NULL, NULL, 1, '2018-10-08 11:20:32.806456', '2018-10-08 11:20:32.806456', 7, NULL);
+INSERT INTO `leads_leadstatus` (`id`, `remarks`, `description`, `created_at`, `updated_at`, `assignedLead_id`, `lead_status_id`) VALUES
+(5, NULL, NULL, '2018-10-08 11:02:59.197313', '2018-10-08 11:02:59.198313', 5, NULL),
+(7, NULL, NULL, '2018-10-08 11:20:32.806456', '2018-10-08 11:20:32.806456', 7, NULL),
+(9, NULL, NULL, '2018-10-15 07:16:31.288056', '2018-10-15 07:16:31.288056', 9, NULL);
 
 -- --------------------------------------------------------
 
@@ -1803,6 +1833,13 @@ ALTER TABLE `achievement_goalmatrix`
   ADD KEY `achievement_goalmatr_company_id_23cfacf0_fk_companies` (`company_id`);
 
 --
+-- Indexes for table `authtoken_token`
+--
+ALTER TABLE `authtoken_token`
+  ADD PRIMARY KEY (`key`),
+  ADD UNIQUE KEY `user_id` (`user_id`);
+
+--
 -- Indexes for table `auth_group`
 --
 ALTER TABLE `auth_group`
@@ -2135,7 +2172,7 @@ ALTER TABLE `auth_group_permissions`
 -- AUTO_INCREMENT for table `auth_permission`
 --
 ALTER TABLE `auth_permission`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=145;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=148;
 
 --
 -- AUTO_INCREMENT for table `auth_user`
@@ -2183,19 +2220,19 @@ ALTER TABLE `country_country`
 -- AUTO_INCREMENT for table `django_admin_log`
 --
 ALTER TABLE `django_admin_log`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=200;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=203;
 
 --
 -- AUTO_INCREMENT for table `django_content_type`
 --
 ALTER TABLE `django_content_type`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- AUTO_INCREMENT for table `django_migrations`
 --
 ALTER TABLE `django_migrations`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=92;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=95;
 
 --
 -- AUTO_INCREMENT for table `employee_employee`
@@ -2237,7 +2274,7 @@ ALTER TABLE `insentive_insentivematrix`
 -- AUTO_INCREMENT for table `leads_assignleads`
 --
 ALTER TABLE `leads_assignleads`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `leads_department`
@@ -2255,7 +2292,7 @@ ALTER TABLE `leads_leadsource`
 -- AUTO_INCREMENT for table `leads_leadstatus`
 --
 ALTER TABLE `leads_leadstatus`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `leads_leadstatustype`
@@ -2382,6 +2419,12 @@ ALTER TABLE `achievement_goal`
 --
 ALTER TABLE `achievement_goalmatrix`
   ADD CONSTRAINT `achievement_goalmatr_company_id_23cfacf0_fk_companies` FOREIGN KEY (`company_id`) REFERENCES `companies_companies` (`id`);
+
+--
+-- Constraints for table `authtoken_token`
+--
+ALTER TABLE `authtoken_token`
+  ADD CONSTRAINT `authtoken_token_user_id_35299eff_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`);
 
 --
 -- Constraints for table `auth_group`
