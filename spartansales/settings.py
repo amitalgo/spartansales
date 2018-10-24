@@ -25,7 +25,7 @@ SECRET_KEY = 'ca0ua@dk23t=*52!j%==#h4hc3j5-j#4xod#*9=3()%a-4*!pz'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.0.107','localhost',]
+ALLOWED_HOSTS = ['192.168.0.107','localhost','127.0.0.1','bbb1605a.ngrok.io']
 
 
 # Application definition
@@ -121,11 +121,11 @@ DATABASES = {
 }
 
 REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework.authentication.TokenAuthentication',
-    ),
-    'DEFAULT_PERMISSION_CLASSES': (
-        'rest_framework.permissions.IsAuthenticated', )
+#     'DEFAULT_AUTHENTICATION_CLASSES': (
+#         'rest_framework.authentication.TokenAuthentication',
+#     ),
+#     'DEFAULT_PERMISSION_CLASSES': (
+#         'rest_framework.permissions.IsAuthenticated', )
 }
 
 
