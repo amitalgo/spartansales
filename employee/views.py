@@ -22,7 +22,6 @@ from rest_framework.status import (
 )
 from rest_framework.response import Response
 
-
 from employee.serializers import LoginSerializer
 
 # # Create your views here.
@@ -55,11 +54,8 @@ class LoginView(ObtainAuthToken):
                             status=HTTP_400_BAD_REQUEST)
 
         user = serializer.validated_data['user']
-
         user_data=User.objects.get(pk=user.id)
-        # rr=json.dumps(list(user_data),cls=DjangoJSONEncoder)
         rr=LoginSerializer(instance=user_data)
-        # print(rr.employee_set.all())
         token, created = Token.objects.get_or_create(user=user)
         return Response({
             "status": "True",

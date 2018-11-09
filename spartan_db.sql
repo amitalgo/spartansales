@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 17, 2018 at 03:25 PM
+-- Generation Time: Nov 09, 2018 at 12:15 PM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.1
 
@@ -113,7 +113,19 @@ CREATE TABLE `authtoken_token` (
 --
 
 INSERT INTO `authtoken_token` (`key`, `created`, `user_id`) VALUES
-('34ea549d65a91a4baf426e7374f42e774819c9f0', '2018-10-17 11:02:12.070588', 4);
+('0c0144ce1fcbe42f02bfeb9fec41d02effbaa61c', '2018-10-19 12:30:37.179826', 34),
+('2f52837f93638343229710d82c0dba8a2cda79ce', '2018-10-19 12:30:36.610794', 2),
+('3e44583e1610423bc61b4de804d4e8b04b6c30bd', '2018-10-19 12:30:36.714799', 5),
+('4f75be935a9a3d4206cb110d5982bb1b1683895f', '2018-10-19 12:30:37.054819', 23),
+('821cb6898f63d2babafa926e7afff94e90178606', '2018-10-19 12:30:37.137824', 33),
+('97ec25b36353cdefa006137dcbdd8def4bd5824d', '2018-10-19 12:30:37.096821', 32),
+('9cfc782c6ebadb51b5b3406ec977a741da00bc83', '2018-10-19 12:30:36.971814', 21),
+('9e515b0c9819f888ed5ca10ebc79bbe77b2e0561', '2018-10-19 12:30:37.016817', 22),
+('d52f6f1849cacb8fb638814f98d3e3878fd9f09d', '2018-10-19 12:30:36.879809', 7),
+('d742a68aea91ffaacb69566861b5a8c8ced5b81c', '2018-10-19 12:30:36.840807', 6),
+('f4cc7691f78022e9fa81341da34c6757f5754a41', '2018-11-09 09:55:34.239018', 4),
+('f4e931aa77402a952de9559a121ba805990f7e72', '2018-10-19 12:30:36.645796', 3),
+('fb19c847d4e05b80f838ae636e52b1daf1a74ef2', '2018-10-19 12:30:36.931812', 8);
 
 -- --------------------------------------------------------
 
@@ -739,14 +751,14 @@ CREATE TABLE `auth_user` (
 --
 
 INSERT INTO `auth_user` (`id`, `password`, `last_login`, `is_superuser`, `username`, `first_name`, `last_name`, `email`, `is_staff`, `is_active`, `date_joined`, `is_superadmin`) VALUES
-(2, 'pbkdf2_sha256$36000$K1gSkrDUUD8k$YwUWO0yMdy/wHmZhWIpuz/vbHECvn8sHz+Pnj5YvAgo=', '2018-10-15 07:04:49.774932', 0, 'aditya', 'Aditya', 'Rao', 'aditya@technople.in', 1, 1, '2018-09-04 12:35:31.000000', 0),
-(3, 'pbkdf2_sha256$36000$MNebyHGimwxx$dHzMjcz1FBiyS21ZRRMdM6rG7VsfXO5jZqtnQZOYMuk=', '2018-09-19 13:05:46.000000', 0, 'Asim', 'Asim', 'Sagir', 'asim@technople.in', 1, 1, '2018-09-04 12:41:17.000000', 0),
-(4, 'pbkdf2_sha256$36000$WUHtJILzLqWv$WPRpEtKpeg+0lTuieFT02NvFvBGwFGpPtuWcsU2yb9Q=', '2018-10-15 07:16:55.020413', 0, 'amit', 'Amit', 'Chaurasia', 'amitc@technople.in', 1, 1, '2018-09-04 12:42:12.000000', 0),
+(2, 'pbkdf2_sha256$36000$K1gSkrDUUD8k$YwUWO0yMdy/wHmZhWIpuz/vbHECvn8sHz+Pnj5YvAgo=', '2018-10-19 07:13:48.523335', 0, 'aditya', 'Aditya', 'Rao', 'aditya@technople.in', 1, 1, '2018-09-04 12:35:31.000000', 0),
+(3, 'pbkdf2_sha256$36000$MNebyHGimwxx$dHzMjcz1FBiyS21ZRRMdM6rG7VsfXO5jZqtnQZOYMuk=', '2018-10-22 09:29:33.018910', 0, 'Asim', 'Asim', 'Sagir', 'asim@technople.in', 1, 1, '2018-09-04 12:41:17.000000', 0),
+(4, 'pbkdf2_sha256$36000$WUHtJILzLqWv$WPRpEtKpeg+0lTuieFT02NvFvBGwFGpPtuWcsU2yb9Q=', '2018-11-09 09:43:41.772306', 0, 'amit', 'Amit', 'Chaurasia', 'amitc@technople.in', 1, 1, '2018-09-04 12:42:12.000000', 0),
 (5, 'pbkdf2_sha256$36000$knDkqj0tkOaW$bfV4+iv4UTz35yxzJDEhAFruHJ0BRjJ4n3Vw8OKqpzA=', NULL, 0, 'Ram', 'Ram', 'Sir', 'ram@technople.in', 1, 1, '2018-09-04 12:43:14.000000', 0),
 (6, 'pbkdf2_sha256$36000$eWEvNGw2zLgn$rWdmnT+RbjuzHbLlh1pIrpCuukL75hh7jcmhQKfXvIA=', '2018-09-17 05:28:54.000000', 0, 'yogendra', 'Yogendra', 'Sir', 'yogendra@technople.in', 1, 1, '2018-09-04 12:44:14.000000', 0),
 (7, 'pbkdf2_sha256$36000$2OhfKhIaPg3y$J/HpXnrFu7Gh7Kk0YqsBZdYgIykKMoG3MvADerdHY0E=', '2018-10-08 12:00:51.950493', 0, 'gawde', 'Pandurang', 'Gawde', 'gawde@technople.in', 1, 1, '2018-09-04 12:45:11.000000', 0),
 (8, 'pbkdf2_sha256$36000$a54XRjpiNRGV$wWOXguIvcDWzX2U9J1HB7eHQfd67MiGcztZ9ZB4f/WI=', NULL, 0, 'sachin', 'Sachin', '', 'sachin@technople.in', 1, 1, '2018-10-04 09:16:57.000000', 0),
-(21, 'pbkdf2_sha256$36000$OVoz4Wd55Kfq$67E0/u1nbCPGJ7qNGiWdyGuR7FFDju4CdKbX+woZfYA=', '2018-10-15 07:15:45.920461', 1, 'parag', 'Parag', 'Ved', 'parag@technople.com', 1, 1, '2018-10-05 06:02:34.000000', 0),
+(21, 'pbkdf2_sha256$36000$OVoz4Wd55Kfq$67E0/u1nbCPGJ7qNGiWdyGuR7FFDju4CdKbX+woZfYA=', '2018-10-22 09:52:58.647307', 1, 'parag', 'Parag', 'Ved', 'parag@technople.com', 1, 1, '2018-10-05 06:02:34.000000', 0),
 (22, 'pbkdf2_sha256$36000$yBXTmjEyAqwk$4365zBfVHCSQDFKOKJfFnEmTgFbJqynqPMyys0h8P+0=', NULL, 1, 'hemant', 'Hemant', 'Shash', 'hemant@gmail.com', 1, 1, '2018-10-05 06:19:10.000000', 0),
 (23, '', '2018-10-11 04:54:59.390673', 1, 'superadmin', '', '', '', 1, 1, '2018-10-05 06:21:38.932192', 1),
 (32, 'pbkdf2_sha256$36000$RwnESkB62D8J$BnkiC+k7aorZPvf1ApNZz6PGLVf6n1KlBZdIgE252xw=', '2018-10-11 11:45:10.273868', 1, 'Shashi', 'Shashi', 'Maurya', 'shashi@gmail.com', 1, 1, '2018-10-05 11:11:57.000000', 0),
@@ -1248,6 +1260,8 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('8ce05kbcbgk3igqqvdogarcfilljtq09', 'MjcxMmJkYzUwYzBkMzFiODJiOGNkYzIxZjY1ODAyZmM4YTg2Y2ZiNzp7Il9hdXRoX3VzZXJfaWQiOiI0IiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI2ZmMzOTg0NzYwZjg1NzcwNjliM2ZiODRiMjQyMzk4OTEyYzZhNzBkIn0=', '2018-10-29 07:16:55.070416'),
 ('9vee8a4eu04qzl19v2igoo99wjfkx73a', 'YjBiNDkwMzZjMTE3MjZkMzhlN2Y5NDBmNmM1YTcyMmZiYzYwODA0NDp7Il9hdXRoX3VzZXJfaWQiOiIyMyIsIl9hdXRoX3VzZXJfYmFja2VuZCI6InNwYXJ0YW5zdXBlcmFkbWluLmF1dGhlbnRpY2F0aW9uLlNldHRpbmdzQmFja2VuZCIsIl9hdXRoX3VzZXJfaGFzaCI6IjUwOGZkYTgzZWVkNDZmMzJkZDE2Y2VjMzI1OGI3NTMzOThiY2Y1YWQifQ==', '2018-10-25 04:54:59.440675'),
 ('mn1z0cx59xr3h7pyba69ego68zx1rfg0', 'ZjQ1MGM3MGJjZjFhNjU2MzQwY2VhNTA0NzU1YTlhMzk1NzM5MjhkNzp7Il9hdXRoX3VzZXJfaWQiOiI3IiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI1MDExZGU4ZDQxNDkxZDA0NGM4OWNkNDc1ZjQxOGY2ZWVhZjM5ZWExIn0=', '2018-10-22 12:00:52.000496'),
+('p37o9e5dcs09ys7x7o7b0l4l0pjh17v0', 'MjcxMmJkYzUwYzBkMzFiODJiOGNkYzIxZjY1ODAyZmM4YTg2Y2ZiNzp7Il9hdXRoX3VzZXJfaWQiOiI0IiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI2ZmMzOTg0NzYwZjg1NzcwNjliM2ZiODRiMjQyMzk4OTEyYzZhNzBkIn0=', '2018-11-23 09:43:41.822309'),
+('v232hzv2pjkziqj6uaovzs3747zh595l', 'NGRmMGI4NTdlMzZkMTBjNmY5MWQ2OGE3MzQwNDRjZThjNmJlZjg2ZTp7Il9hdXRoX3VzZXJfaWQiOiIyMSIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9oYXNoIjoiYWUyM2NiZTgzMzMyNWZkYzkwZDM1YzI5YmY0ZTY0NDkyOGY3YTUzMyJ9', '2018-11-02 10:09:32.335114'),
 ('y8ys2pytqau4b3skqn0spwqkg6r2lw3c', 'YjBiNDkwMzZjMTE3MjZkMzhlN2Y5NDBmNmM1YTcyMmZiYzYwODA0NDp7Il9hdXRoX3VzZXJfaWQiOiIyMyIsIl9hdXRoX3VzZXJfYmFja2VuZCI6InNwYXJ0YW5zdXBlcmFkbWluLmF1dGhlbnRpY2F0aW9uLlNldHRpbmdzQmFja2VuZCIsIl9hdXRoX3VzZXJfaGFzaCI6IjUwOGZkYTgzZWVkNDZmMzJkZDE2Y2VjMzI1OGI3NTMzOThiY2Y1YWQifQ==', '2018-10-22 05:34:06.622476');
 
 -- --------------------------------------------------------
